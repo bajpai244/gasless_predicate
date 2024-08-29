@@ -48,10 +48,11 @@ writeFileSync("./tx.json",JSON.stringify(request.toTransaction()));
 const call = await tx.call();
 
 
-console.log('call sent', call);
+console.log('call sent ...');
 const response = await call.waitForResult();
 
-console.log('response, ', response);
+console.log('tx_id: ', response.transactionId);
+console.log('return value: ', response.value);
 
 
 
