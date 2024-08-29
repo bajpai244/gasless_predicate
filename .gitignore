@@ -1,2 +1,5 @@
-out
-target
+.env
+node_modules
+
+gasless_predicate/out
+gasless_predicate/target

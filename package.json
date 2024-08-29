@@ -1,11 +1,15 @@
 {
-  "name": "dbg_example",
-  "module": "index.ts",
+  "name": "gassless_predicate",
+  "module": "src/index.ts",
   "type": "module",
   "devDependencies": {
     "@types/bun": "latest"
   },
   "peerDependencies": {
     "typescript": "^5.0.0"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "fuels": "^0.94.2"
   }
 }
