@@ -19,6 +19,8 @@ fn input_txn_hash(index: u64) -> b256 {
 /// we are currently converting to big endian bytes
 /// [[to_address_bytes], amount: [amount_to_bytes], [asset_id_bytes] ] 
 fn serialize_output_type_coin(index: u64) -> Option<Bytes> {
+    let mut output_bytes: Bytes = Bytes::new();
+
     let correct_output_type = match output_type(index).unwrap() {
         Output::Coin => {
             true
@@ -28,11 +30,9 @@ fn serialize_output_type_coin(index: u64) -> Option<Bytes> {
         }
     };
 
-    if correct_output_type {
+    if !correct_output_type {
         return None;
     };
-
-    let mut output_bytes: Bytes = Bytes::new();
 
     let to = (output_asset_to(index).unwrap()).bits();
     let to_bytes = to.to_be_bytes();
@@ -85,8 +85,7 @@ fn input_type_is_coin(index: u64) -> bool {
 fn serialize_input_coins (indexes: Vec<u64>) -> Option<Bytes> {
     let mut result = Bytes::new();
 
-    let mut i = 0;
-    while i < indexes.len() {
+    for i in indexes.iter() {
         if !input_type_is_coin(i) {
             return None;
         }
@@ -95,7 +94,6 @@ fn serialize_input_coins (indexes: Vec<u64>) -> Option<Bytes> {
         let mut txn_hash_bytes = txn_hash.to_be_bytes();
 
         result.append(txn_hash_bytes);
-        i+=1;
     };
 
     Some(result)
@@ -104,12 +102,9 @@ fn serialize_input_coins (indexes: Vec<u64>) -> Option<Bytes> {
 fn serialize_output_coins (indexes: Vec<u64>) -> Option<Bytes> {
     let mut result = Bytes::new();
 
-    let mut i = 0;
-    while i < indexes.len() {
+    for i in indexes.iter() {
         let mut serialized_output_coin_bytes = serialize_output_type_coin(i).unwrap();
         result.append(serialized_output_coin_bytes);
-
-        i+=1;
     };
 
     Some(result)

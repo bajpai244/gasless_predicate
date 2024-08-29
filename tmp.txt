@@ -1,0 +1,2183 @@
+coins are, [
+  {
+    id: "0x0928995ed5db8864d653616eff625740bdc5e5147b32f7db0292bea05bbea4600000",
+    assetId: "0xf8f8b6283d7fa5b672b530cbb84fcccb4ff8dc40f8176ef4544ddb1f1952ad07",
+    amount: <BN: 0xfffffffffffffd8>,
+    owner: Address {
+      bech32Address: "fuel1dd3cqn8mlxzku689kmn6au3cmjp3rmz4hmqymam5qqaze9hqgx8qtjpwn9",
+      toAddress: [Function: toAddress],
+      toB256: [Function: toB256],
+      toBytes: [Function: toBytes],
+      toHexString: [Function: toHexString],
+      toString: [Function: toString],
+      toJSON: [Function: toJSON],
+      toEvmAddress: [Function: toEvmAddress],
+      toAssetId: [Function: toAssetId],
+      valueOf: [Function: valueOf],
+      equals: [Function: equals],
+    },
+    blockCreated: <BN: 0x4>,
+    txCreatedIdx: <BN: 0x0>,
+  }
+]
+call sent {
+  transactionId: "0xba0876fe2944129ee4f1e9838aaf3f6feb6bd2b0ecae2c9a0cf1231cb48fd9e3",
+  waitForResult: [Function: waitForResult],
+}
+response,  {
+  isMultiCall: false,
+  functionScopes: [
+    ScriptInvocationScope {
+      transactionRequest: ScriptTransactionRequest {
+        tip: undefined,
+        maturity: undefined,
+        maxFee: <BN: 0x0>,
+        witnessLimit: undefined,
+        inputs: [
+          {
+            id: "0x0928995ed5db8864d653616eff625740bdc5e5147b32f7db0292bea05bbea4600000",
+            type: 0,
+            owner: "0x6b63804cfbf9856e68e5b6e7aef238dc8311ec55bec04df774003a2c96e0418e",
+            amount: <BN: 0xfffffffffffffd8>,
+            assetId: "0xf8f8b6283d7fa5b672b530cbb84fcccb4ff8dc40f8176ef4544ddb1f1952ad07",
+            txPointer: "0x00000000000000000000000000000000",
+            witnessIndex: 0,
+            predicate: undefined,
+            predicateData: undefined,
+          }
+        ],
+        outputs: [
+          {
+            type: 2,
+            to: "0x6b63804cfbf9856e68e5b6e7aef238dc8311ec55bec04df774003a2c96e0418e",
+            assetId: "0xf8f8b6283d7fa5b672b530cbb84fcccb4ff8dc40f8176ef4544ddb1f1952ad07",
+          },
+          {
+            type: 0,
+            to: "0xcdd3f03f4b5c117291e0a2fed092e27654d69003b00eafb27d3f29b1b132717b",
+            amount: 10,
+            assetId: "0xf8f8b6283d7fa5b672b530cbb84fcccb4ff8dc40f8176ef4544ddb1f1952ad07",
+          }
+        ],
+        witnesses: [
+          Uint8Array(64) [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ]
+        ],
+        type: 0,
+        gasLimit: <BN: 0x186a0>,
+        script: Uint8Array(4360) [ 26, 240, 48, 0, 116, 0, 0, 2, 0, 0, 0, 0, 0, 0, 16, 216, 93, 255, 192, 1, 16, 255, 255, 0, 26, 236, 80, 0, 145, 0, 3, 208, 80, 83, 178, 88, 97, 64, 0, 10, 95, 237, 0, 117, 97, 64, 0, 4, 95, 237, 0, 106, 80, 67, 179, 168, 80, 71, 176, 224, 114, 72, 0, 8, 40, 69, 4, 128, 80, 75, 178, 152, 114, 64, 0, 8, 40, 73, 20, 0, 80, 67, 179, 136, 114, 68, 0, 8, 40, 65, 36, 64, 80, 67, 179, 136, 80, 71, 178, 8, 26, 233, 0, 0, 26, 229, 16, 0, 32, 248, 51, 0, 88, 251, 224, 2, 80, 251, 224, 4, 116, 0, 0, 151, 26, 71, 208, 0, 114, 72, 0, 24, 40, 237, 20, 128, 80, 71, 178, 32, 26, 233, 0, 0, 26, 229, 16, 0, 32, 248, 51, 0, 88, 251, 224, 2, 80, 251, 224, 4, 116, 0, 0, 141, 26, 67, 208, 0, 80, 71, 176, 24, 114, 72, 0, 24, 40, 69, 4, 128, 80, 67, 176, 232, 114, 72, 0, 24, 40, 67, 180, 128, 80, 73, 0, 24, 114, 76, 0, 24, 40, 73, 20, 192, 80, 71, 178, 160, 114, 72, 0, 48, 40, 69, 4, 128, 80, 67, 178, 208, 114, 72, 0, 48, 40, 65, 20, 128, 80, 71, 179, 88, 114, 72, 0, 48, 40, 69, 4, 128, 80, 67, 179, 88, 80, 71, 179, 88, 80, 69, 16, 24, 80, 75, 178, 104, 114, 76, 0, 24, 40, 73, 4, 192, 80, 67, 178, 128, 114, 76, 0, 24, 40, 65, 20, 192, 80, 71, 178, 56, 26, 233, 32, 0, 26, 229, 0, 0, 26, 225, 16, 0, 32, 248, 51, 0, 88, 251, 224, 2, 80, 251, 224, 4, 116, 0, 1, 12, 26, 67, 208, 0, 80, 71, 176, 48, 114, 72, 0, 32, 40, 69, 4, 128, 80, 67, 179, 176, 114, 72, 0, 32, 40, 65, 20, 128, 80, 67, 179, 176, 80, 71, 176, 128, 114, 72, 0, 32, 40, 69, 4, 128, 114, 64, 4, 0, 38, 64, 0, 0, 26, 64, 112, 0, 80, 75, 177, 48, 95, 237, 0, 38, 114, 64, 4, 0, 95, 237, 0, 39, 95, 236, 0, 40, 80, 67, 176, 80, 114, 76, 0, 24, 40, 65, 36, 192, 80, 75, 177, 96, 114, 76, 0, 24, 40, 73, 4, 192, 80, 67, 179, 0, 114, 76, 0, 24, 40, 65, 36, 192, 80, 75, 177, 216, 114, 76, 0, 24, 40, 73, 4, 192, 80, 67, 176, 104, 114, 76, 0, 24, 40, 65, 36, 192, 80, 75, 177, 24, 114, 76, 0, 24, 40, 73, 4, 192, 93, 87, 176, 35, 93, 79, 176, 36, 93, 67, 176, 37, 114, 72, 0, 32, 16, 73, 4, 128, 21, 73, 36, 192, 118, 72, 0, 1, 116, 0, 0, 5, 114, 72, 0, 2, 27, 77, 52, 128, 38, 76, 0, 0, 40, 29, 84, 0, 26, 84, 112, 0, 80, 75, 177, 120, 114, ... 3847 more ],
+        scriptData: Uint8Array(32) [ 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0 ],
+        abis: {
+          main: {
+            programType: "script",
+            specVersion: "1",
+            encodingVersion: "1",
+            concreteTypes: [
+              {
+                type: "b256",
+                concreteTypeId: "7c5ee1cecf5f8eacd1284feb5f0bf2bdea533a51e2f0c9aabe9236d335989f3b",
+              },
+              {
+                type: "struct std::vec::Vec<u64>",
+                concreteTypeId: "d5bfe1d4e1ace20166c9b50cadd47e862020561bde24f5189cfc2723f5ed76f4",
+                metadataTypeId: 3,
+                typeArguments: [ "1506e6f44c1d6291cdf46395a8e573276a4fa79e8ace3fc891e092ef32d1b0a0"
+                ],
+              }, {
+                type: "u64",
+                concreteTypeId: "1506e6f44c1d6291cdf46395a8e573276a4fa79e8ace3fc891e092ef32d1b0a0",
+              }
+            ],
+            metadataTypes: [
+              {
+                type: "generic T",
+                metadataTypeId: 0,
+              }, {
+                type: "raw untyped ptr",
+                metadataTypeId: 1,
+              }, {
+                type: "struct std::vec::RawVec",
+                metadataTypeId: 2,
+                components: [
+                  [Object ...], [Object ...]
+                ],
+                typeParameters: [ 0 ],
+              }, {
+                type: "struct std::vec::Vec",
+                metadataTypeId: 3,
+                components: [
+                  [Object ...], [Object ...]
+                ],
+                typeParameters: [ 0 ],
+              }
+            ],
+            functions: [
+              {
+                inputs: [
+                  [Object ...], [Object ...]
+                ],
+                name: "main",
+                output: "7c5ee1cecf5f8eacd1284feb5f0bf2bdea533a51e2f0c9aabe9236d335989f3b",
+                attributes: [
+                  [Object ...], [Object ...], [Object ...], [Object ...], [Object ...], [Object ...]
+                ],
+              }
+            ],
+            loggedTypes: [],
+            messagesTypes: [],
+            configurables: [],
+          },
+          otherContractsAbis: {},
+        },
+        toTransaction: [Function: toTransaction],
+        getContractInputs: [Function: getContractInputs],
+        getContractOutputs: [Function: getContractOutputs],
+        getVariableOutputs: [Function: getVariableOutputs],
+        setScript: [Function: setScript],
+        addVariableOutputs: [Function: addVariableOutputs],
+        calculateMaxGas: [Function: calculateMaxGas],
+        addContractInputAndOutput: [Function: addContractInputAndOutput],
+        getTransactionId: [Function: getTransactionId],
+        setData: [Function: setData],
+        metadataGas: [Function: metadataGas],
+        getBaseTransaction: [Function: getBaseTransaction],
+        toTransactionBytes: [Function: toTransactionBytes],
+        pushInput: [Function: pushInput],
+        pushOutput: [Function: pushOutput],
+        addWitness: [Function: addWitness],
+        addEmptyWitness: [Function: addEmptyWitness],
+        updateWitnessByOwner: [Function: updateWitnessByOwner],
+        updateWitness: [Function: updateWitness],
+        addAccountWitnesses: [Function: addAccountWitnesses],
+        getCoinInputs: [Function: getCoinInputs],
+        getCoinOutputs: [Function: getCoinOutputs],
+        getChangeOutputs: [Function: getChangeOutputs],
+        getCoinInputWitnessIndexByOwner: [Function: getCoinInputWitnessIndexByOwner],
+        addCoinInput: [Function: addCoinInput],
+        addMessageInput: [Function: addMessageInput],
+        addResource: [Function: addResource],
+        addResources: [Function: addResources],
+        addCoinOutput: [Function: addCoinOutput],
+        addCoinOutputs: [Function: addCoinOutputs],
+        addChangeOutput: [Function: addChangeOutput],
+        byteSize: [Function: byteSize],
+        calculateMinGas: [Function: calculateMinGas],
+        fundWithFakeUtxos: [Function: fundWithFakeUtxos],
+        getCoinOutputsQuantities: [Function: getCoinOutputsQuantities],
+        toJSON: [Function: toJSON],
+        removeWitness: [Function: removeWitness],
+        adjustWitnessIndexes: [Function: adjustWitnessIndexes],
+        updatePredicateGasUsed: [Function: updatePredicateGasUsed],
+        byteLength: [Function: byteLength],
+      },
+      program: DbgExample {
+        bytes: Uint8Array(4360) [ 26, 240, 48, 0, 116, 0, 0, 2, 0, 0, 0, 0, 0, 0, 16, 216, 93, 255, 192, 1, 16, 255, 255, 0, 26, 236, 80, 0, 145, 0, 3, 208, 80, 83, 178, 88, 97, 64, 0, 10, 95, 237, 0, 117, 97, 64, 0, 4, 95, 237, 0, 106, 80, 67, 179, 168, 80, 71, 176, 224, 114, 72, 0, 8, 40, 69, 4, 128, 80, 75, 178, 152, 114, 64, 0, 8, 40, 73, 20, 0, 80, 67, 179, 136, 114, 68, 0, 8, 40, 65, 36, 64, 80, 67, 179, 136, 80, 71, 178, 8, 26, 233, 0, 0, 26, 229, 16, 0, 32, 248, 51, 0, 88, 251, 224, 2, 80, 251, 224, 4, 116, 0, 0, 151, 26, 71, 208, 0, 114, 72, 0, 24, 40, 237, 20, 128, 80, 71, 178, 32, 26, 233, 0, 0, 26, 229, 16, 0, 32, 248, 51, 0, 88, 251, 224, 2, 80, 251, 224, 4, 116, 0, 0, 141, 26, 67, 208, 0, 80, 71, 176, 24, 114, 72, 0, 24, 40, 69, 4, 128, 80, 67, 176, 232, 114, 72, 0, 24, 40, 67, 180, 128, 80, 73, 0, 24, 114, 76, 0, 24, 40, 73, 20, 192, 80, 71, 178, 160, 114, 72, 0, 48, 40, 69, 4, 128, 80, 67, 178, 208, 114, 72, 0, 48, 40, 65, 20, 128, 80, 71, 179, 88, 114, 72, 0, 48, 40, 69, 4, 128, 80, 67, 179, 88, 80, 71, 179, 88, 80, 69, 16, 24, 80, 75, 178, 104, 114, 76, 0, 24, 40, 73, 4, 192, 80, 67, 178, 128, 114, 76, 0, 24, 40, 65, 20, 192, 80, 71, 178, 56, 26, 233, 32, 0, 26, 229, 0, 0, 26, 225, 16, 0, 32, 248, 51, 0, 88, 251, 224, 2, 80, 251, 224, 4, 116, 0, 1, 12, 26, 67, 208, 0, 80, 71, 176, 48, 114, 72, 0, 32, 40, 69, 4, 128, 80, 67, 179, 176, 114, 72, 0, 32, 40, 65, 20, 128, 80, 67, 179, 176, 80, 71, 176, 128, 114, 72, 0, 32, 40, 69, 4, 128, 114, 64, 4, 0, 38, 64, 0, 0, 26, 64, 112, 0, 80, 75, 177, 48, 95, 237, 0, 38, 114, 64, 4, 0, 95, 237, 0, 39, 95, 236, 0, 40, 80, 67, 176, 80, 114, 76, 0, 24, 40, 65, 36, 192, 80, 75, 177, 96, 114, 76, 0, 24, 40, 73, 4, 192, 80, 67, 179, 0, 114, 76, 0, 24, 40, 65, 36, 192, 80, 75, 177, 216, 114, 76, 0, 24, 40, 73, 4, 192, 80, 67, 176, 104, 114, 76, 0, 24, 40, 65, 36, 192, 80, 75, 177, 24, 114, 76, 0, 24, 40, 73, 4, 192, 93, 87, 176, 35, 93, 79, 176, 36, 93, 67, 176, 37, 114, 72, 0, 32, 16, 73, 4, 128, 21, 73, 36, 192, 118, 72, 0, 1, 116, 0, 0, 5, 114, 72, 0, 2, 27, 77, 52, 128, 38, 76, 0, 0, 40, 29, 84, 0, 26, 84, 112, 0, 80, 75, 177, 120, 114, ... 3847 more ],
+        interface: Interface {
+          functions: {
+            main: FunctionFragment {
+              signature: "main(s<u64>(s<u64>(rawptr,u64),u64),s<u64>(s<u64>(rawptr,u64),u64))",
+              selector: "0x00000000863bff4b",
+              selectorBytes: Uint8Array(12) [ 0, 0, 0, 0, 0, 0, 0, 4, 109, 97, 105, 110 ],
+              encoding: "1",
+              name: "main",
+              jsonFn: {
+                inputs: [
+                  [Object ...], [Object ...]
+                ],
+                name: "main",
+                output: "7c5ee1cecf5f8eacd1284feb5f0bf2bdea533a51e2f0c9aabe9236d335989f3b",
+                attributes: [
+                  [Object ...], [Object ...], [Object ...], [Object ...], [Object ...], [Object ...]
+                ],
+              },
+              attributes: [
+                {
+                  name: "doc-comment",
+                  arguments: [ " extract inputs, and outputs" ],
+                }, {
+                  name: "doc-comment",
+                  arguments: [ " extract the script bytecode hash" ],
+                }, {
+                  name: "doc-comment",
+                  arguments: [ " calculate the tranasaction hash based on that" ],
+                },
+                {
+                  name: "doc-comment",
+                  arguments: [ "" ],
+                }, {
+                  name: "doc-comment",
+                  arguments: [ " V0, user can only sign over a single input and single output { only of type coin }"
+                  ],
+                }, {
+                  name: "doc-comment",
+                  arguments: [ " txn_hash = sha_256([[input_tx_id_bytes], [hash_of_serialized_output_type_coin]], [script_bytecodehash_bytes])"
+                  ],
+                }
+              ],
+              jsonAbiOld: {
+                encoding: "1",
+                types: [
+                  [Object ...], [Object ...], [Object ...], [Object ...], [Object ...], [Object ...]
+                ],
+                functions: [
+                  [Object ...]
+                ],
+                loggedTypes: [],
+                messagesTypes: [],
+                configurables: [],
+              },
+              jsonFnOld: {
+                inputs: [
+                  [Object ...], [Object ...]
+                ],
+                name: "main",
+                output: {
+                  name: "",
+                  type: 5,
+                  typeArguments: null,
+                },
+                attributes: [
+                  [Object ...], [Object ...], [Object ...], [Object ...], [Object ...], [Object ...]
+                ],
+              },
+              encodeArguments: [Function: encodeArguments],
+              decodeArguments: [Function: decodeArguments],
+              decodeOutput: [Function: decodeOutput],
+              isReadOnly: [Function: isReadOnly],
+            },
+          },
+          configurables: {},
+          jsonAbi: {
+            programType: "script",
+            specVersion: "1",
+            encodingVersion: "1",
+            concreteTypes: [
+              {
+                type: "b256",
+                concreteTypeId: "7c5ee1cecf5f8eacd1284feb5f0bf2bdea533a51e2f0c9aabe9236d335989f3b",
+              },
+              {
+                type: "struct std::vec::Vec<u64>",
+                concreteTypeId: "d5bfe1d4e1ace20166c9b50cadd47e862020561bde24f5189cfc2723f5ed76f4",
+                metadataTypeId: 3,
+                typeArguments: [ "1506e6f44c1d6291cdf46395a8e573276a4fa79e8ace3fc891e092ef32d1b0a0"
+                ],
+              }, {
+                type: "u64",
+                concreteTypeId: "1506e6f44c1d6291cdf46395a8e573276a4fa79e8ace3fc891e092ef32d1b0a0",
+              }
+            ],
+            metadataTypes: [
+              {
+                type: "generic T",
+                metadataTypeId: 0,
+              }, {
+                type: "raw untyped ptr",
+                metadataTypeId: 1,
+              }, {
+                type: "struct std::vec::RawVec",
+                metadataTypeId: 2,
+                components: [
+                  [Object ...], [Object ...]
+                ],
+                typeParameters: [ 0 ],
+              }, {
+                type: "struct std::vec::Vec",
+                metadataTypeId: 3,
+                components: [
+                  [Object ...], [Object ...]
+                ],
+                typeParameters: [ 0 ],
+              }
+            ],
+            functions: [
+              {
+                inputs: [
+                  [Object ...], [Object ...]
+                ],
+                name: "main",
+                output: "7c5ee1cecf5f8eacd1284feb5f0bf2bdea533a51e2f0c9aabe9236d335989f3b",
+                attributes: [
+                  [Object ...], [Object ...], [Object ...], [Object ...], [Object ...], [Object ...]
+                ],
+              }
+            ],
+            loggedTypes: [],
+            messagesTypes: [],
+            configurables: [],
+          },
+          encoding: "1",
+          jsonAbiOld: {
+            encoding: "1",
+            types: [
+              {
+                typeId: 0,
+                type: "generic T",
+                components: null,
+                typeParameters: null,
+              }, {
+                typeId: 1,
+                type: "raw untyped ptr",
+                components: null,
+                typeParameters: null,
+              }, {
+                typeId: 2,
+                type: "struct std::vec::RawVec",
+                components: [
+                  [Object ...], [Object ...]
+                ],
+                typeParameters: [ 0 ],
+              }, {
+                typeId: 3,
+                type: "struct std::vec::Vec",
+                components: [
+                  [Object ...], [Object ...]
+                ],
+                typeParameters: [ 0 ],
+              }, {
+                typeId: 4,
+                type: "u64",
+                components: null,
+                concreteTypeId: "1506e6f44c1d6291cdf46395a8e573276a4fa79e8ace3fc891e092ef32d1b0a0",
+                typeParameters: null,
+                originalConcreteTypeId: "1506e6f44c1d6291cdf46395a8e573276a4fa79e8ace3fc891e092ef32d1b0a0",
+              },
+              {
+                typeId: 5,
+                type: "b256",
+                components: null,
+                concreteTypeId: "7c5ee1cecf5f8eacd1284feb5f0bf2bdea533a51e2f0c9aabe9236d335989f3b",
+                typeParameters: null,
+                originalConcreteTypeId: "7c5ee1cecf5f8eacd1284feb5f0bf2bdea533a51e2f0c9aabe9236d335989f3b",
+              }
+            ],
+            functions: [
+              {
+                inputs: [
+                  [Object ...], [Object ...]
+                ],
+                name: "main",
+                output: {
+                  name: "",
+                  type: 5,
+                  typeArguments: null,
+                },
+                attributes: [
+                  [Object ...], [Object ...], [Object ...], [Object ...], [Object ...], [Object ...]
+                ],
+              }
+            ],
+            loggedTypes: [],
+            messagesTypes: [],
+            configurables: [],
+          },
+          getFunction: [Function: getFunction],
+          decodeFunctionResult: [Function: decodeFunctionResult],
+          decodeLog: [Function: decodeLog],
+          encodeConfigurable: [Function: encodeConfigurable],
+          encodeType: [Function: encodeType],
+          decodeType: [Function: decodeType],
+        },
+        account: WalletUnlocked {
+          address: Address {
+            bech32Address: "fuel1dd3cqn8mlxzku689kmn6au3cmjp3rmz4hmqymam5qqaze9hqgx8qtjpwn9",
+            toAddress: [Function: toAddress],
+            toB256: [Function: toB256],
+            toBytes: [Function: toBytes],
+            toHexString: [Function: toHexString],
+            toString: [Function: toString],
+            toJSON: [Function: toJSON],
+            toEvmAddress: [Function: toEvmAddress],
+            toAssetId: [Function: toAssetId],
+            valueOf: [Function: valueOf],
+            equals: [Function: equals],
+          },
+          _provider: _Provider {
+            url: "http://127.0.0.1:4000/v1/graphql",
+            operations: {
+              getVersion: [Function: getVersion],
+              getNodeInfo: [Function: getNodeInfo],
+              getChain: [Function: getChain],
+              getTransaction: [Function: getTransaction],
+              getTransactionWithReceipts: [Function: getTransactionWithReceipts],
+              getTransactions: [Function: getTransactions],
+              getTransactionsByOwner: [Function: getTransactionsByOwner],
+              estimatePredicates: [Function: estimatePredicates],
+              getBlock: [Function: getBlock],
+              getBlockWithTransactions: [Function: getBlockWithTransactions],
+              getBlocks: [Function: getBlocks],
+              getCoin: [Function: getCoin],
+              getCoins: [Function: getCoins],
+              getCoinsToSpend: [Function: getCoinsToSpend],
+              getContract: [Function: getContract],
+              getContractBalance: [Function: getContractBalance],
+              getBalance: [Function: getBalance],
+              getLatestGasPrice: [Function: getLatestGasPrice],
+              estimateGasPrice: [Function: estimateGasPrice],
+              getBalances: [Function: getBalances],
+              getMessages: [Function: getMessages],
+              getMessageProof: [Function: getMessageProof],
+              getMessageStatus: [Function: getMessageStatus],
+              getRelayedTransactionStatus: [Function: getRelayedTransactionStatus],
+              dryRun: [Function: dryRun],
+              submit: [Function: submit],
+              produceBlocks: [Function: produceBlocks],
+              getMessageByNonce: [Function: getMessageByNonce],
+              submitAndAwait: [Function: submitAndAwait],
+              statusChange: [Function: statusChange],
+            },
+            cache: ResourceCache {
+              ttl: 20000,
+              set: [Function: set],
+              unset: [Function: unset],
+              getActiveData: [Function: getActiveData],
+              isCached: [Function: isCached],
+              clear: [Function: clear],
+            },
+            options: {
+              timeout: undefined,
+              resourceCacheTTL: undefined,
+              fetch: undefined,
+              retryOptions: undefined,
+            },
+            getChain: [Function: getChain],
+            getNode: [Function: getNode],
+            getGasConfig: [Function: getGasConfig],
+            connect: [Function: connect],
+            fetchChainAndNodeInfo: [Function: fetchChainAndNodeInfo],
+            createOperations: [Function: createOperations],
+            getVersion: [Function: getVersion],
+            getBlockNumber: [Function: getBlockNumber],
+            fetchNode: [Function: fetchNode],
+            fetchChain: [Function: fetchChain],
+            getChainId: [Function: getChainId],
+            getBaseAssetId: [Function: getBaseAssetId],
+            validateTransaction: [Function: validateTransaction],
+            sendTransaction: [Function: sendTransaction],
+            dryRun: [Function: dryRun],
+            estimatePredicates: [Function: estimatePredicates],
+            estimateTxDependencies: [Function: estimateTxDependencies],
+            estimateMultipleTxDependencies: [Function: estimateMultipleTxDependencies],
+            dryRunMultipleTransactions: [Function: dryRunMultipleTransactions],
+            estimateTxGasAndFee: [Function: estimateTxGasAndFee],
+            simulate: [Function: simulate],
+            getTransactionCost: [Function: getTransactionCost],
+            getCoins: [Function: getCoins],
+            getResourcesToSpend: [Function: getResourcesToSpend],
+            getBlock: [Function: getBlock],
+            getBlocks: [Function: getBlocks],
+            getBlockWithTransactions: [Function: getBlockWithTransactions],
+            getTransaction: [Function: getTransaction],
+            getTransactions: [Function: getTransactions],
+            getContract: [Function: getContract],
+            getContractBalance: [Function: getContractBalance],
+            getBalance: [Function: getBalance],
+            getBalances: [Function: getBalances],
+            getMessages: [Function: getMessages],
+            getMessageProof: [Function: getMessageProof],
+            getLatestGasPrice: [Function: getLatestGasPrice],
+            estimateGasPrice: [Function: estimateGasPrice],
+            getMessageStatus: [Function: getMessageStatus],
+            produceBlocks: [Function: produceBlocks],
+            getTransactionResponse: [Function: getTransactionResponse],
+            getMessageByNonce: [Function: getMessageByNonce],
+            getRelayedTransactionStatus: [Function: getRelayedTransactionStatus],
+            validatePaginationArgs: [Function: validatePaginationArgs],
+            extractDryRunError: [Function: extractDryRunError],
+          },
+          _connector: undefined,
+          signer: [Function],
+          lock: [Function: lock],
+          privateKey: [Getter],
+          publicKey: [Getter],
+          signMessage: [Function: signMessage],
+          signTransaction: [Function: signTransaction],
+          populateTransactionWitnessesSignature: [Function: populateTransactionWitnessesSignature],
+          sendTransaction: [Function: sendTransaction],
+          simulateTransaction: [Function: simulateTransaction],
+          encrypt: [Function: encrypt],
+          provider: [Getter/Setter],
+          connect: [Function: connect],
+          getResourcesToSpend: [Function: getResourcesToSpend],
+          getCoins: [Function: getCoins],
+          getMessages: [Function: getMessages],
+          getBalance: [Function: getBalance],
+          getBalances: [Function: getBalances],
+          fund: [Function: fund],
+          createTransfer: [Function: createTransfer],
+          transfer: [Function: transfer],
+          batchTransfer: [Function: batchTransfer],
+          addTransfer: [Function: addTransfer],
+          addBatchTransfer: [Function: addBatchTransfer],
+          transferToContract: [Function: transferToContract],
+          withdrawToBaseLayer: [Function: withdrawToBaseLayer],
+          getTransactionCost: [Function: getTransactionCost],
+          generateFakeResources: [Function: generateFakeResources],
+          validateTransferAmount: [Function: validateTransferAmount],
+          estimateAndFundTransaction: [Function: estimateAndFundTransaction],
+          validateGasLimitAndMaxFee: [Function: validateGasLimitAndMaxFee],
+        },
+        script: undefined,
+        provider: _Provider {
+          url: "http://127.0.0.1:4000/v1/graphql",
+          operations: {
+            getVersion: [Function: getVersion],
+            getNodeInfo: [Function: getNodeInfo],
+            getChain: [Function: getChain],
+            getTransaction: [Function: getTransaction],
+            getTransactionWithReceipts: [Function: getTransactionWithReceipts],
+            getTransactions: [Function: getTransactions],
+            getTransactionsByOwner: [Function: getTransactionsByOwner],
+            estimatePredicates: [Function: estimatePredicates],
+            getBlock: [Function: getBlock],
+            getBlockWithTransactions: [Function: getBlockWithTransactions],
+            getBlocks: [Function: getBlocks],
+            getCoin: [Function: getCoin],
+            getCoins: [Function: getCoins],
+            getCoinsToSpend: [Function: getCoinsToSpend],
+            getContract: [Function: getContract],
+            getContractBalance: [Function: getContractBalance],
+            getBalance: [Function: getBalance],
+            getLatestGasPrice: [Function: getLatestGasPrice],
+            estimateGasPrice: [Function: estimateGasPrice],
+            getBalances: [Function: getBalances],
+            getMessages: [Function: getMessages],
+            getMessageProof: [Function: getMessageProof],
+            getMessageStatus: [Function: getMessageStatus],
+            getRelayedTransactionStatus: [Function: getRelayedTransactionStatus],
+            dryRun: [Function: dryRun],
+            submit: [Function: submit],
+            produceBlocks: [Function: produceBlocks],
+            getMessageByNonce: [Function: getMessageByNonce],
+            submitAndAwait: [Function: submitAndAwait],
+            statusChange: [Function: statusChange],
+          },
+          cache: ResourceCache {
+            ttl: 20000,
+            set: [Function: set],
+            unset: [Function: unset],
+            getActiveData: [Function: getActiveData],
+            isCached: [Function: isCached],
+            clear: [Function: clear],
+          },
+          options: {
+            timeout: undefined,
+            resourceCacheTTL: undefined,
+            fetch: undefined,
+            retryOptions: undefined,
+          },
+          getChain: [Function: getChain],
+          getNode: [Function: getNode],
+          getGasConfig: [Function: getGasConfig],
+          connect: [Function: connect],
+          fetchChainAndNodeInfo: [Function: fetchChainAndNodeInfo],
+          createOperations: [Function: createOperations],
+          getVersion: [Function: getVersion],
+          getBlockNumber: [Function: getBlockNumber],
+          fetchNode: [Function: fetchNode],
+          fetchChain: [Function: fetchChain],
+          getChainId: [Function: getChainId],
+          getBaseAssetId: [Function: getBaseAssetId],
+          validateTransaction: [Function: validateTransaction],
+          sendTransaction: [Function: sendTransaction],
+          dryRun: [Function: dryRun],
+          estimatePredicates: [Function: estimatePredicates],
+          estimateTxDependencies: [Function: estimateTxDependencies],
+          estimateMultipleTxDependencies: [Function: estimateMultipleTxDependencies],
+          dryRunMultipleTransactions: [Function: dryRunMultipleTransactions],
+          estimateTxGasAndFee: [Function: estimateTxGasAndFee],
+          simulate: [Function: simulate],
+          getTransactionCost: [Function: getTransactionCost],
+          getCoins: [Function: getCoins],
+          getResourcesToSpend: [Function: getResourcesToSpend],
+          getBlock: [Function: getBlock],
+          getBlocks: [Function: getBlocks],
+          getBlockWithTransactions: [Function: getBlockWithTransactions],
+          getTransaction: [Function: getTransaction],
+          getTransactions: [Function: getTransactions],
+          getContract: [Function: getContract],
+          getContractBalance: [Function: getContractBalance],
+          getBalance: [Function: getBalance],
+          getBalances: [Function: getBalances],
+          getMessages: [Function: getMessages],
+          getMessageProof: [Function: getMessageProof],
+          getLatestGasPrice: [Function: getLatestGasPrice],
+          estimateGasPrice: [Function: estimateGasPrice],
+          getMessageStatus: [Function: getMessageStatus],
+          produceBlocks: [Function: produceBlocks],
+          getTransactionResponse: [Function: getTransactionResponse],
+          getMessageByNonce: [Function: getMessageByNonce],
+          getRelayedTransactionStatus: [Function: getRelayedTransactionStatus],
+          validatePaginationArgs: [Function: validatePaginationArgs],
+          extractDryRunError: [Function: extractDryRunError],
+        },
+        functions: {
+          main: [Function: main],
+        },
+        setConfigurableConstants: [Function: setConfigurableConstants],
+      },
+      functionInvocationScopes: [Circular],
+      txParameters: undefined,
+      requiredCoins: [],
+      isMultiCall: false,
+      hasCallParamsGasLimit: true,
+      externalAbis: {},
+      addSignersCallback: undefined,
+      func: FunctionFragment {
+        signature: "main(s<u64>(s<u64>(rawptr,u64),u64),s<u64>(s<u64>(rawptr,u64),u64))",
+        selector: "0x00000000863bff4b",
+        selectorBytes: Uint8Array(12) [ 0, 0, 0, 0, 0, 0, 0, 4, 109, 97, 105, 110 ],
+        encoding: "1",
+        name: "main",
+        jsonFn: {
+          inputs: [
+            {
+              name: "input_tx_idxs",
+              concreteTypeId: "d5bfe1d4e1ace20166c9b50cadd47e862020561bde24f5189cfc2723f5ed76f4",
+            },
+            {
+              name: "output_tx_idxs",
+              concreteTypeId: "d5bfe1d4e1ace20166c9b50cadd47e862020561bde24f5189cfc2723f5ed76f4",
+            }
+          ],
+          name: "main",
+          output: "7c5ee1cecf5f8eacd1284feb5f0bf2bdea533a51e2f0c9aabe9236d335989f3b",
+          attributes: [
+            {
+              name: "doc-comment",
+              arguments: [ " extract inputs, and outputs" ],
+            }, {
+              name: "doc-comment",
+              arguments: [ " extract the script bytecode hash" ],
+            }, {
+              name: "doc-comment",
+              arguments: [ " calculate the tranasaction hash based on that" ],
+            }, {
+              name: "doc-comment",
+              arguments: [ "" ],
+            }, {
+              name: "doc-comment",
+              arguments: [ " V0, user can only sign over a single input and single output { only of type coin }"
+              ],
+            }, {
+              name: "doc-comment",
+              arguments: [ " txn_hash = sha_256([[input_tx_id_bytes], [hash_of_serialized_output_type_coin]], [script_bytecodehash_bytes])"
+              ],
+            }
+          ],
+        },
+        attributes: [
+          {
+            name: "doc-comment",
+            arguments: [ " extract inputs, and outputs" ],
+          }, {
+            name: "doc-comment",
+            arguments: [ " extract the script bytecode hash" ],
+          }, {
+            name: "doc-comment",
+            arguments: [ " calculate the tranasaction hash based on that" ],
+          }, {
+            name: "doc-comment",
+            arguments: [ "" ],
+          }, {
+            name: "doc-comment",
+            arguments: [ " V0, user can only sign over a single input and single output { only of type coin }"
+            ],
+          }, {
+            name: "doc-comment",
+            arguments: [ " txn_hash = sha_256([[input_tx_id_bytes], [hash_of_serialized_output_type_coin]], [script_bytecodehash_bytes])"
+            ],
+          }
+        ],
+        jsonAbiOld: {
+          encoding: "1",
+          types: [
+            {
+              typeId: 0,
+              type: "generic T",
+              components: null,
+              typeParameters: null,
+            }, {
+              typeId: 1,
+              type: "raw untyped ptr",
+              components: null,
+              typeParameters: null,
+            }, {
+              typeId: 2,
+              type: "struct std::vec::RawVec",
+              components: [
+                {
+                  name: "ptr",
+                  type: 1,
+                  typeArguments: null,
+                }, {
+                  name: "cap",
+                  type: 4,
+                  typeArguments: null,
+                }
+              ],
+              typeParameters: [ 0 ],
+            }, {
+              typeId: 3,
+              type: "struct std::vec::Vec",
+              components: [
+                {
+                  name: "buf",
+                  type: 2,
+                  typeArguments: [
+                    [Object ...]
+                  ],
+                }, {
+                  name: "len",
+                  type: 4,
+                  typeArguments: null,
+                }
+              ],
+              typeParameters: [ 0 ],
+            }, {
+              typeId: 4,
+              type: "u64",
+              components: null,
+              concreteTypeId: "1506e6f44c1d6291cdf46395a8e573276a4fa79e8ace3fc891e092ef32d1b0a0",
+              typeParameters: null,
+              originalConcreteTypeId: "1506e6f44c1d6291cdf46395a8e573276a4fa79e8ace3fc891e092ef32d1b0a0",
+            },
+            {
+              typeId: 5,
+              type: "b256",
+              components: null,
+              concreteTypeId: "7c5ee1cecf5f8eacd1284feb5f0bf2bdea533a51e2f0c9aabe9236d335989f3b",
+              typeParameters: null,
+              originalConcreteTypeId: "7c5ee1cecf5f8eacd1284feb5f0bf2bdea533a51e2f0c9aabe9236d335989f3b",
+            }
+          ],
+          functions: [
+            {
+              inputs: [
+                {
+                  name: "input_tx_idxs",
+                  type: 3,
+                  typeArguments: [
+                    [Object ...]
+                  ],
+                }, {
+                  name: "output_tx_idxs",
+                  type: 3,
+                  typeArguments: [
+                    [Object ...]
+                  ],
+                }
+              ],
+              name: "main",
+              output: {
+                name: "",
+                type: 5,
+                typeArguments: null,
+              },
+              attributes: [
+                {
+                  name: "doc-comment",
+                  arguments: [ " extract inputs, and outputs" ],
+                }, {
+                  name: "doc-comment",
+                  arguments: [ " extract the script bytecode hash" ],
+                }, {
+                  name: "doc-comment",
+                  arguments: [ " calculate the tranasaction hash based on that" ],
+                },
+                {
+                  name: "doc-comment",
+                  arguments: [ "" ],
+                }, {
+                  name: "doc-comment",
+                  arguments: [ " V0, user can only sign over a single input and single output { only of type coin }"
+                  ],
+                }, {
+                  name: "doc-comment",
+                  arguments: [ " txn_hash = sha_256([[input_tx_id_bytes], [hash_of_serialized_output_type_coin]], [script_bytecodehash_bytes])"
+                  ],
+                }
+              ],
+            }
+          ],
+          loggedTypes: [],
+          messagesTypes: [],
+          configurables: [],
+        },
+        jsonFnOld: {
+          inputs: [
+            {
+              name: "input_tx_idxs",
+              type: 3,
+              typeArguments: [
+                {
+                  name: "",
+                  type: 4,
+                  typeArguments: null,
+                }
+              ],
+            }, {
+              name: "output_tx_idxs",
+              type: 3,
+              typeArguments: [
+                {
+                  name: "",
+                  type: 4,
+                  typeArguments: null,
+                }
+              ],
+            }
+          ],
+          name: "main",
+          output: {
+            name: "",
+            type: 5,
+            typeArguments: null,
+          },
+          attributes: [
+            {
+              name: "doc-comment",
+              arguments: [ " extract inputs, and outputs" ],
+            }, {
+              name: "doc-comment",
+              arguments: [ " extract the script bytecode hash" ],
+            }, {
+              name: "doc-comment",
+              arguments: [ " calculate the tranasaction hash based on that" ],
+            }, {
+              name: "doc-comment",
+              arguments: [ "" ],
+            }, {
+              name: "doc-comment",
+              arguments: [ " V0, user can only sign over a single input and single output { only of type coin }"
+              ],
+            }, {
+              name: "doc-comment",
+              arguments: [ " txn_hash = sha_256([[input_tx_id_bytes], [hash_of_serialized_output_type_coin]], [script_bytecodehash_bytes])"
+              ],
+            }
+          ],
+        },
+        encodeArguments: [Function: encodeArguments],
+        decodeArguments: [Function: decodeArguments],
+        decodeOutput: [Function: decodeOutput],
+        isReadOnly: [Function: isReadOnly],
+      },
+      callParameters: {
+        gasLimit: 100000,
+      },
+      forward: undefined,
+      args: [
+        [ 0 ], [ 0 ]
+      ],
+      scriptRequest: ScriptRequest {
+        bytes: Uint8Array(4360) [ 26, 240, 48, 0, 116, 0, 0, 2, 0, 0, 0, 0, 0, 0, 16, 216, 93, 255, 192, 1, 16, 255, 255, 0, 26, 236, 80, 0, 145, 0, 3, 208, 80, 83, 178, 88, 97, 64, 0, 10, 95, 237, 0, 117, 97, 64, 0, 4, 95, 237, 0, 106, 80, 67, 179, 168, 80, 71, 176, 224, 114, 72, 0, 8, 40, 69, 4, 128, 80, 75, 178, 152, 114, 64, 0, 8, 40, 73, 20, 0, 80, 67, 179, 136, 114, 68, 0, 8, 40, 65, 36, 64, 80, 67, 179, 136, 80, 71, 178, 8, 26, 233, 0, 0, 26, 229, 16, 0, 32, 248, 51, 0, 88, 251, 224, 2, 80, 251, 224, 4, 116, 0, 0, 151, 26, 71, 208, 0, 114, 72, 0, 24, 40, 237, 20, 128, 80, 71, 178, 32, 26, 233, 0, 0, 26, 229, 16, 0, 32, 248, 51, 0, 88, 251, 224, 2, 80, 251, 224, 4, 116, 0, 0, 141, 26, 67, 208, 0, 80, 71, 176, 24, 114, 72, 0, 24, 40, 69, 4, 128, 80, 67, 176, 232, 114, 72, 0, 24, 40, 67, 180, 128, 80, 73, 0, 24, 114, 76, 0, 24, 40, 73, 20, 192, 80, 71, 178, 160, 114, 72, 0, 48, 40, 69, 4, 128, 80, 67, 178, 208, 114, 72, 0, 48, 40, 65, 20, 128, 80, 71, 179, 88, 114, 72, 0, 48, 40, 69, 4, 128, 80, 67, 179, 88, 80, 71, 179, 88, 80, 69, 16, 24, 80, 75, 178, 104, 114, 76, 0, 24, 40, 73, 4, 192, 80, 67, 178, 128, 114, 76, 0, 24, 40, 65, 20, 192, 80, 71, 178, 56, 26, 233, 32, 0, 26, 229, 0, 0, 26, 225, 16, 0, 32, 248, 51, 0, 88, 251, 224, 2, 80, 251, 224, 4, 116, 0, 1, 12, 26, 67, 208, 0, 80, 71, 176, 48, 114, 72, 0, 32, 40, 69, 4, 128, 80, 67, 179, 176, 114, 72, 0, 32, 40, 65, 20, 128, 80, 67, 179, 176, 80, 71, 176, 128, 114, 72, 0, 32, 40, 69, 4, 128, 114, 64, 4, 0, 38, 64, 0, 0, 26, 64, 112, 0, 80, 75, 177, 48, 95, 237, 0, 38, 114, 64, 4, 0, 95, 237, 0, 39, 95, 236, 0, 40, 80, 67, 176, 80, 114, 76, 0, 24, 40, 65, 36, 192, 80, 75, 177, 96, 114, 76, 0, 24, 40, 73, 4, 192, 80, 67, 179, 0, 114, 76, 0, 24, 40, 65, 36, 192, 80, 75, 177, 216, 114, 76, 0, 24, 40, 73, 4, 192, 80, 67, 176, 104, 114, 76, 0, 24, 40, 65, 36, 192, 80, 75, 177, 24, 114, 76, 0, 24, 40, 73, 4, 192, 93, 87, 176, 35, 93, 79, 176, 36, 93, 67, 176, 37, 114, 72, 0, 32, 16, 73, 4, 128, 21, 73, 36, 192, 118, 72, 0, 1, 116, 0, 0, 5, 114, 72, 0, 2, 27, 77, 52, 128, 38, 76, 0, 0, 40, 29, 84, 0, 26, 84, 112, 0, 80, 75, 177, 120, 114, ... 3847 more ],
+        scriptDataEncoder: [Function],
+        scriptResultDecoder: [Function],
+        getScriptDataOffset: [Function: getScriptDataOffset],
+        encodeScriptData: [Function: encodeScriptData],
+        decodeCallResult: [Function: decodeCallResult],
+      },
+      updateScriptRequest: [Function: updateScriptRequest],
+      buildScriptRequest: [Function: buildScriptRequest],
+      getCallConfig: [Function: getCallConfig],
+      setArguments: [Function: setArguments],
+      callParams: [Function: callParams],
+      calls: [Getter],
+      updateContractInputAndOutput: [Function: updateContractInputAndOutput],
+      getRequiredCoins: [Function: getRequiredCoins],
+      updateRequiredCoins: [Function: updateRequiredCoins],
+      addCall: [Function: addCall],
+      addCalls: [Function: addCalls],
+      prepareTransaction: [Function: prepareTransaction],
+      checkGasLimitTotal: [Function: checkGasLimitTotal],
+      getTransactionCost: [Function: getTransactionCost],
+      fundWithRequiredCoins: [Function: fundWithRequiredCoins],
+      txParams: [Function: txParams],
+      addContracts: [Function: addContracts],
+      addTransfer: [Function: addTransfer],
+      addBatchTransfer: [Function: addBatchTransfer],
+      addSigners: [Function: addSigners],
+      getTransactionRequest: [Function: getTransactionRequest],
+      call: [Function: call],
+      simulate: [Function: simulate],
+      dryRun: [Function: dryRun],
+      get: [Function: get],
+      getProvider: [Function: getProvider],
+      getTransactionId: [Function: getTransactionId],
+      setDefaultTxParams: [Function: setDefaultTxParams],
+    }
+  ],
+  value: "0x07ba6dd0e7a540d05a98f179aa4e90bc5b3bcdd8441080fd037d369c3740f942",
+  program: DbgExample {
+    bytes: Uint8Array(4360) [ 26, 240, 48, 0, 116, 0, 0, 2, 0, 0, 0, 0, 0, 0, 16, 216, 93, 255, 192, 1, 16, 255, 255, 0, 26, 236, 80, 0, 145, 0, 3, 208, 80, 83, 178, 88, 97, 64, 0, 10, 95, 237, 0, 117, 97, 64, 0, 4, 95, 237, 0, 106, 80, 67, 179, 168, 80, 71, 176, 224, 114, 72, 0, 8, 40, 69, 4, 128, 80, 75, 178, 152, 114, 64, 0, 8, 40, 73, 20, 0, 80, 67, 179, 136, 114, 68, 0, 8, 40, 65, 36, 64, 80, 67, 179, 136, 80, 71, 178, 8, 26, 233, 0, 0, 26, 229, 16, 0, 32, 248, 51, 0, 88, 251, 224, 2, 80, 251, 224, 4, 116, 0, 0, 151, 26, 71, 208, 0, 114, 72, 0, 24, 40, 237, 20, 128, 80, 71, 178, 32, 26, 233, 0, 0, 26, 229, 16, 0, 32, 248, 51, 0, 88, 251, 224, 2, 80, 251, 224, 4, 116, 0, 0, 141, 26, 67, 208, 0, 80, 71, 176, 24, 114, 72, 0, 24, 40, 69, 4, 128, 80, 67, 176, 232, 114, 72, 0, 24, 40, 67, 180, 128, 80, 73, 0, 24, 114, 76, 0, 24, 40, 73, 20, 192, 80, 71, 178, 160, 114, 72, 0, 48, 40, 69, 4, 128, 80, 67, 178, 208, 114, 72, 0, 48, 40, 65, 20, 128, 80, 71, 179, 88, 114, 72, 0, 48, 40, 69, 4, 128, 80, 67, 179, 88, 80, 71, 179, 88, 80, 69, 16, 24, 80, 75, 178, 104, 114, 76, 0, 24, 40, 73, 4, 192, 80, 67, 178, 128, 114, 76, 0, 24, 40, 65, 20, 192, 80, 71, 178, 56, 26, 233, 32, 0, 26, 229, 0, 0, 26, 225, 16, 0, 32, 248, 51, 0, 88, 251, 224, 2, 80, 251, 224, 4, 116, 0, 1, 12, 26, 67, 208, 0, 80, 71, 176, 48, 114, 72, 0, 32, 40, 69, 4, 128, 80, 67, 179, 176, 114, 72, 0, 32, 40, 65, 20, 128, 80, 67, 179, 176, 80, 71, 176, 128, 114, 72, 0, 32, 40, 69, 4, 128, 114, 64, 4, 0, 38, 64, 0, 0, 26, 64, 112, 0, 80, 75, 177, 48, 95, 237, 0, 38, 114, 64, 4, 0, 95, 237, 0, 39, 95, 236, 0, 40, 80, 67, 176, 80, 114, 76, 0, 24, 40, 65, 36, 192, 80, 75, 177, 96, 114, 76, 0, 24, 40, 73, 4, 192, 80, 67, 179, 0, 114, 76, 0, 24, 40, 65, 36, 192, 80, 75, 177, 216, 114, 76, 0, 24, 40, 73, 4, 192, 80, 67, 176, 104, 114, 76, 0, 24, 40, 65, 36, 192, 80, 75, 177, 24, 114, 76, 0, 24, 40, 73, 4, 192, 93, 87, 176, 35, 93, 79, 176, 36, 93, 67, 176, 37, 114, 72, 0, 32, 16, 73, 4, 128, 21, 73, 36, 192, 118, 72, 0, 1, 116, 0, 0, 5, 114, 72, 0, 2, 27, 77, 52, 128, 38, 76, 0, 0, 40, 29, 84, 0, 26, 84, 112, 0, 80, 75, 177, 120, 114, ... 3847 more ],
+    interface: Interface {
+      functions: {
+        main: FunctionFragment {
+          signature: "main(s<u64>(s<u64>(rawptr,u64),u64),s<u64>(s<u64>(rawptr,u64),u64))",
+          selector: "0x00000000863bff4b",
+          selectorBytes: Uint8Array(12) [ 0, 0, 0, 0, 0, 0, 0, 4, 109, 97, 105, 110 ],
+          encoding: "1",
+          name: "main",
+          jsonFn: {
+            inputs: [
+              {
+                name: "input_tx_idxs",
+                concreteTypeId: "d5bfe1d4e1ace20166c9b50cadd47e862020561bde24f5189cfc2723f5ed76f4",
+              },
+              {
+                name: "output_tx_idxs",
+                concreteTypeId: "d5bfe1d4e1ace20166c9b50cadd47e862020561bde24f5189cfc2723f5ed76f4",
+              }
+            ],
+            name: "main",
+            output: "7c5ee1cecf5f8eacd1284feb5f0bf2bdea533a51e2f0c9aabe9236d335989f3b",
+            attributes: [
+              {
+                name: "doc-comment",
+                arguments: [ " extract inputs, and outputs" ],
+              }, {
+                name: "doc-comment",
+                arguments: [ " extract the script bytecode hash" ],
+              }, {
+                name: "doc-comment",
+                arguments: [ " calculate the tranasaction hash based on that" ],
+              },
+              {
+                name: "doc-comment",
+                arguments: [ "" ],
+              }, {
+                name: "doc-comment",
+                arguments: [ " V0, user can only sign over a single input and single output { only of type coin }"
+                ],
+              }, {
+                name: "doc-comment",
+                arguments: [ " txn_hash = sha_256([[input_tx_id_bytes], [hash_of_serialized_output_type_coin]], [script_bytecodehash_bytes])"
+                ],
+              }
+            ],
+          },
+          attributes: [
+            {
+              name: "doc-comment",
+              arguments: [ " extract inputs, and outputs" ],
+            }, {
+              name: "doc-comment",
+              arguments: [ " extract the script bytecode hash" ],
+            }, {
+              name: "doc-comment",
+              arguments: [ " calculate the tranasaction hash based on that" ],
+            }, {
+              name: "doc-comment",
+              arguments: [ "" ],
+            }, {
+              name: "doc-comment",
+              arguments: [ " V0, user can only sign over a single input and single output { only of type coin }"
+              ],
+            }, {
+              name: "doc-comment",
+              arguments: [ " txn_hash = sha_256([[input_tx_id_bytes], [hash_of_serialized_output_type_coin]], [script_bytecodehash_bytes])"
+              ],
+            }
+          ],
+          jsonAbiOld: {
+            encoding: "1",
+            types: [
+              {
+                typeId: 0,
+                type: "generic T",
+                components: null,
+                typeParameters: null,
+              }, {
+                typeId: 1,
+                type: "raw untyped ptr",
+                components: null,
+                typeParameters: null,
+              }, {
+                typeId: 2,
+                type: "struct std::vec::RawVec",
+                components: [
+                  [Object ...], [Object ...]
+                ],
+                typeParameters: [ 0 ],
+              }, {
+                typeId: 3,
+                type: "struct std::vec::Vec",
+                components: [
+                  [Object ...], [Object ...]
+                ],
+                typeParameters: [ 0 ],
+              }, {
+                typeId: 4,
+                type: "u64",
+                components: null,
+                concreteTypeId: "1506e6f44c1d6291cdf46395a8e573276a4fa79e8ace3fc891e092ef32d1b0a0",
+                typeParameters: null,
+                originalConcreteTypeId: "1506e6f44c1d6291cdf46395a8e573276a4fa79e8ace3fc891e092ef32d1b0a0",
+              },
+              {
+                typeId: 5,
+                type: "b256",
+                components: null,
+                concreteTypeId: "7c5ee1cecf5f8eacd1284feb5f0bf2bdea533a51e2f0c9aabe9236d335989f3b",
+                typeParameters: null,
+                originalConcreteTypeId: "7c5ee1cecf5f8eacd1284feb5f0bf2bdea533a51e2f0c9aabe9236d335989f3b",
+              }
+            ],
+            functions: [
+              {
+                inputs: [
+                  [Object ...], [Object ...]
+                ],
+                name: "main",
+                output: {
+                  name: "",
+                  type: 5,
+                  typeArguments: null,
+                },
+                attributes: [
+                  [Object ...], [Object ...], [Object ...], [Object ...], [Object ...], [Object ...]
+                ],
+              }
+            ],
+            loggedTypes: [],
+            messagesTypes: [],
+            configurables: [],
+          },
+          jsonFnOld: {
+            inputs: [
+              {
+                name: "input_tx_idxs",
+                type: 3,
+                typeArguments: [
+                  [Object ...]
+                ],
+              }, {
+                name: "output_tx_idxs",
+                type: 3,
+                typeArguments: [
+                  [Object ...]
+                ],
+              }
+            ],
+            name: "main",
+            output: {
+              name: "",
+              type: 5,
+              typeArguments: null,
+            },
+            attributes: [
+              {
+                name: "doc-comment",
+                arguments: [ " extract inputs, and outputs" ],
+              }, {
+                name: "doc-comment",
+                arguments: [ " extract the script bytecode hash" ],
+              }, {
+                name: "doc-comment",
+                arguments: [ " calculate the tranasaction hash based on that" ],
+              },
+              {
+                name: "doc-comment",
+                arguments: [ "" ],
+              }, {
+                name: "doc-comment",
+                arguments: [ " V0, user can only sign over a single input and single output { only of type coin }"
+                ],
+              }, {
+                name: "doc-comment",
+                arguments: [ " txn_hash = sha_256([[input_tx_id_bytes], [hash_of_serialized_output_type_coin]], [script_bytecodehash_bytes])"
+                ],
+              }
+            ],
+          },
+          encodeArguments: [Function: encodeArguments],
+          decodeArguments: [Function: decodeArguments],
+          decodeOutput: [Function: decodeOutput],
+          isReadOnly: [Function: isReadOnly],
+        },
+      },
+      configurables: {},
+      jsonAbi: {
+        programType: "script",
+        specVersion: "1",
+        encodingVersion: "1",
+        concreteTypes: [
+          {
+            type: "b256",
+            concreteTypeId: "7c5ee1cecf5f8eacd1284feb5f0bf2bdea533a51e2f0c9aabe9236d335989f3b",
+          },
+          {
+            type: "struct std::vec::Vec<u64>",
+            concreteTypeId: "d5bfe1d4e1ace20166c9b50cadd47e862020561bde24f5189cfc2723f5ed76f4",
+            metadataTypeId: 3,
+            typeArguments: [ "1506e6f44c1d6291cdf46395a8e573276a4fa79e8ace3fc891e092ef32d1b0a0"
+            ],
+          }, {
+            type: "u64",
+            concreteTypeId: "1506e6f44c1d6291cdf46395a8e573276a4fa79e8ace3fc891e092ef32d1b0a0",
+          }
+        ],
+        metadataTypes: [
+          {
+            type: "generic T",
+            metadataTypeId: 0,
+          }, {
+            type: "raw untyped ptr",
+            metadataTypeId: 1,
+          }, {
+            type: "struct std::vec::RawVec",
+            metadataTypeId: 2,
+            components: [
+              {
+                name: "ptr",
+                typeId: 1,
+              }, {
+                name: "cap",
+                typeId: "1506e6f44c1d6291cdf46395a8e573276a4fa79e8ace3fc891e092ef32d1b0a0",
+              }
+            ],
+            typeParameters: [ 0 ],
+          }, {
+            type: "struct std::vec::Vec",
+            metadataTypeId: 3,
+            components: [
+              {
+                name: "buf",
+                typeId: 2,
+                typeArguments: [
+                  [Object ...]
+                ],
+              }, {
+                name: "len",
+                typeId: "1506e6f44c1d6291cdf46395a8e573276a4fa79e8ace3fc891e092ef32d1b0a0",
+              }
+            ],
+            typeParameters: [ 0 ],
+          }
+        ],
+        functions: [
+          {
+            inputs: [
+              {
+                name: "input_tx_idxs",
+                concreteTypeId: "d5bfe1d4e1ace20166c9b50cadd47e862020561bde24f5189cfc2723f5ed76f4",
+              },
+              {
+                name: "output_tx_idxs",
+                concreteTypeId: "d5bfe1d4e1ace20166c9b50cadd47e862020561bde24f5189cfc2723f5ed76f4",
+              }
+            ],
+            name: "main",
+            output: "7c5ee1cecf5f8eacd1284feb5f0bf2bdea533a51e2f0c9aabe9236d335989f3b",
+            attributes: [
+              {
+                name: "doc-comment",
+                arguments: [ " extract inputs, and outputs" ],
+              }, {
+                name: "doc-comment",
+                arguments: [ " extract the script bytecode hash" ],
+              }, {
+                name: "doc-comment",
+                arguments: [ " calculate the tranasaction hash based on that" ],
+              },
+              {
+                name: "doc-comment",
+                arguments: [ "" ],
+              }, {
+                name: "doc-comment",
+                arguments: [ " V0, user can only sign over a single input and single output { only of type coin }"
+                ],
+              }, {
+                name: "doc-comment",
+                arguments: [ " txn_hash = sha_256([[input_tx_id_bytes], [hash_of_serialized_output_type_coin]], [script_bytecodehash_bytes])"
+                ],
+              }
+            ],
+          }
+        ],
+        loggedTypes: [],
+        messagesTypes: [],
+        configurables: [],
+      },
+      encoding: "1",
+      jsonAbiOld: {
+        encoding: "1",
+        types: [
+          {
+            typeId: 0,
+            type: "generic T",
+            components: null,
+            typeParameters: null,
+          }, {
+            typeId: 1,
+            type: "raw untyped ptr",
+            components: null,
+            typeParameters: null,
+          }, {
+            typeId: 2,
+            type: "struct std::vec::RawVec",
+            components: [
+              {
+                name: "ptr",
+                type: 1,
+                typeArguments: null,
+              }, {
+                name: "cap",
+                type: 4,
+                typeArguments: null,
+              }
+            ],
+            typeParameters: [ 0 ],
+          }, {
+            typeId: 3,
+            type: "struct std::vec::Vec",
+            components: [
+              {
+                name: "buf",
+                type: 2,
+                typeArguments: [
+                  [Object ...]
+                ],
+              }, {
+                name: "len",
+                type: 4,
+                typeArguments: null,
+              }
+            ],
+            typeParameters: [ 0 ],
+          }, {
+            typeId: 4,
+            type: "u64",
+            components: null,
+            concreteTypeId: "1506e6f44c1d6291cdf46395a8e573276a4fa79e8ace3fc891e092ef32d1b0a0",
+            typeParameters: null,
+            originalConcreteTypeId: "1506e6f44c1d6291cdf46395a8e573276a4fa79e8ace3fc891e092ef32d1b0a0",
+          },
+          {
+            typeId: 5,
+            type: "b256",
+            components: null,
+            concreteTypeId: "7c5ee1cecf5f8eacd1284feb5f0bf2bdea533a51e2f0c9aabe9236d335989f3b",
+            typeParameters: null,
+            originalConcreteTypeId: "7c5ee1cecf5f8eacd1284feb5f0bf2bdea533a51e2f0c9aabe9236d335989f3b",
+          }
+        ],
+        functions: [
+          {
+            inputs: [
+              {
+                name: "input_tx_idxs",
+                type: 3,
+                typeArguments: [
+                  [Object ...]
+                ],
+              }, {
+                name: "output_tx_idxs",
+                type: 3,
+                typeArguments: [
+                  [Object ...]
+                ],
+              }
+            ],
+            name: "main",
+            output: {
+              name: "",
+              type: 5,
+              typeArguments: null,
+            },
+            attributes: [
+              {
+                name: "doc-comment",
+                arguments: [ " extract inputs, and outputs" ],
+              }, {
+                name: "doc-comment",
+                arguments: [ " extract the script bytecode hash" ],
+              }, {
+                name: "doc-comment",
+                arguments: [ " calculate the tranasaction hash based on that" ],
+              },
+              {
+                name: "doc-comment",
+                arguments: [ "" ],
+              }, {
+                name: "doc-comment",
+                arguments: [ " V0, user can only sign over a single input and single output { only of type coin }"
+                ],
+              }, {
+                name: "doc-comment",
+                arguments: [ " txn_hash = sha_256([[input_tx_id_bytes], [hash_of_serialized_output_type_coin]], [script_bytecodehash_bytes])"
+                ],
+              }
+            ],
+          }
+        ],
+        loggedTypes: [],
+        messagesTypes: [],
+        configurables: [],
+      },
+      getFunction: [Function: getFunction],
+      decodeFunctionResult: [Function: decodeFunctionResult],
+      decodeLog: [Function: decodeLog],
+      encodeConfigurable: [Function: encodeConfigurable],
+      encodeType: [Function: encodeType],
+      decodeType: [Function: decodeType],
+    },
+    account: WalletUnlocked {
+      address: Address {
+        bech32Address: "fuel1dd3cqn8mlxzku689kmn6au3cmjp3rmz4hmqymam5qqaze9hqgx8qtjpwn9",
+        toAddress: [Function: toAddress],
+        toB256: [Function: toB256],
+        toBytes: [Function: toBytes],
+        toHexString: [Function: toHexString],
+        toString: [Function: toString],
+        toJSON: [Function: toJSON],
+        toEvmAddress: [Function: toEvmAddress],
+        toAssetId: [Function: toAssetId],
+        valueOf: [Function: valueOf],
+        equals: [Function: equals],
+      },
+      _provider: _Provider {
+        url: "http://127.0.0.1:4000/v1/graphql",
+        operations: {
+          getVersion: [Function: getVersion],
+          getNodeInfo: [Function: getNodeInfo],
+          getChain: [Function: getChain],
+          getTransaction: [Function: getTransaction],
+          getTransactionWithReceipts: [Function: getTransactionWithReceipts],
+          getTransactions: [Function: getTransactions],
+          getTransactionsByOwner: [Function: getTransactionsByOwner],
+          estimatePredicates: [Function: estimatePredicates],
+          getBlock: [Function: getBlock],
+          getBlockWithTransactions: [Function: getBlockWithTransactions],
+          getBlocks: [Function: getBlocks],
+          getCoin: [Function: getCoin],
+          getCoins: [Function: getCoins],
+          getCoinsToSpend: [Function: getCoinsToSpend],
+          getContract: [Function: getContract],
+          getContractBalance: [Function: getContractBalance],
+          getBalance: [Function: getBalance],
+          getLatestGasPrice: [Function: getLatestGasPrice],
+          estimateGasPrice: [Function: estimateGasPrice],
+          getBalances: [Function: getBalances],
+          getMessages: [Function: getMessages],
+          getMessageProof: [Function: getMessageProof],
+          getMessageStatus: [Function: getMessageStatus],
+          getRelayedTransactionStatus: [Function: getRelayedTransactionStatus],
+          dryRun: [Function: dryRun],
+          submit: [Function: submit],
+          produceBlocks: [Function: produceBlocks],
+          getMessageByNonce: [Function: getMessageByNonce],
+          submitAndAwait: [Function: submitAndAwait],
+          statusChange: [Function: statusChange],
+        },
+        cache: ResourceCache {
+          ttl: 20000,
+          set: [Function: set],
+          unset: [Function: unset],
+          getActiveData: [Function: getActiveData],
+          isCached: [Function: isCached],
+          clear: [Function: clear],
+        },
+        options: {
+          timeout: undefined,
+          resourceCacheTTL: undefined,
+          fetch: undefined,
+          retryOptions: undefined,
+        },
+        getChain: [Function: getChain],
+        getNode: [Function: getNode],
+        getGasConfig: [Function: getGasConfig],
+        connect: [Function: connect],
+        fetchChainAndNodeInfo: [Function: fetchChainAndNodeInfo],
+        createOperations: [Function: createOperations],
+        getVersion: [Function: getVersion],
+        getBlockNumber: [Function: getBlockNumber],
+        fetchNode: [Function: fetchNode],
+        fetchChain: [Function: fetchChain],
+        getChainId: [Function: getChainId],
+        getBaseAssetId: [Function: getBaseAssetId],
+        validateTransaction: [Function: validateTransaction],
+        sendTransaction: [Function: sendTransaction],
+        dryRun: [Function: dryRun],
+        estimatePredicates: [Function: estimatePredicates],
+        estimateTxDependencies: [Function: estimateTxDependencies],
+        estimateMultipleTxDependencies: [Function: estimateMultipleTxDependencies],
+        dryRunMultipleTransactions: [Function: dryRunMultipleTransactions],
+        estimateTxGasAndFee: [Function: estimateTxGasAndFee],
+        simulate: [Function: simulate],
+        getTransactionCost: [Function: getTransactionCost],
+        getCoins: [Function: getCoins],
+        getResourcesToSpend: [Function: getResourcesToSpend],
+        getBlock: [Function: getBlock],
+        getBlocks: [Function: getBlocks],
+        getBlockWithTransactions: [Function: getBlockWithTransactions],
+        getTransaction: [Function: getTransaction],
+        getTransactions: [Function: getTransactions],
+        getContract: [Function: getContract],
+        getContractBalance: [Function: getContractBalance],
+        getBalance: [Function: getBalance],
+        getBalances: [Function: getBalances],
+        getMessages: [Function: getMessages],
+        getMessageProof: [Function: getMessageProof],
+        getLatestGasPrice: [Function: getLatestGasPrice],
+        estimateGasPrice: [Function: estimateGasPrice],
+        getMessageStatus: [Function: getMessageStatus],
+        produceBlocks: [Function: produceBlocks],
+        getTransactionResponse: [Function: getTransactionResponse],
+        getMessageByNonce: [Function: getMessageByNonce],
+        getRelayedTransactionStatus: [Function: getRelayedTransactionStatus],
+        validatePaginationArgs: [Function: validatePaginationArgs],
+        extractDryRunError: [Function: extractDryRunError],
+      },
+      _connector: undefined,
+      signer: [Function],
+      lock: [Function: lock],
+      privateKey: [Getter],
+      publicKey: [Getter],
+      signMessage: [Function: signMessage],
+      signTransaction: [Function: signTransaction],
+      populateTransactionWitnessesSignature: [Function: populateTransactionWitnessesSignature],
+      sendTransaction: [Function: sendTransaction],
+      simulateTransaction: [Function: simulateTransaction],
+      encrypt: [Function: encrypt],
+      provider: [Getter/Setter],
+      connect: [Function: connect],
+      getResourcesToSpend: [Function: getResourcesToSpend],
+      getCoins: [Function: getCoins],
+      getMessages: [Function: getMessages],
+      getBalance: [Function: getBalance],
+      getBalances: [Function: getBalances],
+      fund: [Function: fund],
+      createTransfer: [Function: createTransfer],
+      transfer: [Function: transfer],
+      batchTransfer: [Function: batchTransfer],
+      addTransfer: [Function: addTransfer],
+      addBatchTransfer: [Function: addBatchTransfer],
+      transferToContract: [Function: transferToContract],
+      withdrawToBaseLayer: [Function: withdrawToBaseLayer],
+      getTransactionCost: [Function: getTransactionCost],
+      generateFakeResources: [Function: generateFakeResources],
+      validateTransferAmount: [Function: validateTransferAmount],
+      estimateAndFundTransaction: [Function: estimateAndFundTransaction],
+      validateGasLimitAndMaxFee: [Function: validateGasLimitAndMaxFee],
+    },
+    script: undefined,
+    provider: _Provider {
+      url: "http://127.0.0.1:4000/v1/graphql",
+      operations: {
+        getVersion: [Function: getVersion],
+        getNodeInfo: [Function: getNodeInfo],
+        getChain: [Function: getChain],
+        getTransaction: [Function: getTransaction],
+        getTransactionWithReceipts: [Function: getTransactionWithReceipts],
+        getTransactions: [Function: getTransactions],
+        getTransactionsByOwner: [Function: getTransactionsByOwner],
+        estimatePredicates: [Function: estimatePredicates],
+        getBlock: [Function: getBlock],
+        getBlockWithTransactions: [Function: getBlockWithTransactions],
+        getBlocks: [Function: getBlocks],
+        getCoin: [Function: getCoin],
+        getCoins: [Function: getCoins],
+        getCoinsToSpend: [Function: getCoinsToSpend],
+        getContract: [Function: getContract],
+        getContractBalance: [Function: getContractBalance],
+        getBalance: [Function: getBalance],
+        getLatestGasPrice: [Function: getLatestGasPrice],
+        estimateGasPrice: [Function: estimateGasPrice],
+        getBalances: [Function: getBalances],
+        getMessages: [Function: getMessages],
+        getMessageProof: [Function: getMessageProof],
+        getMessageStatus: [Function: getMessageStatus],
+        getRelayedTransactionStatus: [Function: getRelayedTransactionStatus],
+        dryRun: [Function: dryRun],
+        submit: [Function: submit],
+        produceBlocks: [Function: produceBlocks],
+        getMessageByNonce: [Function: getMessageByNonce],
+        submitAndAwait: [Function: submitAndAwait],
+        statusChange: [Function: statusChange],
+      },
+      cache: ResourceCache {
+        ttl: 20000,
+        set: [Function: set],
+        unset: [Function: unset],
+        getActiveData: [Function: getActiveData],
+        isCached: [Function: isCached],
+        clear: [Function: clear],
+      },
+      options: {
+        timeout: undefined,
+        resourceCacheTTL: undefined,
+        fetch: undefined,
+        retryOptions: undefined,
+      },
+      getChain: [Function: getChain],
+      getNode: [Function: getNode],
+      getGasConfig: [Function: getGasConfig],
+      connect: [Function: connect],
+      fetchChainAndNodeInfo: [Function: fetchChainAndNodeInfo],
+      createOperations: [Function: createOperations],
+      getVersion: [Function: getVersion],
+      getBlockNumber: [Function: getBlockNumber],
+      fetchNode: [Function: fetchNode],
+      fetchChain: [Function: fetchChain],
+      getChainId: [Function: getChainId],
+      getBaseAssetId: [Function: getBaseAssetId],
+      validateTransaction: [Function: validateTransaction],
+      sendTransaction: [Function: sendTransaction],
+      dryRun: [Function: dryRun],
+      estimatePredicates: [Function: estimatePredicates],
+      estimateTxDependencies: [Function: estimateTxDependencies],
+      estimateMultipleTxDependencies: [Function: estimateMultipleTxDependencies],
+      dryRunMultipleTransactions: [Function: dryRunMultipleTransactions],
+      estimateTxGasAndFee: [Function: estimateTxGasAndFee],
+      simulate: [Function: simulate],
+      getTransactionCost: [Function: getTransactionCost],
+      getCoins: [Function: getCoins],
+      getResourcesToSpend: [Function: getResourcesToSpend],
+      getBlock: [Function: getBlock],
+      getBlocks: [Function: getBlocks],
+      getBlockWithTransactions: [Function: getBlockWithTransactions],
+      getTransaction: [Function: getTransaction],
+      getTransactions: [Function: getTransactions],
+      getContract: [Function: getContract],
+      getContractBalance: [Function: getContractBalance],
+      getBalance: [Function: getBalance],
+      getBalances: [Function: getBalances],
+      getMessages: [Function: getMessages],
+      getMessageProof: [Function: getMessageProof],
+      getLatestGasPrice: [Function: getLatestGasPrice],
+      estimateGasPrice: [Function: estimateGasPrice],
+      getMessageStatus: [Function: getMessageStatus],
+      produceBlocks: [Function: produceBlocks],
+      getTransactionResponse: [Function: getTransactionResponse],
+      getMessageByNonce: [Function: getMessageByNonce],
+      getRelayedTransactionStatus: [Function: getRelayedTransactionStatus],
+      validatePaginationArgs: [Function: validatePaginationArgs],
+      extractDryRunError: [Function: extractDryRunError],
+    },
+    functions: {
+      main: [Function: main],
+    },
+    setConfigurableConstants: [Function: setConfigurableConstants],
+  },
+  transactionResult: {
+    id: "0xba0876fe2944129ee4f1e9838aaf3f6feb6bd2b0ecae2c9a0cf1231cb48fd9e3",
+    tip: <BN: 0x0>,
+    fee: <BN: 0x0>,
+    gasUsed: <BN: 0x1059>,
+    operations: [
+      {
+        name: "Transfer asset",
+        from: {
+          type: 1,
+          address: "0x6b63804cfbf9856e68e5b6e7aef238dc8311ec55bec04df774003a2c96e0418e",
+        },
+        to: {
+          type: 1,
+          address: "0xcdd3f03f4b5c117291e0a2fed092e27654d69003b00eafb27d3f29b1b132717b",
+        },
+        assetsSent: [
+          {
+            assetId: "0xf8f8b6283d7fa5b672b530cbb84fcccb4ff8dc40f8176ef4544ddb1f1952ad07",
+            amount: <BN: 0xa>,
+          }
+        ],
+      }
+    ],
+    type: "Script",
+    blockId: "0x3674a254208c59ee5994e8c49735bb9e18521cfbe2f00a7cfa36337c72e8f2a5",
+    time: "4611686020152345294",
+    status: "success",
+    receipts: [
+      {
+        type: 2,
+        id: "0x0000000000000000000000000000000000000000000000000000000000000000",
+        ptr: <BN: 0x3fffbd0>,
+        len: <BN: 0x20>,
+        digest: "0xa8bd8d4ff78d436da37d114a4501069f9ee09191855fd893a94140cf29309316",
+        pc: <BN: 0x2b54>,
+        is: <BN: 0x2880>,
+        data: "0x07ba6dd0e7a540d05a98f179aa4e90bc5b3bcdd8441080fd037d369c3740f942",
+      },
+      {
+        type: 9,
+        result: <BN: 0x0>,
+        gasUsed: <BN: 0x1059>,
+      }
+    ],
+    mintedAssets: [],
+    burnedAssets: [],
+    isTypeMint: false,
+    isTypeCreate: false,
+    isTypeScript: true,
+    isTypeUpgrade: false,
+    isTypeUpload: false,
+    isTypeBlob: false,
+    isStatusFailure: false,
+    isStatusSuccess: true,
+    isStatusPending: false,
+    date: 2024-08-29T18:49:13.000Z,
+    transaction: {
+      type: 0,
+      scriptGasLimit: <BN: 0x186a0>,
+      policyTypes: 8,
+      inputs: [
+        {
+          type: 0,
+          txID: "0x0928995ed5db8864d653616eff625740bdc5e5147b32f7db0292bea05bbea460",
+          outputIndex: 0,
+          owner: "0x6b63804cfbf9856e68e5b6e7aef238dc8311ec55bec04df774003a2c96e0418e",
+          amount: <BN: 0xfffffffffffffd8>,
+          assetId: "0xf8f8b6283d7fa5b672b530cbb84fcccb4ff8dc40f8176ef4544ddb1f1952ad07",
+          txPointer: {
+            blockHeight: 0,
+            txIndex: 0,
+          },
+          witnessIndex: 1,
+          predicateGasUsed: <BN: 0x0>,
+          predicateLength: <BN: 0x0>,
+          predicateDataLength: <BN: 0x0>,
+          predicate: "0x",
+          predicateData: "0x",
+        }
+      ],
+      outputs: [
+        {
+          type: 2,
+          to: "0x6b63804cfbf9856e68e5b6e7aef238dc8311ec55bec04df774003a2c96e0418e",
+          amount: <BN: 0xfffffffffffffce>,
+          assetId: "0xf8f8b6283d7fa5b672b530cbb84fcccb4ff8dc40f8176ef4544ddb1f1952ad07",
+        },
+        {
+          type: 0,
+          to: "0xcdd3f03f4b5c117291e0a2fed092e27654d69003b00eafb27d3f29b1b132717b",
+          amount: <BN: 0xa>,
+          assetId: "0xf8f8b6283d7fa5b672b530cbb84fcccb4ff8dc40f8176ef4544ddb1f1952ad07",
+        }
+      ],
+      policies: [
+        {
+          data: <BN: 0x1>,
+          type: 8,
+        }
+      ],
+      witnesses: [
+        {
+          data: "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+          dataLength: 64,
+        }, {
+          data: "0x4e4366436496ff7d45d309ad5170bb864d640aae358982f6cc235db4e55b7a03e48c3e4c2fe784a830cd19bfcf8ff98a520ffd82387e6dc54d4b1c48b2b95d70",
+          dataLength: 64,
+        }
+      ],
+      inputsCount: 1,
+      outputsCount: 2,
+      witnessesCount: 2,
+      scriptLength: <BN: 0x1108>,
+      scriptDataLength: <BN: 0x20>,
+      receiptsRoot: "0xb44db91b6986487a924cb5e2e049369715a1e0510dcc5adad283d52da75c5594",
+      script: "0x1af030007400000200000000000010d85dffc00110ffff001aec5000910003d05053b2586140000a5fed0075614000045fed006a5043b3a85047b0e07248000828450480504bb29872400008284914005043b38872440008284124405043b3885047b2081ae900001ae5100020f8330058fbe00250fbe004740000971a47d0007248001828ed14805047b2201ae900001ae5100020f8330058fbe00250fbe0047400008d1a43d0005047b01872480018284504805043b0e8724800182843b48050490018724c0018284914c05047b2a072480030284504805043b2d072480030284114805047b35872480030284504805043b3585047b35850451018504bb268724c0018284904c05043b280724c0018284114c05047b2381ae920001ae500001ae1100020f8330058fbe00250fbe0047400010c1a43d0005047b03072480020284504805043b3b072480020284114805043b3b05047b080724800202845048072400400264000001a407000504bb1305fed0026724004005fed00275fec00285043b050724c0018284124c0504bb160724c0018284904c05043b300724c0018284124c0504bb1d8724c0018284904c05043b068724c0018284124c0504bb118724c0018284904c05d57b0235d4fb0245d43b0257248002010490480154924c07648000174000005724800021b4d3480264c0000281d54001a547000504bb178725800202849158010455400725800202845258072440020104104405047b1a85fed50355fed30365fed00375043b0a07248001828411480504bb1c072440018284904405043b31872440018284124405047b39072480018284504805043b3905047b1f072480018284504805043b0b872480018284114805047b14872480018284504805d43b02950451010504bb1985fed003350412008724c0008284114c05043b0d072440010284124405047b33072480010284504805043b340724800102841148072440010285104405d4140015d51400025510000950001ff960800001aec5000910000a01a5fa0001a5b90001a57e0001ae9700020f8330058fbe00250fbe004740000741a43d0005fed000d5043b0685d47b00d1ae9100020f8330058fbe00250fbe004740000801a47d000504bb0185fed100350452008724c0008284504c05043b02872440010284124407244001028ed04405fec00025043b038724400182843b4405047b08872480018284504805fec000b5d43b00b5d47b00d16410440764000055043b08872440018285904401af560007400004a1ae9700020f8330058fbe00250fbe0047400004a1a43d0005fed000c5043b0885d47b00c5d4bb0135d4fb012134924c076480001740000245d490001134920001a4c1000764800035d490001724c00021b4d34805fed300f5d6100005d4900015d4fb00f1551348076500001740000111ae9300020f8330058fbe00250fbe004740000431a4fd0005fed3010154d2000764c0001740000065d4fb010725000081b4925005fed200e5d4bb00e284d84805d63b0105f418000504bb078504d000872500008284d25005d4900005d4d0002725000081b4d44c0104924c05fed200a5d4bb00a76000007724c0008134d3040764c00025f491000740000015e49100074000002724c0008284914c05d450002104510405f4110025d43b00b104100405fed000b75000051920000a01af9500098080000970001ff4af800009500000f960800001aec5000910000081a43a0001a47e0005d4900005d4920005fed20005d490000724c00081b4c14c0104924c05f4120005d43b0001af50000920000081af91000980800009700000f4af8000095000007960800001aec50001a43a0001a47e000724800081b412400264000001a4070001af500001af9100098080000970000074af80000950001ff960800001aec5000910007381a5ba0001a5780001a53e0005043b2e01ae9000020f8330058fbe00250fbe004740002395043b2f81ae9000020f8330058fbe00250fbe004740002331a43d0007244001828ed04405043b6b8724400182843b4405fec00c65d43b0c65d456002164104407640000a5043b1685fec102d5047b6b850490008724c0018284914c0504bb4387244002028490440740001665d43b0c65047b3101ae9100020f8330058fbe00250fbe004740002451a47d000504bb018724c0008284914c05047b270724c0008284524c05d47b04e13451000764400075d47b04e13451040764400025d43f0043640000061440103740000016144000515490440764800011349044076480041614102005047b2605e4500005043b2605c410000134100007640002c5043b2605c410000134100407640001a5043b2605c4100007244000213410440764000065043b2185fec0043504bb3a072440010284904407400000b5043b2005fec10405047b210724800025fed204250490008724c0008284914c0504bb3a072440010284904405047b3b072400010284524007400000a5043b1e85fec103d5047b1f85fec103f50490008724c0008284914c05047b3b07248001028450480504bb3c072400010284914007400000a5043b1885fec10315047b1e05fec003c50490008724c0008284914c0504bb3c072440010284904405047b4887240001028452400740000055043b0a85fec00155047b48872480010284504805043b27872480010284114805d43b0911341004076400001360000005043b278504100085047b63872480008284504805047b59872480008284504805043b5a072480008284114805047b25872480008284504805d43b04b134100001a441000764000011a44000013411000764000e25d43b0c6614102015047b5a872480020284504805043b70072480020284114805043b70072440020264400001a447000504bb0b85fed1017724400205fed10185047b5c8724c0010284524c0504bb0f8724c0010284914c05fec00215047b5d8724c0018284524c0504bb610724c0018284914c0724400205fed10c45d47b0c272480020284504805043b6105047b5f072480018284504805043b3d072480018284114805047b72072480018284504805063b6b8505fb7205d43b0e65fed00d45d43b0d413410000764000ab5d41800213410000764000a15d4180025d47b0d4104104405fed00c1504180105047b6a872480008284504805043b33072440010284184401ae9000020f8330058fbe00250fbe004740001c61a43d0005d47b0c116410440764000017400006a5043b35072440010284184401ae9000020f8330058fbe00250fbe004740001c41a4fd0005043b34072440010284184401ae9000020f8330058fbe00250fbe004740001b01a43d0005d47b0c1154914007648000174000009264400001a4470005fed10d11545000076440001740000025d47b0d1284534005d4fb0d15d43b0c11b4100405047b1305fed30265fed00275043b22872480010284114805047b02072480010284504805043b3e872480010284114805047b3f872480010284504805043b69072480010284114805043b690504bb238724c0010284914c05047b030724c0010284524c0504bb408724c0010284914c05047b0c8724c0010284524c05d47b0825fed10c55d47b0c5264400001a4470005fed10d65d47b0c51545100076440001740000135047b24872480010284504805043b04072480010284114805047b41872480010284504805043b11072480010284114805d43b0835d47b0d65d4bb0c51b4920405fed20cf5d4bb0cf284504805043b6b05047b628504bb0d8724c0008284904c050412008724c0008284114c05043b428724400102841244072440010286104405043b36072440010284184401ae9000020f8330058fbe00250fbe0047400015a1a43d0005d47b0d5104104405fed00d05043b37072440010284174401ae9000020f8330058fbe00250fbe0047400014e1a43d0005d47b0d05d4bb0d4284504805043b6085045801072480008284504801ae9700020f8330058fbe00250fbe0047400011e7400000772400018286174001ae9700020f8330058fbe00250fbe004740001165d43b0c6104100405fed00c67500016d5043b0885fec0011504bb43872440020284904405043b28872440020284124405d43b0871341004076400001360000005043b288504100085047b64072480018284504805047b45872480018284504805043b47072480018284114805043b3181ae9000020f8330058fbe00250fbe004740000ce1a43d0005047b05072480008284504805043b2d872480008284114805d43b05b13410000764000065043b1a85fec0035504bb5087244002828490440740000735d43f005104100c05047b49872480020284504805043b6d072480020284114805043b3201ae9000020f8330058fbe00250fbe004740000b01a43d0005047b05872480008284504805043b26872480008284114805d43b04d134100007640000e5d43b04d13410040764000025d43f004364000005043b1985fec00335047b4b87248001028450480504bb4c87240001028491400740000075043b0e85fec101d614400035fed101e504bb4c872440010284904405043b4d872440010284124405047b38072480010284504801ae9100020f8330058fbe00250fbe004740000db1a43d0005fed00de5043b3281ae9000020f8330058fbe00250fbe0047400007e1a43d0005047b06072480008284504805043b2d072480008284114805d43b05a13410000764000065043b1d05fec003a504bb4e87244001028490440740000075043b1205fec1024614400095fed1025504bb4e872440010284904405043b4f872440010284124405047b39072480010284504801ae9100020f8330058fbe00250fbe004740000b11a43d0005fed00df5043b1405fec10285047b6d05d4bb0df5d4fb0de424524c0504bb068724c0020284914c050450008724c0020284524c0504bb50872440028284904405043b53072440028284124405047b2a872480028284504805d43b0a61341004076400001360000005043b2a8504100085047b65872480020284504805047b55872480020284504805043b578724800202841148072440020285504401af55000920007381af9400098080000970001ff4af800009500000f960800001aec5000910000381a43a0001a47e000504bb0281ae9200020f8330058fbe00250fbe0047400000f1a4bd000724c001028ed24c0504bb010724c0010284bb4c05fec0004724c0018284124c01af50000920000381af91000980800009700000f4af8000095000007960800001aec5000910000101a43a0001a47e0001a480000264800001a4870005fed20005fec0001724800102843b4801af50000920000101af9100098080000970000074af800009500001f960800001aec5000910000281a43a0001a47e00061480001504fb0105e4d2000504bb0105c492000134920007648000e504bb0105c492000134920407648000136000000504bb0085fec1001504fb01872500008284d25005053b0207248000828513480740000045fec00005053b020724800082853b48072480008284144801af50000920000281af91000980800009700001f4af800009500000f960800001aec5000910000201a43a0001a47e000504bb0101ae9200020f8330058fbe00250fbe004750000441a4bd000724c001028ed24c0724800102843b4805f4000021af40000920000201af91000980800009700000f4af8000095000003960800001aec50001a43a0001a47e0005d4100011af500001af9100098080000970000034af8000095000003960800001aec50001a43a0001a47e0005d4100001af500001af9100098080000970000034af8000095000007960800001aec5000910000101a43a0001a47e0007248001028ed04805d4100001341004076400001360000005d43b0011af50000920000101af9100098080000970000074af80000470000000000000000000000000000000000000000000000000000000000000000000000cccccccccccc00020000000000000498",
+      scriptData: "0x0000000000000001000000000000000000000000000000010000000000000000",
+    },
+    logs: [],
+  },
+  transactionResponse: TransactionResponse {
+    id: "0xba0876fe2944129ee4f1e9838aaf3f6feb6bd2b0ecae2c9a0cf1231cb48fd9e3",
+    provider: _Provider {
+      url: "http://127.0.0.1:4000/v1/graphql",
+      operations: {
+        getVersion: [Function: getVersion],
+        getNodeInfo: [Function: getNodeInfo],
+        getChain: [Function: getChain],
+        getTransaction: [Function: getTransaction],
+        getTransactionWithReceipts: [Function: getTransactionWithReceipts],
+        getTransactions: [Function: getTransactions],
+        getTransactionsByOwner: [Function: getTransactionsByOwner],
+        estimatePredicates: [Function: estimatePredicates],
+        getBlock: [Function: getBlock],
+        getBlockWithTransactions: [Function: getBlockWithTransactions],
+        getBlocks: [Function: getBlocks],
+        getCoin: [Function: getCoin],
+        getCoins: [Function: getCoins],
+        getCoinsToSpend: [Function: getCoinsToSpend],
+        getContract: [Function: getContract],
+        getContractBalance: [Function: getContractBalance],
+        getBalance: [Function: getBalance],
+        getLatestGasPrice: [Function: getLatestGasPrice],
+        estimateGasPrice: [Function: estimateGasPrice],
+        getBalances: [Function: getBalances],
+        getMessages: [Function: getMessages],
+        getMessageProof: [Function: getMessageProof],
+        getMessageStatus: [Function: getMessageStatus],
+        getRelayedTransactionStatus: [Function: getRelayedTransactionStatus],
+        dryRun: [Function: dryRun],
+        submit: [Function: submit],
+        produceBlocks: [Function: produceBlocks],
+        getMessageByNonce: [Function: getMessageByNonce],
+        submitAndAwait: [Function: submitAndAwait],
+        statusChange: [Function: statusChange],
+      },
+      cache: ResourceCache {
+        ttl: 20000,
+        set: [Function: set],
+        unset: [Function: unset],
+        getActiveData: [Function: getActiveData],
+        isCached: [Function: isCached],
+        clear: [Function: clear],
+      },
+      options: {
+        timeout: undefined,
+        resourceCacheTTL: undefined,
+        fetch: undefined,
+        retryOptions: undefined,
+      },
+      getChain: [Function: getChain],
+      getNode: [Function: getNode],
+      getGasConfig: [Function: getGasConfig],
+      connect: [Function: connect],
+      fetchChainAndNodeInfo: [Function: fetchChainAndNodeInfo],
+      createOperations: [Function: createOperations],
+      getVersion: [Function: getVersion],
+      getBlockNumber: [Function: getBlockNumber],
+      fetchNode: [Function: fetchNode],
+      fetchChain: [Function: fetchChain],
+      getChainId: [Function: getChainId],
+      getBaseAssetId: [Function: getBaseAssetId],
+      validateTransaction: [Function: validateTransaction],
+      sendTransaction: [Function: sendTransaction],
+      dryRun: [Function: dryRun],
+      estimatePredicates: [Function: estimatePredicates],
+      estimateTxDependencies: [Function: estimateTxDependencies],
+      estimateMultipleTxDependencies: [Function: estimateMultipleTxDependencies],
+      dryRunMultipleTransactions: [Function: dryRunMultipleTransactions],
+      estimateTxGasAndFee: [Function: estimateTxGasAndFee],
+      simulate: [Function: simulate],
+      getTransactionCost: [Function: getTransactionCost],
+      getCoins: [Function: getCoins],
+      getResourcesToSpend: [Function: getResourcesToSpend],
+      getBlock: [Function: getBlock],
+      getBlocks: [Function: getBlocks],
+      getBlockWithTransactions: [Function: getBlockWithTransactions],
+      getTransaction: [Function: getTransaction],
+      getTransactions: [Function: getTransactions],
+      getContract: [Function: getContract],
+      getContractBalance: [Function: getContractBalance],
+      getBalance: [Function: getBalance],
+      getBalances: [Function: getBalances],
+      getMessages: [Function: getMessages],
+      getMessageProof: [Function: getMessageProof],
+      getLatestGasPrice: [Function: getLatestGasPrice],
+      estimateGasPrice: [Function: estimateGasPrice],
+      getMessageStatus: [Function: getMessageStatus],
+      produceBlocks: [Function: produceBlocks],
+      getTransactionResponse: [Function: getTransactionResponse],
+      getMessageByNonce: [Function: getMessageByNonce],
+      getRelayedTransactionStatus: [Function: getRelayedTransactionStatus],
+      validatePaginationArgs: [Function: validatePaginationArgs],
+      extractDryRunError: [Function: extractDryRunError],
+    },
+    gasUsed: <BN: 0x0>,
+    gqlTransaction: undefined,
+    request: ScriptTransactionRequest {
+      tip: undefined,
+      maturity: undefined,
+      maxFee: <BN: 0x1>,
+      witnessLimit: undefined,
+      inputs: [
+        {
+          id: "0x0928995ed5db8864d653616eff625740bdc5e5147b32f7db0292bea05bbea4600000",
+          type: 0,
+          owner: "0x6b63804cfbf9856e68e5b6e7aef238dc8311ec55bec04df774003a2c96e0418e",
+          amount: <BN: 0xfffffffffffffd8>,
+          assetId: "0xf8f8b6283d7fa5b672b530cbb84fcccb4ff8dc40f8176ef4544ddb1f1952ad07",
+          txPointer: "0x00000000000000000000000000000000",
+          witnessIndex: 1,
+          predicate: undefined,
+          predicateData: undefined,
+        }
+      ],
+      outputs: [
+        {
+          type: 2,
+          to: "0x6b63804cfbf9856e68e5b6e7aef238dc8311ec55bec04df774003a2c96e0418e",
+          assetId: "0xf8f8b6283d7fa5b672b530cbb84fcccb4ff8dc40f8176ef4544ddb1f1952ad07",
+        },
+        {
+          type: 0,
+          to: "0xcdd3f03f4b5c117291e0a2fed092e27654d69003b00eafb27d3f29b1b132717b",
+          amount: 10,
+          assetId: "0xf8f8b6283d7fa5b672b530cbb84fcccb4ff8dc40f8176ef4544ddb1f1952ad07",
+        }
+      ],
+      witnesses: [
+        Uint8Array(64) [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ],
+        "0x4e4366436496ff7d45d309ad5170bb864d640aae358982f6cc235db4e55b7a03e48c3e4c2fe784a830cd19bfcf8ff98a520ffd82387e6dc54d4b1c48b2b95d70"
+      ],
+      type: 0,
+      gasLimit: <BN: 0x186a0>,
+      script: Uint8Array(4360) [ 26, 240, 48, 0, 116, 0, 0, 2, 0, 0, 0, 0, 0, 0, 16, 216, 93, 255, 192, 1, 16, 255, 255, 0, 26, 236, 80, 0, 145, 0, 3, 208, 80, 83, 178, 88, 97, 64, 0, 10, 95, 237, 0, 117, 97, 64, 0, 4, 95, 237, 0, 106, 80, 67, 179, 168, 80, 71, 176, 224, 114, 72, 0, 8, 40, 69, 4, 128, 80, 75, 178, 152, 114, 64, 0, 8, 40, 73, 20, 0, 80, 67, 179, 136, 114, 68, 0, 8, 40, 65, 36, 64, 80, 67, 179, 136, 80, 71, 178, 8, 26, 233, 0, 0, 26, 229, 16, 0, 32, 248, 51, 0, 88, 251, 224, 2, 80, 251, 224, 4, 116, 0, 0, 151, 26, 71, 208, 0, 114, 72, 0, 24, 40, 237, 20, 128, 80, 71, 178, 32, 26, 233, 0, 0, 26, 229, 16, 0, 32, 248, 51, 0, 88, 251, 224, 2, 80, 251, 224, 4, 116, 0, 0, 141, 26, 67, 208, 0, 80, 71, 176, 24, 114, 72, 0, 24, 40, 69, 4, 128, 80, 67, 176, 232, 114, 72, 0, 24, 40, 67, 180, 128, 80, 73, 0, 24, 114, 76, 0, 24, 40, 73, 20, 192, 80, 71, 178, 160, 114, 72, 0, 48, 40, 69, 4, 128, 80, 67, 178, 208, 114, 72, 0, 48, 40, 65, 20, 128, 80, 71, 179, 88, 114, 72, 0, 48, 40, 69, 4, 128, 80, 67, 179, 88, 80, 71, 179, 88, 80, 69, 16, 24, 80, 75, 178, 104, 114, 76, 0, 24, 40, 73, 4, 192, 80, 67, 178, 128, 114, 76, 0, 24, 40, 65, 20, 192, 80, 71, 178, 56, 26, 233, 32, 0, 26, 229, 0, 0, 26, 225, 16, 0, 32, 248, 51, 0, 88, 251, 224, 2, 80, 251, 224, 4, 116, 0, 1, 12, 26, 67, 208, 0, 80, 71, 176, 48, 114, 72, 0, 32, 40, 69, 4, 128, 80, 67, 179, 176, 114, 72, 0, 32, 40, 65, 20, 128, 80, 67, 179, 176, 80, 71, 176, 128, 114, 72, 0, 32, 40, 69, 4, 128, 114, 64, 4, 0, 38, 64, 0, 0, 26, 64, 112, 0, 80, 75, 177, 48, 95, 237, 0, 38, 114, 64, 4, 0, 95, 237, 0, 39, 95, 236, 0, 40, 80, 67, 176, 80, 114, 76, 0, 24, 40, 65, 36, 192, 80, 75, 177, 96, 114, 76, 0, 24, 40, 73, 4, 192, 80, 67, 179, 0, 114, 76, 0, 24, 40, 65, 36, 192, 80, 75, 177, 216, 114, 76, 0, 24, 40, 73, 4, 192, 80, 67, 176, 104, 114, 76, 0, 24, 40, 65, 36, 192, 80, 75, 177, 24, 114, 76, 0, 24, 40, 73, 4, 192, 93, 87, 176, 35, 93, 79, 176, 36, 93, 67, 176, 37, 114, 72, 0, 32, 16, 73, 4, 128, 21, 73, 36, 192, 118, 72, 0, 1, 116, 0, 0, 5, 114, 72, 0, 2, 27, 77, 52, 128, 38, 76, 0, 0, 40, 29, 84, 0, 26, 84, 112, 0, 80, 75, 177, 120, 114, ... 3847 more ],
+      scriptData: Uint8Array(32) [ 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0 ],
+      abis: {
+        main: {
+          programType: "script",
+          specVersion: "1",
+          encodingVersion: "1",
+          concreteTypes: [
+            {
+              type: "b256",
+              concreteTypeId: "7c5ee1cecf5f8eacd1284feb5f0bf2bdea533a51e2f0c9aabe9236d335989f3b",
+            },
+            {
+              type: "struct std::vec::Vec<u64>",
+              concreteTypeId: "d5bfe1d4e1ace20166c9b50cadd47e862020561bde24f5189cfc2723f5ed76f4",
+              metadataTypeId: 3,
+              typeArguments: [ "1506e6f44c1d6291cdf46395a8e573276a4fa79e8ace3fc891e092ef32d1b0a0"
+              ],
+            }, {
+              type: "u64",
+              concreteTypeId: "1506e6f44c1d6291cdf46395a8e573276a4fa79e8ace3fc891e092ef32d1b0a0",
+            }
+          ],
+          metadataTypes: [
+            {
+              type: "generic T",
+              metadataTypeId: 0,
+            }, {
+              type: "raw untyped ptr",
+              metadataTypeId: 1,
+            }, {
+              type: "struct std::vec::RawVec",
+              metadataTypeId: 2,
+              components: [
+                {
+                  name: "ptr",
+                  typeId: 1,
+                }, {
+                  name: "cap",
+                  typeId: "1506e6f44c1d6291cdf46395a8e573276a4fa79e8ace3fc891e092ef32d1b0a0",
+                }
+              ],
+              typeParameters: [ 0 ],
+            }, {
+              type: "struct std::vec::Vec",
+              metadataTypeId: 3,
+              components: [
+                {
+                  name: "buf",
+                  typeId: 2,
+                  typeArguments: [
+                    [Object ...]
+                  ],
+                }, {
+                  name: "len",
+                  typeId: "1506e6f44c1d6291cdf46395a8e573276a4fa79e8ace3fc891e092ef32d1b0a0",
+                }
+              ],
+              typeParameters: [ 0 ],
+            }
+          ],
+          functions: [
+            {
+              inputs: [
+                {
+                  name: "input_tx_idxs",
+                  concreteTypeId: "d5bfe1d4e1ace20166c9b50cadd47e862020561bde24f5189cfc2723f5ed76f4",
+                },
+                {
+                  name: "output_tx_idxs",
+                  concreteTypeId: "d5bfe1d4e1ace20166c9b50cadd47e862020561bde24f5189cfc2723f5ed76f4",
+                }
+              ],
+              name: "main",
+              output: "7c5ee1cecf5f8eacd1284feb5f0bf2bdea533a51e2f0c9aabe9236d335989f3b",
+              attributes: [
+                {
+                  name: "doc-comment",
+                  arguments: [ " extract inputs, and outputs" ],
+                }, {
+                  name: "doc-comment",
+                  arguments: [ " extract the script bytecode hash" ],
+                }, {
+                  name: "doc-comment",
+                  arguments: [ " calculate the tranasaction hash based on that" ],
+                },
+                {
+                  name: "doc-comment",
+                  arguments: [ "" ],
+                }, {
+                  name: "doc-comment",
+                  arguments: [ " V0, user can only sign over a single input and single output { only of type coin }"
+                  ],
+                }, {
+                  name: "doc-comment",
+                  arguments: [ " txn_hash = sha_256([[input_tx_id_bytes], [hash_of_serialized_output_type_coin]], [script_bytecodehash_bytes])"
+                  ],
+                }
+              ],
+            }
+          ],
+          loggedTypes: [],
+          messagesTypes: [],
+          configurables: [],
+        },
+        otherContractsAbis: {},
+      },
+      toTransaction: [Function: toTransaction],
+      getContractInputs: [Function: getContractInputs],
+      getContractOutputs: [Function: getContractOutputs],
+      getVariableOutputs: [Function: getVariableOutputs],
+      setScript: [Function: setScript],
+      addVariableOutputs: [Function: addVariableOutputs],
+      calculateMaxGas: [Function: calculateMaxGas],
+      addContractInputAndOutput: [Function: addContractInputAndOutput],
+      getTransactionId: [Function: getTransactionId],
+      setData: [Function: setData],
+      metadataGas: [Function: metadataGas],
+      getBaseTransaction: [Function: getBaseTransaction],
+      toTransactionBytes: [Function: toTransactionBytes],
+      pushInput: [Function: pushInput],
+      pushOutput: [Function: pushOutput],
+      addWitness: [Function: addWitness],
+      addEmptyWitness: [Function: addEmptyWitness],
+      updateWitnessByOwner: [Function: updateWitnessByOwner],
+      updateWitness: [Function: updateWitness],
+      addAccountWitnesses: [Function: addAccountWitnesses],
+      getCoinInputs: [Function: getCoinInputs],
+      getCoinOutputs: [Function: getCoinOutputs],
+      getChangeOutputs: [Function: getChangeOutputs],
+      getCoinInputWitnessIndexByOwner: [Function: getCoinInputWitnessIndexByOwner],
+      addCoinInput: [Function: addCoinInput],
+      addMessageInput: [Function: addMessageInput],
+      addResource: [Function: addResource],
+      addResources: [Function: addResources],
+      addCoinOutput: [Function: addCoinOutput],
+      addCoinOutputs: [Function: addCoinOutputs],
+      addChangeOutput: [Function: addChangeOutput],
+      byteSize: [Function: byteSize],
+      calculateMinGas: [Function: calculateMinGas],
+      fundWithFakeUtxos: [Function: fundWithFakeUtxos],
+      getCoinOutputsQuantities: [Function: getCoinOutputsQuantities],
+      toJSON: [Function: toJSON],
+      removeWitness: [Function: removeWitness],
+      adjustWitnessIndexes: [Function: adjustWitnessIndexes],
+      updatePredicateGasUsed: [Function: updatePredicateGasUsed],
+      byteLength: [Function: byteLength],
+    },
+    status: {
+      type: "SuccessStatus",
+      block: {
+        id: "0x3674a254208c59ee5994e8c49735bb9e18521cfbe2f00a7cfa36337c72e8f2a5",
+      },
+      time: "4611686020152345294",
+      programState: {
+        returnType: "RETURN_DATA",
+        data: "0xa8bd8d4ff78d436da37d114a4501069f9ee09191855fd893a94140cf29309316",
+      },
+      receipts: [
+        {
+          id: null,
+          pc: "11092",
+          is: "10368",
+          to: null,
+          toAddress: null,
+          amount: null,
+          assetId: null,
+          gas: null,
+          param1: null,
+          param2: null,
+          val: null,
+          ptr: "67107792",
+          digest: "0xa8bd8d4ff78d436da37d114a4501069f9ee09191855fd893a94140cf29309316",
+          reason: null,
+          ra: null,
+          rb: null,
+          rc: null,
+          rd: null,
+          len: "32",
+          receiptType: "RETURN_DATA",
+          result: null,
+          gasUsed: null,
+          data: "0x07ba6dd0e7a540d05a98f179aa4e90bc5b3bcdd8441080fd037d369c3740f942",
+          sender: null,
+          recipient: null,
+          nonce: null,
+          contractId: null,
+          subId: null,
+        }, {
+          id: null,
+          pc: null,
+          is: null,
+          to: null,
+          toAddress: null,
+          amount: null,
+          assetId: null,
+          gas: null,
+          param1: null,
+          param2: null,
+          val: null,
+          ptr: null,
+          digest: null,
+          reason: null,
+          ra: null,
+          rb: null,
+          rc: null,
+          rd: null,
+          len: null,
+          receiptType: "SCRIPT_RESULT",
+          result: "0",
+          gasUsed: "4185",
+          data: null,
+          sender: null,
+          recipient: null,
+          nonce: null,
+          contractId: null,
+          subId: null,
+        }
+      ],
+      totalGas: "348637",
+      totalFee: "0",
+      transaction: {
+        receiptsRoot: "0xb44db91b6986487a924cb5e2e049369715a1e0510dcc5adad283d52da75c5594",
+        inputs: [
+          {
+            type: "InputCoin",
+            txPointer: "000000000000",
+          }
+        ],
+        outputs: [
+          {
+            type: "ChangeOutput",
+            to: "0x6b63804cfbf9856e68e5b6e7aef238dc8311ec55bec04df774003a2c96e0418e",
+            amount: "1152921504606846926",
+            assetId: "0xf8f8b6283d7fa5b672b530cbb84fcccb4ff8dc40f8176ef4544ddb1f1952ad07",
+          },
+          {
+            type: "CoinOutput",
+            to: "0xcdd3f03f4b5c117291e0a2fed092e27654d69003b00eafb27d3f29b1b132717b",
+            amount: "10",
+            assetId: "0xf8f8b6283d7fa5b672b530cbb84fcccb4ff8dc40f8176ef4544ddb1f1952ad07",
+          }
+        ],
+      },
+    },
+    abis: {
+      main: {
+        programType: "script",
+        specVersion: "1",
+        encodingVersion: "1",
+        concreteTypes: [
+          {
+            type: "b256",
+            concreteTypeId: "7c5ee1cecf5f8eacd1284feb5f0bf2bdea533a51e2f0c9aabe9236d335989f3b",
+          },
+          {
+            type: "struct std::vec::Vec<u64>",
+            concreteTypeId: "d5bfe1d4e1ace20166c9b50cadd47e862020561bde24f5189cfc2723f5ed76f4",
+            metadataTypeId: 3,
+            typeArguments: [ "1506e6f44c1d6291cdf46395a8e573276a4fa79e8ace3fc891e092ef32d1b0a0"
+            ],
+          }, {
+            type: "u64",
+            concreteTypeId: "1506e6f44c1d6291cdf46395a8e573276a4fa79e8ace3fc891e092ef32d1b0a0",
+          }
+        ],
+        metadataTypes: [
+          {
+            type: "generic T",
+            metadataTypeId: 0,
+          }, {
+            type: "raw untyped ptr",
+            metadataTypeId: 1,
+          }, {
+            type: "struct std::vec::RawVec",
+            metadataTypeId: 2,
+            components: [
+              {
+                name: "ptr",
+                typeId: 1,
+              }, {
+                name: "cap",
+                typeId: "1506e6f44c1d6291cdf46395a8e573276a4fa79e8ace3fc891e092ef32d1b0a0",
+              }
+            ],
+            typeParameters: [ 0 ],
+          }, {
+            type: "struct std::vec::Vec",
+            metadataTypeId: 3,
+            components: [
+              {
+                name: "buf",
+                typeId: 2,
+                typeArguments: [
+                  [Object ...]
+                ],
+              }, {
+                name: "len",
+                typeId: "1506e6f44c1d6291cdf46395a8e573276a4fa79e8ace3fc891e092ef32d1b0a0",
+              }
+            ],
+            typeParameters: [ 0 ],
+          }
+        ],
+        functions: [
+          {
+            inputs: [
+              {
+                name: "input_tx_idxs",
+                concreteTypeId: "d5bfe1d4e1ace20166c9b50cadd47e862020561bde24f5189cfc2723f5ed76f4",
+              },
+              {
+                name: "output_tx_idxs",
+                concreteTypeId: "d5bfe1d4e1ace20166c9b50cadd47e862020561bde24f5189cfc2723f5ed76f4",
+              }
+            ],
+            name: "main",
+            output: "7c5ee1cecf5f8eacd1284feb5f0bf2bdea533a51e2f0c9aabe9236d335989f3b",
+            attributes: [
+              {
+                name: "doc-comment",
+                arguments: [ " extract inputs, and outputs" ],
+              }, {
+                name: "doc-comment",
+                arguments: [ " extract the script bytecode hash" ],
+              }, {
+                name: "doc-comment",
+                arguments: [ " calculate the tranasaction hash based on that" ],
+              },
+              {
+                name: "doc-comment",
+                arguments: [ "" ],
+              }, {
+                name: "doc-comment",
+                arguments: [ " V0, user can only sign over a single input and single output { only of type coin }"
+                ],
+              }, {
+                name: "doc-comment",
+                arguments: [ " txn_hash = sha_256([[input_tx_id_bytes], [hash_of_serialized_output_type_coin]], [script_bytecodehash_bytes])"
+                ],
+              }
+            ],
+          }
+        ],
+        loggedTypes: [],
+        messagesTypes: [],
+        configurables: [],
+      },
+      otherContractsAbis: {},
+    },
+    applyMalleableSubscriptionFields: [Function: applyMalleableSubscriptionFields],
+    getTransaction: [Function: getTransaction],
+    getReceipts: [Function: getReceipts],
+    fetch: [Function: fetch],
+    decodeTransaction: [Function: decodeTransaction],
+    getTransactionSummary: [Function: getTransactionSummary],
+    waitForStatusChange: [Function: waitForStatusChange],
+    assembleResult: [Function: assembleResult],
+    waitForResult: [Function: waitForResult],
+    wait: [Function: wait],
+    unsetResourceCache: [Function: unsetResourceCache],
+  },
+  transactionId: "0xba0876fe2944129ee4f1e9838aaf3f6feb6bd2b0ecae2c9a0cf1231cb48fd9e3",
+  logs: [],
+  gasUsed: <BN: 0x1059>,
+}

@@ -1,5 +1,7 @@
-import { Address, bn, Provider, ScriptTransactionRequest, Wallet } from "fuels";
+import { Address, bn, Provider, Script, ScriptTransactionRequest, Wallet } from "fuels";
 import {config} from "dotenv"
+import {DbgExample} from "./predicates/scripts/index"
+import {writeFileSync} from "node:fs"
 
 config();
 
@@ -29,21 +31,29 @@ const recipientAddress = Address.fromAddressOrString(process.env.RECIPIENT_ADDRE
 
 const wallet = Wallet.fromPrivateKey(PRIVATE_KEY, provider);
 
-const coins = await wallet.getCoins();
-console.log(coins);
+const coins  = (await wallet.getCoins()).coins;
+console.log("coins are,", coins);
 
-const coinToUse= coins.coins[0];
+const script = new DbgExample(wallet);
+const tx =  script.functions.main([0],[1]);
 
-const request = new ScriptTransactionRequest({
-    gasLimit: 100000
-});
+const request = await tx.getTransactionRequest();
+request.addCoinInput(coins[0]);
+request.addCoinOutput(recipientAddress, 10, coins[0].assetId);
+
+tx.callParams({gasLimit: 100000});
+
+writeFileSync("./tx.json",JSON.stringify(request.toTransaction()));
+
+const call = await tx.call();
 
 
-request.addCoinInput(coinToUse);
-request.addCoinOutput(recipientAddress, bn(10), coinToUse.assetId);
+console.log('call sent', call);
+const response = await call.waitForResult();
 
-const result = await (await wallet.sendTransaction(request)).wait();
-console.log(result.transaction);
+console.log('response, ', response);
+
+
 
 // const block = await provider.getBlockWithTransactions("latest");
 // console.log("block:", block?.transactions[0]);
