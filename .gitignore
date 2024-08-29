@@ -3,3 +3,6 @@ node_modules
 
 gasless_predicate/out
 gasless_predicate/target
+
+# sometimes we dump txs to this file to investigate them
+tx.json
