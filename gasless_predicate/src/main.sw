@@ -123,6 +123,8 @@ fn serialize_output_coins (indexes: Vec<u64>) -> Option<Bytes> {
 /// txn_hash = sha_256([[input_tx_id_bytes], [hash_of_serialized_output_type_coin]], [script_bytecodehash_bytes])
 fn main(input_tx_idxs: Vec<u64>, output_tx_idxs: Vec<u64>) -> b256 {
 
+    log(PUBLIC_KEY);
+
     let mut payload = Bytes::new();
 
     let mut serialized_input_coins = serialize_input_coins(input_tx_idxs).unwrap();

@@ -35,6 +35,9 @@ const coins  = (await wallet.getCoins()).coins;
 console.log("coins are,", coins);
 
 const script = new DbgExample(wallet);
+script.setConfigurableConstants({
+    PUBLIC_KEY: wallet.publicKey
+});
 const tx =  script.functions.main([0],[1]);
 
 const request = await tx.getTransactionRequest();
@@ -104,6 +107,8 @@ console.log("hash", hash);
 
 const signature = await wallet.signMessage(hash);
 console.log('digital signature', signature);
+
+console.log('public key', wallet.publicKey);
 }
 
 main();
