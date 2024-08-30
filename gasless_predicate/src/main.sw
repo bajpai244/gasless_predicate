@@ -121,7 +121,7 @@ fn serialize_output_coins (indexes: Vec<u64>) -> Option<Bytes> {
 ///
 /// V0, user can only sign over a single input and single output { only of type coin }
 /// txn_hash = sha_256([[input_tx_id_bytes], [hash_of_serialized_output_type_coin]], [script_bytecodehash_bytes])
-fn main(input_tx_idxs: Vec<u64>, output_tx_idxs: Vec<u64>) -> b256 {
+fn main(input_tx_idxs: Vec<u64>, output_tx_idxs: Vec<u64>, signature: Vec<u8>) -> b256 {
 
     log(PUBLIC_KEY);
 
