@@ -102,8 +102,8 @@ console.log("transaction logs", response.logs);
 const hash = sha256(payload);
 console.log("hash", hash);
 
-// const block = await provider.getBlockWithTransactions("latest");
-// console.log("block:", block?.transactions[0]);
+const signature = await wallet.signMessage(hash);
+console.log('digital signature', signature);
 }
 
 main();

@@ -8,11 +8,16 @@ use std::inputs::{Input, input_type};
 use std::bytes_conversions::{b256::*, u64::*};
 use std::bytes::Bytes;
 use std::hash::Hasher;
+use std::b512::B512;
 
 const GTF_INPUT_COIN_TX_ID = 0x201;
 
 fn input_txn_hash(index: u64) -> b256 {
      __gtf::<b256>(index, GTF_INPUT_COIN_TX_ID)
+}
+
+configurable {
+    PUBLIC_KEY: B512 = B512::new()
 }
 
 /// serialization of output_type_coin
