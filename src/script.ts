@@ -1,7 +1,7 @@
-import { Address, bn, Provider, Script, ScriptTransactionRequest, Wallet } from "fuels";
+import { Address, B256Coder, BigNumberCoder, bn, NumberCoder, Provider, Script, ScriptTransactionRequest, sha256, uint64ToBytesBE, Wallet } from "fuels";
 import {config} from "dotenv"
 import {DbgExample} from "./predicates/scripts/index"
-import {writeFileSync} from "node:fs"
+import {writeFileSync, readFileSync} from "node:fs"
 
 config();
 
@@ -47,14 +47,60 @@ writeFileSync("./tx.json",JSON.stringify(request.toTransaction()));
 
 const call = await tx.call();
 
-
 console.log('call sent ...');
 const response = await call.waitForResult();
 
 console.log('tx_id: ', response.transactionId);
 console.log('return value: ', response.value);
 
+const transaction = await provider.getTransaction(response.transactionId);
 
+/// we try to get to the same transaction hash below
+
+const inputCoin = coins[0];
+const inputCoinId = inputCoin.id.slice(0, inputCoin.id.length - 4);
+console.log("inputCoinId: ", inputCoinId);
+/// The bytes will be big endian
+const b256Coder = new B256Coder();
+const u64Coder= new BigNumberCoder('u64');
+
+const inputCoinBytes = b256Coder.encode(inputCoinId);
+
+const scriptHash = readFileSync('./gasless_predicate/out/debug/dbg_example-bin-hash', 'utf8').trim();
+const scriptHashBytes = b256Coder.encode(scriptHash);
+
+console.log("inputBytes", inputCoinBytes);
+console.log("scriptHashBytes", scriptHashBytes);
+
+if(!transaction?.outputs) {
+    console.error('Error: No transaction output found.');
+    process.exit(1);
+}
+const outputCoin = transaction?.outputs[1];
+if(outputCoin.type !== 0) {
+    console.error("Error: Unexpected output coin type. Expected type 0 (Coin), but got type", outputCoin.type);
+    process.exit(1);
+}
+console.log('outputs', outputCoin);
+
+const toBytes = b256Coder.encode(outputCoin.to);
+const amountBytes = u64Coder.encode(outputCoin.amount);
+const assetIdBytes = b256Coder.encode(outputCoin.assetId);
+
+const outputBytes = new Uint8Array([...toBytes, ...amountBytes, ...assetIdBytes]);
+
+// Append all bytes to payload
+const payload = new Uint8Array([
+  ...inputCoinBytes,
+  ...scriptHashBytes,
+  ...outputBytes
+]);
+
+console.log("Final payload:", payload);
+console.log("transaction logs", response.logs);
+
+const hash = sha256(payload);
+console.log("hash", hash);
 
 // const block = await provider.getBlockWithTransactions("latest");
 // console.log("block:", block?.transactions[0]);

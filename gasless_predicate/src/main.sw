@@ -44,19 +44,19 @@ fn serialize_output_type_coin(index: u64) -> Option<Bytes> {
     let asset_id_bytes = asset_id.to_be_bytes();
 
     let mut i = 0;
-    while i == to_bytes.len() {
+    while i < to_bytes.len() {
         output_bytes.push(to_bytes.get(i).unwrap());
         i+=1;
     };
 
     let mut i = 0;
-    while i == amount_bytes.len() {
+    while i < amount_bytes.len() {
         output_bytes.push(amount_bytes.get(i).unwrap());
         i+=1;
     };
 
     let mut i = 0;
-    while i == asset_id_bytes.len() {
+    while i < asset_id_bytes.len() {
         output_bytes.push(asset_id_bytes.get(i).unwrap());
         i+=1;
     };
