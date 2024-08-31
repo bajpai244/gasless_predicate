@@ -7,6 +7,7 @@ export default createConfig({
   predicates: [
     'gasless_wallet'
   ],
+  contracts: ['dummy_stablecoin'],
   output: './src/predicates',
 });
 

@@ -1,9 +1,6 @@
 import { Address, B256Coder, BigNumberCoder, bn, NumberCoder, Provider, Script, ScriptTransactionRequest, sha256, Signer, uint64ToBytesBE, Wallet } from "fuels";
 import {config} from "dotenv"
-import {DbgExample} from "./predicates/scripts/index"
-import {writeFileSync, readFileSync} from "node:fs"
-import { calculatePayloadHash } from "./lib";
-import { GaslessWallet } from "./predicates";
+import { DummyStablecoinFactory, GaslessWallet } from "./predicates";
 
 config();
 
@@ -31,15 +28,22 @@ if (!process.env.RECIPIENT_ADDRESS) {
     console.error('RECIPIENT_ADDRESS is not defined in the environment variables.');
     process.exit(1);
 }
-const recipientAddress = Address.fromAddressOrString(process.env.RECIPIENT_ADDRESS);
 
-const coins  = (await wallet.getCoins()).coins;
-console.log("coins are,", coins);
+const stableCoinFactor = new DummyStablecoinFactory(wallet);
+const {contractId, waitForTransactionId} = await (await stableCoinFactor.deploy());
 
-const predicate = new GaslessWallet(wallet);
-console.log(predicate.address);
+await waitForTransactionId();
+console.log('deployed to contractId: ',contractId);
 
-const tx = new ScriptTransactionRequest();
+// const recipientAddress = Address.fromAddressOrString(process.env.RECIPIENT_ADDRESS);
+
+// const coins  = (await wallet.getCoins()).coins;
+// console.log("coins are,", coins);
+
+// const predicate = new GaslessWallet(wallet);
+// console.log(predicate.address);
+
+// const tx = new ScriptTransactionRequest();
 }
 
 main();
