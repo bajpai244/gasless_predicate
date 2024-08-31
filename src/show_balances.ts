@@ -1,5 +1,9 @@
-import { Address, bn, Provider, ScriptTransactionRequest, Wallet } from "fuels";
+import { Address, B256Coder, BigNumberCoder, bn, NumberCoder, Provider, Script, ScriptTransactionRequest, sha256, Signer, uint64ToBytesBE, Wallet } from "fuels";
 import {config} from "dotenv"
+import {DbgExample} from "./predicates/scripts/index"
+import {writeFileSync, readFileSync} from "node:fs"
+import { calculatePayloadHash } from "./lib";
+import { GaslessWallet } from "./predicates";
 
 config();
 
@@ -13,7 +17,7 @@ if (!LOCAL_FUEL_NETWORK) {
 }
 
 const provider = await Provider.create(LOCAL_FUEL_NETWORK);
- 
+
 // Create our wallet (with a private key).
 const PRIVATE_KEY = process.env.PRIVATE_KEY;
 if (!PRIVATE_KEY) {
@@ -21,34 +25,17 @@ if (!PRIVATE_KEY) {
     process.exit(1);
 }
 
+const wallet = Wallet.fromPrivateKey(PRIVATE_KEY, provider);
+
 if (!process.env.RECIPIENT_ADDRESS) {
     console.error('RECIPIENT_ADDRESS is not defined in the environment variables.');
     process.exit(1);
 }
 const recipientAddress = Address.fromAddressOrString(process.env.RECIPIENT_ADDRESS);
 
-const wallet = Wallet.fromPrivateKey(PRIVATE_KEY, provider);
+console.log('wallet balances', await wallet.getBalances());
+console.log('predicate balances', await provider.getBalances(recipientAddress));
 
-const coins = await wallet.getCoins();
-console.log(coins);
-
-const coinToUse= coins.coins[0];
-
-const request = new ScriptTransactionRequest({
-    gasLimit: 100000,
-    maxFee: 100
-});
-
-
-request.addCoinInput(coinToUse);
-console.log('recipientAddress', recipientAddress);
-request.addCoinOutput(recipientAddress, bn(10000), coinToUse.assetId);
-
-const result = await (await wallet.sendTransaction(request)).wait();
-console.log(result.transaction);
-
-const block = await provider.getBlockWithTransactions("latest");
-console.log("block:", block?.transactions);
 }
 
 main();

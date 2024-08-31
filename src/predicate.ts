@@ -36,10 +36,51 @@ const recipientAddress = Address.fromAddressOrString(process.env.RECIPIENT_ADDRE
 const coins  = (await wallet.getCoins()).coins;
 console.log("coins are,", coins);
 
-const predicate = new GaslessWallet(wallet);
-console.log(predicate.address);
+const scriptTransaction = new ScriptTransactionRequest({
+    gasLimit: 100000,
+    maxFee: 1000,
+});
 
-const tx = new ScriptTransactionRequest();
+const gaslessPredicate = new GaslessWallet(wallet);
+gaslessPredicate.predicateData[0] = [0];
+gaslessPredicate.predicateData[1] = [0];
+
+
+console.log(gaslessPredicate.address);
+
+const predicateCoins = (await provider.getCoins(gaslessPredicate.address)).coins;
+
+gaslessPredicate.addTransfer(scriptTransaction, {
+   destination: wallet.address,
+   amount: bn(10),
+   assetId: predicateCoins[0].assetId
+});
+
+scriptTransaction.addCoinInput(predicateCoins[0]);
+
+const payloadHash = calculatePayloadHash({request: scriptTransaction, inputIndexes: [0], outputIndexes: [0], scriptByteCodeHash: sha256(scriptTransaction.script)})
+const signer = new Signer(PRIVATE_KEY);
+const signature = signer.sign(payloadHash);
+gaslessPredicate.predicateData[2] = signature;
+gaslessPredicate.populateTransactionPredicateData(scriptTransaction);
+
+// const predicateCoins = (await (predicate.getCoins())).coins;
+console.log('predicate Coins are: ', predicateCoins);
+console.log('native asset id:', provider.getBaseAssetId());
+
+// scriptTransaction.addCoinInput(coins[0]);
+// await wallet.populateTransactionWitnessesSignature(scriptTransaction);
+
+if (scriptTransaction.inputs[0].type === 0){
+    const input = scriptTransaction.inputs[0];
+    console.log("inputs: ", scriptTransaction.inputs);
+    console.log("outputs:", scriptTransaction.outputs);
+    console.log("witness:", scriptTransaction.witnesses);
+}
+
+
+const response = await (await wallet.sendTransaction(scriptTransaction)).waitForResult();
+console.log("response: ", response);
 }
 
 main();

@@ -1,6 +1,6 @@
 import { Address, B256Coder, BigNumberCoder, bn, NumberCoder, Provider, Script, ScriptTransactionRequest, sha256, Signer, uint64ToBytesBE, Wallet } from "fuels";
 import {config} from "dotenv"
-import { DummyStablecoinFactory, GaslessWallet } from "./predicates";
+import { DummyStablecoin, DummyStablecoinFactory, GaslessWallet } from "./predicates";
 
 config();
 
@@ -24,26 +24,36 @@ if (!PRIVATE_KEY) {
 
 const wallet = Wallet.fromPrivateKey(PRIVATE_KEY, provider);
 
-if (!process.env.RECIPIENT_ADDRESS) {
-    console.error('RECIPIENT_ADDRESS is not defined in the environment variables.');
+const gaslessPredicate = new GaslessWallet(wallet);
+
+if(!process.env.STABLE_COIN_CONTRACT_ADDRESS) {
+    console.error('STABLE_COIN_CONTRACT_ADDRESS is not defined in the environment variables.');
     process.exit(1);
 }
 
-const stableCoinFactor = new DummyStablecoinFactory(wallet);
-const {contractId, waitForTransactionId} = await (await stableCoinFactor.deploy());
+const stableCoinAddress = process.env.STABLE_COIN_CONTRACT_ADDRESS;
 
-await waitForTransactionId();
-console.log('deployed to contractId: ',contractId);
+const stableCoin = new DummyStablecoin(stableCoinAddress, wallet);
 
-const recipientAddress = Address.fromAddressOrString(process.env.RECIPIENT_ADDRESS);
+const address = gaslessPredicate.address;
+const call = stableCoin.functions.mint({Address: {
+    bits: address.toB256()
+}}, bn (100));
 
-const coins  = (await wallet.getCoins()).coins;
-console.log("coins are,", coins);
+call.callParams({gasLimit: 100000});
 
-const predicate = new GaslessWallet(wallet);
-console.log(predicate.address);
+const callResult = await (await call.call()).waitForResult();
 
-const tx = new ScriptTransactionRequest();
+console.log('callResult', callResult);
+
+
+// const coins  = (await wallet.getCoins()).coins;
+// console.log("coins are,", coins);
+
+// const predicate = new GaslessWallet(wallet);
+// console.log(predicate.address);
+
+// const tx = new ScriptTransactionRequest();
 }
 
 main();
