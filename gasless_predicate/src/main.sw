@@ -9,6 +9,7 @@ use std::bytes_conversions::{b256::*, u64::*};
 use std::bytes::Bytes;
 use std::hash::Hasher;
 use std::b512::B512;
+use std::ecr::ec_recover;
 
 const GTF_INPUT_COIN_TX_ID = 0x201;
 
@@ -121,9 +122,11 @@ fn serialize_output_coins (indexes: Vec<u64>) -> Option<Bytes> {
 ///
 /// V0, user can only sign over a single input and single output { only of type coin }
 /// txn_hash = sha_256([[input_tx_id_bytes], [hash_of_serialized_output_type_coin]], [script_bytecodehash_bytes])
-fn main(input_tx_idxs: Vec<u64>, output_tx_idxs: Vec<u64>, signature: Vec<u8>) -> b256 {
+fn main(input_tx_idxs: Vec<u64>, output_tx_idxs: Vec<u64>, 
+signature: B512
+) -> b256 {
 
-    log(PUBLIC_KEY);
+    // log(PUBLIC_KEY);
 
     let mut payload = Bytes::new();
 
@@ -131,10 +134,27 @@ fn main(input_tx_idxs: Vec<u64>, output_tx_idxs: Vec<u64>, signature: Vec<u8>) -
     let mut script_byte_code_hash_bytes =  tx_script_bytecode_hash().unwrap().to_be_bytes();
     let mut serialized_output_coins = serialize_output_coins(output_tx_idxs).unwrap();
 
+    // log(tx_script_bytecode_hash().unwrap());
+
+    // log(serialized_input_coins);
+    // log(script_byte_code_hash_bytes);
+    // log(serialized_output_coins);
+
     payload.append(serialized_input_coins);
     payload.append(script_byte_code_hash_bytes);
     payload.append(serialized_output_coins);
-    
+
+    // log(payload);
     let payload_hash = hash_bytes(payload);
+    // log(payload_hash);
+
+    // log(signature);
+    let recovered_public_key = ec_recover(signature, payload_hash).unwrap();
+    log(recovered_public_key);
+
+    let mut a = Bytes::new();
+    a.push(0);
+    a.push(1);
+
     payload_hash
 }

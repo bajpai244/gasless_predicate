@@ -1,0 +1,32 @@
+coins are, [
+  {
+    id: "0x2895f49dcf333a566e677e99208e1d58efcda4119c56241d0993e5d5231d502c0000",
+    assetId: "0xf8f8b6283d7fa5b672b530cbb84fcccb4ff8dc40f8176ef4544ddb1f1952ad07",
+    amount: <BN: 0xffffffffffffbd2>,
+    owner: Address {
+      bech32Address: "fuel1dd3cqn8mlxzku689kmn6au3cmjp3rmz4hmqymam5qqaze9hqgx8qtjpwn9",
+      toAddress: [Function: toAddress],
+      toB256: [Function: toB256],
+      toBytes: [Function: toBytes],
+      toHexString: [Function: toHexString],
+      toString: [Function: toString],
+      toJSON: [Function: toJSON],
+      toEvmAddress: [Function: toEvmAddress],
+      toAssetId: [Function: toAssetId],
+      valueOf: [Function: valueOf],
+      equals: [Function: equals],
+    },
+    blockCreated: <BN: 0x6b>,
+    txCreatedIdx: <BN: 0x0>,
+  }
+]
+payloadHash 0x5dbe96d28645e7100fa52b3a5ee8b22d84b1a6ee079e0f8ff2243d21f0aa6ba8
+digital signature 0x0105de049caec35079666c69ec1370b9f23517e27dd2d92012d24a8f7a2634d8d67b1bc1e7145d4b695b6f0d123021e98b4330de6d8689d8b11d67b38039a090
+call sent ...
+tx_id:  0x468cd74ff2aebb3a0e796b13c250eaa62e208ea73f0bcaeec97896255afa68e5
+return value:  0x5dbe96d28645e7100fa52b3a5ee8b22d84b1a6ee079e0f8ff2243d21f0aa6ba8
+transaction logs [ "0x64f826e6f26c7dacdc48ee8d891f55f1a76900c55a525f369c3fc635a32176dc325d20f1d396732aadf8b41fc233ec40e4524ef3d3d39a7566dc878b785a3ef2"
+]
+payload_hash 0x5dbe96d28645e7100fa52b3a5ee8b22d84b1a6ee079e0f8ff2243d21f0aa6ba8
+public key 0x64f826e6f26c7dacdc48ee8d891f55f1a76900c55a525f369c3fc635a32176dc325d20f1d396732aadf8b41fc233ec40e4524ef3d3d39a7566dc878b785a3ef2
+shar [0] 0xb413f47d13ee2fe6c845b2ee141af81de858df4ec549a58b7970bb96645bc8d2

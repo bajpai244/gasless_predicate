@@ -71,8 +71,11 @@ arg:    {request: ScriptTransactionRequest,
     }
 
     const inputCoinsBytes = serializeInputCoins(inputCoins)
+    // console.log('input coin bytes', inputCoinsBytes);
 
     const scriptByteCodeHashBytes = b256Coder.encode(scriptByteCodeHash);
+    // console.log('script bytecode hash', scriptByteCodeHash);
+    // console.log('script bytecode bytes', scriptByteCodeHashBytes);
 
     const outputs = transaction.outputs;
 
@@ -87,7 +90,9 @@ arg:    {request: ScriptTransactionRequest,
     }
 
     const outputCoinsBytes = serializeOutputCoins(outputCoins);
+    // console.log('output bytes', outputCoinsBytes);
 
     const payload = new Uint8Array([...inputCoinsBytes, ...scriptByteCodeHashBytes, ...outputCoinsBytes]);
+    // console.log('payload', payload);
     return sha256(payload);
 }
