@@ -4,6 +4,9 @@ export default createConfig({
   scripts: [
         'gasless_predicate',
   ],
+  predicates: [
+    'gasless_wallet'
+  ],
   output: './src/predicates',
 });
 
