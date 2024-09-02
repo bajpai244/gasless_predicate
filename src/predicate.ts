@@ -68,8 +68,9 @@ gaslessPredicate.populateTransactionPredicateData(scriptTransaction);
 console.log('predicate Coins are: ', predicateCoins);
 console.log('native asset id:', provider.getBaseAssetId());
 
-// scriptTransaction.addCoinInput(coins[0]);
-// await wallet.populateTransactionWitnessesSignature(scriptTransaction);
+console.log('coins are', coins);
+scriptTransaction.addCoinInput(coins[0]);
+await wallet.populateTransactionWitnessesSignature(scriptTransaction);
 
 if (scriptTransaction.inputs[0].type === 0){
     const input = scriptTransaction.inputs[0];

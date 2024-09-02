@@ -1,4 +1,4 @@
-script;
+predicate;
  
 use std::address::Address;
 use std::logging::log;
@@ -150,7 +150,7 @@ signature: B512
 
     // log(signature);
     let recovered_public_key = ec_recover(signature, payload_hash).unwrap();
-    log(recovered_public_key);
+    // log(recovered_public_key);
 
     recovered_public_key == PUBLIC_KEY
 }
