@@ -125,32 +125,19 @@ fn serialize_output_coins (indexes: Vec<u64>) -> Option<Bytes> {
 fn main(input_tx_idxs: Vec<u64>, output_tx_idxs: Vec<u64>, 
 signature: B512
 ) -> bool {
-
-    // log(PUBLIC_KEY);
-
     let mut payload = Bytes::new();
 
     let mut serialized_input_coins = serialize_input_coins(input_tx_idxs).unwrap();
     let mut script_byte_code_hash_bytes =  tx_script_bytecode_hash().unwrap().to_be_bytes();
     let mut serialized_output_coins = serialize_output_coins(output_tx_idxs).unwrap();
 
-    // log(tx_script_bytecode_hash().unwrap());
-
-    // log(serialized_input_coins);
-    // log(script_byte_code_hash_bytes);
-    // log(serialized_output_coins);
-
     payload.append(serialized_input_coins);
     payload.append(script_byte_code_hash_bytes);
     payload.append(serialized_output_coins);
 
-    // log(payload);
     let payload_hash = hash_bytes(payload);
-    // log(payload_hash);
 
-    // log(signature);
     let recovered_public_key = ec_recover(signature, payload_hash).unwrap();
-    // log(recovered_public_key);
 
     recovered_public_key == PUBLIC_KEY
 }

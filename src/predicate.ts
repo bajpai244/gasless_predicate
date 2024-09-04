@@ -1,7 +1,5 @@
-import { Address, B256Coder, BigNumberCoder, bn, NumberCoder, Provider, Script, ScriptTransactionRequest, sha256, Signer, uint64ToBytesBE, Wallet } from "fuels";
-import {config} from "dotenv"
-import {DbgExample} from "./predicates/scripts/index"
-import {writeFileSync, readFileSync} from "node:fs"
+import { Address, bn, Provider, ScriptTransactionRequest, sha256, Signer, Wallet } from "fuels";
+import { config } from "dotenv"
 import { calculatePayloadHash } from "./lib";
 import { GaslessWallet } from "./predicates";
 
@@ -37,7 +35,7 @@ const coins  = (await wallet.getCoins()).coins;
 console.log("coins are,", coins);
 
 const scriptTransaction = new ScriptTransactionRequest({
-    gasLimit: 100000,
+    gasLimit: 500000,
     maxFee: 1000,
 });
 
@@ -46,10 +44,11 @@ gaslessPredicate.predicateData[0] = [0];
 gaslessPredicate.predicateData[1] = [0];
 
 
-console.log(gaslessPredicate.address);
+console.log("predicate address: ", gaslessPredicate.address);
 
 const predicateCoins = (await provider.getCoins(gaslessPredicate.address)).coins;
 
+// NOTE: This line just adds the output coin
 gaslessPredicate.addTransfer(scriptTransaction, {
    destination: wallet.address,
    amount: bn(10),
@@ -57,6 +56,9 @@ gaslessPredicate.addTransfer(scriptTransaction, {
 });
 
 scriptTransaction.addCoinInput(predicateCoins[0]);
+
+console.log('script transaction inputs here', scriptTransaction.inputs);
+console.log('script transaction outputs here', scriptTransaction.outputs);
 
 const payloadHash = calculatePayloadHash({request: scriptTransaction, inputIndexes: [0], outputIndexes: [0], scriptByteCodeHash: sha256(scriptTransaction.script)})
 const signer = new Signer(PRIVATE_KEY);
@@ -79,6 +81,11 @@ if (scriptTransaction.inputs[0].type === 0){
     console.log("witness:", scriptTransaction.witnesses);
 }
 
+const estimations = await provider.estimatePredicates(scriptTransaction);
+// console.log('estimations', estimations);
+// return;
+
+console.log('predicate size', gaslessPredicate.bytes.length);
 
 const response = await (await wallet.sendTransaction(scriptTransaction)).waitForResult();
 console.log("response: ", response);
