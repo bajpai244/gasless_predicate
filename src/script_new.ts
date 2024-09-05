@@ -1,9 +1,11 @@
 import {
   Address,
+  arrayify,
   B256Coder,
   B512Coder,
   BigNumberCoder,
   bn,
+  hexlify,
   NumberCoder,
   Provider,
   Script,
@@ -11,13 +13,14 @@ import {
   sha256,
   Signer,
   uint64ToBytesBE,
+  UtxoIdCoder,
   Wallet,
 } from "fuels";
 import { config } from "dotenv";
 import { DbgExample } from "./predicates/scripts/index";
 import { writeFileSync, readFileSync } from "node:fs";
 import { calculatePayloadHash } from "./lib";
-import type { OutputCoinInput } from "./predicates/scripts/DbgExample";
+import type { OutputCoinInput, TxInputInput, TxOutputInput } from "./predicates/scripts/DbgExample";
 
 config();
 
@@ -52,30 +55,44 @@ const main = async () => {
     PUBLIC_KEY: wallet.publicKey,
   });
 
+  const b256Coder = new B256Coder();
+
   const signer = new Signer(PRIVATE_KEY);
 
+  const inputCoin = coins[0];
   const amount = bn(10);
-  const assetId = coins[0].assetId;
+  const assetId = inputCoin.assetId;
 
-  const input: OutputCoinInput = {
+
+
+  console.log('input coin:', inputCoin.id);
+
+  const inputCoinTxId = inputCoin.id.slice(0, inputCoin.id.length - 4)
+  const inputCoinOutputIndex = Number.parseInt(inputCoin.id.slice(inputCoin.id.length -4), 16)
+
+
+  const inputTxs: Array<TxInputInput> = [{InputCoin: {
+    tx_id: inputCoinTxId,
+    output_index: inputCoinOutputIndex
+  }}];
+
+  const expectedOutputs: Array<TxOutputInput> = [
+    {OutputCoin:{
     to: { bits: recipientAddress.toHexString() },
     amount,
     asset_id: {
       bits: assetId
-    },
-  };
+    }}
+  }];
 
-  console.log('script input: ', input);
+  console.log('script inputs for outputs: ', expectedOutputs);
 
   // we are setting up random arguments, which we will reset before sending the transaction
-  const tx = script.functions.main([
-    {OutputCoin: input},
-    {OutputCoin: input}
-]);
-  tx.callParams({ gasLimit: 100000 });
+  const tx = script.functions.main(inputTxs, expectedOutputs);
+  tx.callParams({ gasLimit: 500000 });
 
   const request = await tx.getTransactionRequest();
-  request.addCoinInput(coins[0]);
+  request.addCoinInput(inputCoin);
   request.addCoinOutput(recipientAddress, amount, assetId);
   request.addCoinOutput(recipientAddress, amount, assetId);
 

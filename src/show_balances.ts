@@ -34,7 +34,6 @@ const predicateAddresss = gaslessPredicate.address;
 
 console.log('wallet balances', await wallet.getBalances());
 console.log('predicate balances', await provider.getBalances(predicateAddresss));
-
 }
 
 main();
