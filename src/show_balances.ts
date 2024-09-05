@@ -27,14 +27,13 @@ if (!PRIVATE_KEY) {
 
 const wallet = Wallet.fromPrivateKey(PRIVATE_KEY, provider);
 
-if (!process.env.RECIPIENT_ADDRESS) {
-    console.error('RECIPIENT_ADDRESS is not defined in the environment variables.');
-    process.exit(1);
-}
-const recipientAddress = Address.fromAddressOrString(process.env.RECIPIENT_ADDRESS);
+const gaslessPredicate = new GaslessWallet({
+    provider, configurableConstants: {PUBLIC_KEY: wallet.publicKey }
+});
+const predicateAddresss = gaslessPredicate.address;
 
 console.log('wallet balances', await wallet.getBalances());
-console.log('predicate balances', await provider.getBalances(recipientAddress));
+console.log('predicate balances', await provider.getBalances(predicateAddresss));
 
 }
 

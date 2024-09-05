@@ -24,13 +24,8 @@ if (!PRIVATE_KEY) {
 
 const wallet = Wallet.fromPrivateKey(PRIVATE_KEY, provider);
 
-if (!process.env.RECIPIENT_ADDRESS) {
-    console.error('RECIPIENT_ADDRESS is not defined in the environment variables.');
-    process.exit(1);
-}
-
 const stableCoinFactor = new DummyStablecoinFactory(wallet);
-const {contractId, waitForTransactionId} = await (await stableCoinFactor.deploy());
+const {contractId, waitForTransactionId} = await stableCoinFactor.deploy();
 
 await waitForTransactionId();
 console.log('deployed to contractId: ',contractId);
