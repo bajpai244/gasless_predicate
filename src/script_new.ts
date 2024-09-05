@@ -76,6 +76,8 @@ const main = async () => {
     output_index: inputCoinOutputIndex
   }}];
 
+  console.log('inputTxs:', inputTxs);
+
   const expectedOutputs: Array<TxOutputInput> = [
     {OutputCoin:{
     to: { bits: recipientAddress.toHexString() },

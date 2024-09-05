@@ -2,7 +2,7 @@ import { Address, bn, Provider, ScriptTransactionRequest, sha256, Signer, Wallet
 import { config } from "dotenv"
 import { calculatePayloadHash } from "./lib";
 import { GaslessWallet } from "./predicates";
-import type { OutputCoinInput } from "./predicates/scripts/DbgExample";
+import type { OutputCoinInput, TxInputInput } from "./predicates/scripts/DbgExample";
 import type { TxOutputInput } from "./predicates/predicates/GaslessWallet";
 
 config();
@@ -53,8 +53,9 @@ const gaslessPredicateAddress = gaslessPredicate.address;
 console.log("predicate address: ", gaslessPredicateAddress.toAddress());
 
 const predicateCoins = (await provider.getCoins(gaslessPredicate.address)).coins;
+const predicateInputCoin = predicateCoins[0];
 const amount = bn(10);
-const assetId = predicateCoins[0].assetId;
+const assetId = predicateInputCoin.assetId;
 
 // NOTE: This line just adds the output coin
 gaslessPredicate.addTransfer(scriptTransaction, {
@@ -62,6 +63,17 @@ gaslessPredicate.addTransfer(scriptTransaction, {
     amount,
     assetId
  });
+
+ const inputCoinTxId = predicateInputCoin.id.slice(0, predicateInputCoin.id.length - 4)
+ const inputCoinOutputIndex = Number.parseInt(predicateInputCoin.id.slice(predicateInputCoin.id.length -4), 16)
+
+
+ const inputTxs: Array<TxInputInput> = [
+    {InputCoin: {
+   tx_id: inputCoinTxId,
+   output_index: inputCoinOutputIndex
+ }}];
+
 
  const expectedOutputs: Array<TxOutputInput> = [
     {OutputCoin:{
@@ -73,24 +85,26 @@ gaslessPredicate.addTransfer(scriptTransaction, {
   }];
 
 
-gaslessPredicate.predicateData[0] = expectedOutputs;
+gaslessPredicate.predicateData[0] = inputTxs;
+gaslessPredicate.predicateData[1] = expectedOutputs;
 
 scriptTransaction.addCoinInput(predicateCoins[0]);
 gaslessPredicate.populateTransactionPredicateData(scriptTransaction);
-await provider.estimatePredicates(scriptTransaction);
+
+const estimations = await provider.estimatePredicates(scriptTransaction);
 
 scriptTransaction.addCoinInput(gasInputCoin);
 
 await wallet.populateTransactionWitnessesSignature(scriptTransaction);
 
-console.log("inputs: ", scriptTransaction.inputs);
-console.log("outputs:", scriptTransaction.outputs);
-console.log("witness:", scriptTransaction.witnesses);
+// console.log("outputs:", scriptTransaction.outputs);
+// console.log("witness:", scriptTransaction.witnesses);
 
 console.log('predicate size', gaslessPredicate.bytes.length);
 
 const response = await (await wallet.sendTransaction(scriptTransaction)).waitForResult();
 console.log("response: ", response);
+console.log("gas used", response.transaction.inputs);
 }
 
 main();
