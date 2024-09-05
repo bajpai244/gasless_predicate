@@ -24,7 +24,7 @@ if (!PRIVATE_KEY) {
 
 const wallet = Wallet.fromPrivateKey(PRIVATE_KEY, provider);
 
-const gaslessPredicate = new GaslessWallet(wallet);
+const gaslessPredicate = new GaslessWallet({provider, configurableConstants: {PUBLIC_KEY: wallet.publicKey}});
 
 if(!process.env.STABLE_COIN_CONTRACT_ADDRESS) {
     console.error('STABLE_COIN_CONTRACT_ADDRESS is not defined in the environment variables.');

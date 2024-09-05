@@ -42,12 +42,6 @@ const main = async () => {
 
   const wallet = Wallet.fromPrivateKey(PRIVATE_KEY, provider);
 
-  if (!process.env.RECIPIENT_ADDRESS) {
-    console.error(
-      "RECIPIENT_ADDRESS is not defined in the environment variables."
-    );
-    process.exit(1);
-  }
   const recipientAddress = wallet.address;
 
   const coins = (await wallet.getCoins()).coins;

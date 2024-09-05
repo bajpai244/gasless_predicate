@@ -3,13 +3,14 @@ predicate;
 use std::address::Address;
 use std::logging::log;
 use std::tx::tx_script_bytecode_hash;
-use std::outputs::{Output, output_type, output_amount,output_asset_id,output_asset_to};
+use std::outputs::{Output, output_type, output_amount,output_asset_id,output_asset_to, output_count};
 use std::inputs::{Input, input_type};
 use std::bytes_conversions::{b256::*, u64::*};
 use std::bytes::Bytes;
 use std::hash::Hasher;
 use std::b512::B512;
 use std::ecr::ec_recover;
+use std::asset_id::AssetId;
 
 const GTF_INPUT_COIN_TX_ID = 0x201;
 
@@ -116,28 +117,148 @@ fn serialize_output_coins (indexes: Vec<u64>) -> Option<Bytes> {
     Some(result)
 }
 
+struct OutputCoin {
+    to: Address,
+    amount: u64,
+    asset_id: AssetId
+}
+
+enum TxOutput {
+    OutputCoin : OutputCoin  
+}
+
+fn search_output_coin(to: Address, amount: u64, asset_id: AssetId, consumed_output_indexes: &Vec<u64>) -> Option<u64> {
+    let total_outputs: u64 = output_count().into();
+
+    let mut i = 0;
+    while i < total_outputs {
+
+        match (output_type(i).unwrap()) {
+            Output::Coin => {
+
+                if vec_contains(consumed_output_indexes, i).is_some() {
+                    i+=1;
+
+                    continue;
+                };
+
+                let output_to = output_asset_to(i).unwrap();
+                let output_amount = output_amount(i).unwrap();
+                let output_asset_id = output_asset_id(i).unwrap();
+
+                if output_to == to && output_amount == amount && output_asset_id == asset_id {
+                    return Some(i);
+                }
+            },
+            _ => {
+
+            }
+        }
+
+        i +=1;
+    };
+
+    None
+}
+
+fn vec_contains<T> (vector: &Vec<T>, value: T) -> Option<u64> 
+    where T:Eq
+{
+    let mut i = 0;
+    
+    while  i < (*vector).len()  {
+        if (*vector).get(i).unwrap() == value {
+            return Some(i);
+        }
+
+        i+=1;
+    };
+
+    None
+}
+
+enum ValidatonError {
+        OutputNotFound: ()
+}
+
+// validate all outputs that are provided are present
+fn validate_outputs(
+    tx_outputs: &Vec<TxOutput>
+) -> Result<(), ValidatonError>{
+
+    let mut consumed_output_indexes: Vec<u64> = Vec::new();
+
+    let mut i = 0;
+
+    while i < (*tx_outputs).len() {
+
+    let output = (*tx_outputs).get(i).unwrap();
+
+    match output {
+       TxOutput::OutputCoin(output_coin) => {   
+
+        // TODO: we should pack this into two arguments, one of type TxOutput::OutputCoin, second for the providing reference for the vector
+        let output_coin_idx = search_output_coin(output_coin.to, output_coin.amount, output_coin.asset_id, &consumed_output_indexes);
+
+        match output_coin_idx {
+        Some(index) => {
+            consumed_output_indexes.push(index);
+            // log(index); 
+            }
+        None => {
+            return Err(ValidatonError::OutputNotFound);
+        }
+        };
+
+        }
+    };
+
+        i+=1;
+    }
+
+    Ok(())    
+}
+
 /// extract inputs, and outputs
 /// extract the script bytecode hash
 /// calculate the tranasaction hash based on that
 ///
 /// V0, user can only sign over a single input and single output { only of type coin }
 /// txn_hash = sha_256([[input_tx_id_bytes], [hash_of_serialized_output_type_coin]], [script_bytecodehash_bytes])
-fn main(input_tx_idxs: Vec<u64>, output_tx_idxs: Vec<u64>, 
-signature: B512
+fn main(
+    // input_tx_ids: Vec<b256>, 
+    tx_outputs: Vec<TxOutput>
+// , signature: B512
 ) -> bool {
-    let mut payload = Bytes::new();
 
-    let mut serialized_input_coins = serialize_input_coins(input_tx_idxs).unwrap();
-    let mut script_byte_code_hash_bytes =  tx_script_bytecode_hash().unwrap().to_be_bytes();
-    let mut serialized_output_coins = serialize_output_coins(output_tx_idxs).unwrap();
 
-    payload.append(serialized_input_coins);
-    payload.append(script_byte_code_hash_bytes);
-    payload.append(serialized_output_coins);
+    validate_outputs(&tx_outputs).unwrap();
+    // log(PUBLIC_KEY);
 
-    let payload_hash = hash_bytes(payload);
+    // let mut payload = Bytes::new();
 
-    let recovered_public_key = ec_recover(signature, payload_hash).unwrap();
+    // let mut serialized_input_coins = serialize_input_coins(input_tx_idxs).unwrap();
+    // let mut script_byte_code_hash_bytes =  tx_script_bytecode_hash().unwrap().to_be_bytes();
+    // let mut serialized_output_coins = serialize_output_coins(output_tx_idxs).unwrap();
 
-    recovered_public_key == PUBLIC_KEY
+    // log(tx_script_bytecode_hash().unwrap());
+
+    // log(serialized_input_coins);
+    // log(script_byte_code_hash_bytes);
+    // log(serialized_output_coins);
+
+    // payload.append(serialized_input_coins);
+    // payload.append(script_byte_code_hash_bytes);
+    // payload.append(serialized_output_coins);
+
+    // log(payload);
+    // let payload_hash = hash_bytes(payload);
+    // log(payload_hash);
+
+    // log(signature);
+    // let recovered_public_key = ec_recover(signature, payload_hash).unwrap();
+    // log(recovered_public_key);
+
+    // recovered_public_key == PUBLIC_KEY
+    true
 }
