@@ -94,10 +94,15 @@ const main = async () => {
     }}
   }];
 
+  const payloadHash = calculaatePayloadHashNew(inputTxs, expectedOutputs);
+  console.log('payload hash', payloadHash);
+
+  const signature = signer.sign(payloadHash);
+
   console.log('script inputs for outputs: ', expectedOutputs);
 
   // we are setting up random arguments, which we will reset before sending the transaction
-  const tx = script.functions.main(inputTxs, expectedOutputs);
+  const tx = script.functions.main(inputTxs, expectedOutputs, signature);
   tx.callParams({ gasLimit: 500000 });
 
   const request = await tx.getTransactionRequest();
@@ -133,8 +138,9 @@ const main = async () => {
 
 //   console.log("shar [0]", sha256(new Uint8Array([0, 1])));
   console.log("gas used", response.gasUsed);
+  console.log("siganture", signature);
 
-  calculaatePayloadHashNew(inputTxs, expectedOutputs);
+
   // const sig1 = signer.sign(payloadHash);
 
   // console.log('signature:', sig1);

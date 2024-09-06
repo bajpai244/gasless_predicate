@@ -269,7 +269,6 @@ fn validate_outputs(
         match output_coin_idx {
         Some(index) => {
             consumed_output_indexes.push(index);
-            log(index); 
             }
         None => {
             return Err(ValidationError::OutputNotFound);
@@ -293,18 +292,8 @@ fn find_input_tx_by_utxo_id(transaction_id: b256, output_idx: u16) -> Option<u64
 
         let input_coin_type = input_type(i).unwrap();
 
-        log(10);
-        log(input_coin_type);
-        log(input_count());
         match input_coin_type {
             Input::Coin => {
-            log(42);
-            log(transaction_id);
-            log(input_tx_id(i));
-            log(output_idx);
-            log(input_tx_output_index(i));
-            log(input_amount(i));
-
                 if transaction_id == input_tx_id(i) 
                 // TODO: We need to renable it, right now it only returns 0, so need to find a solution
                 // && output_idx == input_tx_output_index(i)   
@@ -327,16 +316,11 @@ fn validate_inputs(input_txs: Vec<TxInput>) -> Result<(), ValidationError>{
     let mut i = 0;
 
     while i < (input_txs).len() {
-       log(input_txs.len());
-       log(3);
-       log(input_count());
        let tx_input = (input_txs).get(i).unwrap(); 
-       log(tx_input);
 
        match tx_input {
        TxInput::InputCoin(input_coin) => { 
         if let None = find_input_tx_by_utxo_id(input_coin.tx_id, input_coin.output_index) {
-            log(5);
             return Err(ValidationError::InputNotFound);
        }
        }
@@ -356,18 +340,16 @@ fn validate_inputs(input_txs: Vec<TxInput>) -> Result<(), ValidationError>{
 /// txn_hash = sha_256([[input_tx_id_bytes], [hash_of_serialized_output_type_coin]], [script_bytecodehash_bytes])
 fn main(
     tx_inputs: Vec<TxInput>, 
-    tx_outputs: Vec<TxOutput>
-// , signature: B512
+    tx_outputs: Vec<TxOutput>, 
+    signature: B512
 ) -> bool {
 
-
-    log(0);
 
     validate_inputs(tx_inputs).unwrap();
     validate_outputs(tx_outputs).unwrap();
 
 
-    log(PUBLIC_KEY);
+    // log(PUBLIC_KEY);
 
     let mut payload = Bytes::new();
 
@@ -380,17 +362,13 @@ fn main(
 
     let payload_len = payload.len();
 
-    log(payload);
+    // log(payload);
 
     let payload_hash = hash_bytes(payload);
-    log(payload_hash);
-
-    return true;
+    // log(payload_hash);
 
     // log(signature);
-    // let recovered_public_key = ec_recover(signature, payload_hash).unwrap();
-    // log(recovered_public_key);
+    let recovered_public_key = ec_recover(signature, payload_hash).unwrap();
 
-    // recovered_public_key == PUBLIC_KEY
-    // true
+    recovered_public_key == PUBLIC_KEY
 }

@@ -75,6 +75,7 @@ export const calculaatePayloadHashNew = (inputs: Array<TxInputInput>, outputs: A
     }
 
     console.log("payload: ",payload);
+    return sha256(payload);
 }
 
 export const calculatePayloadHash  = (
