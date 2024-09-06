@@ -1,6 +1,6 @@
 import { Address, bn, Provider, ScriptTransactionRequest, sha256, Signer, Wallet } from "fuels";
 import { config } from "dotenv"
-import { calculatePayloadHash } from "./lib";
+import { calculaatePayloadHashNew, calculatePayloadHash } from "./lib";
 import { GaslessWallet } from "./predicates";
 import type { OutputCoinInput, TxInputInput } from "./predicates/scripts/DbgExample";
 import type { TxOutputInput } from "./predicates/predicates/GaslessWallet";
@@ -26,6 +26,7 @@ if (!PRIVATE_KEY) {
 }
 
 const wallet = Wallet.fromPrivateKey(PRIVATE_KEY, provider);
+const signer = new Signer(PRIVATE_KEY);
 
 const recipientAddress = wallet.address;
 
@@ -42,7 +43,7 @@ console.log("valid input coin for gas,", gasInputCoin);
 
 const scriptTransaction = new ScriptTransactionRequest({
     gasLimit: 1000000,
-    maxFee: 1000,
+    maxFee: 50000,
 });
 
 const gaslessPredicate = new GaslessWallet({
@@ -84,9 +85,13 @@ gaslessPredicate.addTransfer(scriptTransaction, {
     }}
   }];
 
+  const payloadHash = calculaatePayloadHashNew(inputTxs, expectedOutputs);
+  const signtare = signer.sign(payloadHash);
+
 
 gaslessPredicate.predicateData[0] = inputTxs;
 gaslessPredicate.predicateData[1] = expectedOutputs;
+gaslessPredicate.predicateData[2] = signtare;
 
 scriptTransaction.addCoinInput(predicateCoins[0]);
 gaslessPredicate.populateTransactionPredicateData(scriptTransaction);
