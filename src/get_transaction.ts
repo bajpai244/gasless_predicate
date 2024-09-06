@@ -14,7 +14,7 @@ if (!LOCAL_FUEL_NETWORK) {
     process.exit(1);
 }
 
-const txId= "2806719fee2ae040dc6d6cc6b5c39b4f9e4e491875152a2b441c9d586f4936fb";
+const txId= "0x7e90d6bb3f5cb8f26f90d0ca47fc69d3626508e232d977d6b4f25bae0d594cc2";
 const provider = await Provider.create(LOCAL_FUEL_NETWORK);
 
 const tx = await provider.getTransaction(txId);

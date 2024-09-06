@@ -1,4 +1,4 @@
-import { Address, bn, Provider, ScriptTransactionRequest, sha256, Signer, Wallet } from "fuels";
+import { Address, B256Coder, bn, createAssetId, Provider, ScriptTransactionRequest, sha256, Signer, Wallet } from "fuels";
 import { config } from "dotenv"
 import { calculaatePayloadHashNew, calculatePayloadHash } from "./lib";
 import { GaslessWallet } from "./predicates";
@@ -24,6 +24,15 @@ if (!PRIVATE_KEY) {
     console.error('PRIVATE_KEY is not defined in the environment variables.');
     process.exit(1);
 }
+
+const STABLE_COIN_CONTRACT_ADDRESS = process.env.STABLE_COIN_CONTRACT_ADDRESS;
+if (!STABLE_COIN_CONTRACT_ADDRESS) {
+    throw new Error('STABLE_COIN_CONTRACT_ADDRESS is not defined in the environment variables.');
+}
+
+const defaultSubId = "0x0000000000000000000000000000000000000000000000000000000000000000"
+const predicateAssetId = createAssetId(STABLE_COIN_CONTRACT_ADDRESS, defaultSubId);
+
 
 const wallet = Wallet.fromPrivateKey(PRIVATE_KEY, provider);
 const signer = new Signer(PRIVATE_KEY);
@@ -54,7 +63,16 @@ const gaslessPredicateAddress = gaslessPredicate.address;
 console.log("predicate address: ", gaslessPredicateAddress.toAddress());
 
 const predicateCoins = (await provider.getCoins(gaslessPredicate.address)).coins;
-const predicateInputCoin = predicateCoins[0];
+
+const predicateInputCoin = predicateCoins.find((coin)=>{
+    return coin.assetId === predicateAssetId.bits
+});
+if (!predicateInputCoin) {
+    throw new Error('No valid input coin found for predicate.');
+}
+
+console.log("Valid input coin for predicate:", predicateInputCoin);
+
 const amount = bn(10);
 const assetId = predicateInputCoin.assetId;
 
@@ -108,8 +126,9 @@ await wallet.populateTransactionWitnessesSignature(scriptTransaction);
 console.log('predicate size', gaslessPredicate.bytes.length);
 
 const response = await (await wallet.sendTransaction(scriptTransaction)).waitForResult();
-console.log("response: ", response);
-console.log("gas used", response.transaction.inputs);
+console.log("response: ", response.id);
+console.log("gas used", response.gasUsed);
+
 }
 
 main();
