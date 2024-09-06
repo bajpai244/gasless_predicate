@@ -19,7 +19,7 @@ import {
 import { config } from "dotenv";
 import { DbgExample } from "./predicates/scripts/index";
 import { writeFileSync, readFileSync } from "node:fs";
-import { calculatePayloadHash } from "./lib";
+import { calculaatePayloadHashNew, calculatePayloadHash } from "./lib";
 import type { OutputCoinInput, TxInputInput, TxOutputInput } from "./predicates/scripts/DbgExample";
 
 config();
@@ -59,13 +59,20 @@ const main = async () => {
 
   const signer = new Signer(PRIVATE_KEY);
 
-  const inputCoin = coins[0];
+
   const amount = bn(10);
-  const assetId = inputCoin.assetId;
 
+  const inputCoin = coins.find((coin) => {
+    return coin.assetId === provider.getBaseAssetId() && coin.amount > amount;
+  });
 
+  if (!inputCoin) {
+    throw new Error("No suitable input coin found. Ensure you have sufficient funds.");
+  }
 
   console.log('input coin:', inputCoin.id);
+
+  const assetId = inputCoin.assetId;
 
   const inputCoinTxId = inputCoin.id.slice(0, inputCoin.id.length - 4)
   const inputCoinOutputIndex = Number.parseInt(inputCoin.id.slice(inputCoin.id.length -4), 16)
@@ -127,6 +134,7 @@ const main = async () => {
 //   console.log("shar [0]", sha256(new Uint8Array([0, 1])));
   console.log("gas used", response.gasUsed);
 
+  calculaatePayloadHashNew(inputTxs, expectedOutputs);
   // const sig1 = signer.sign(payloadHash);
 
   // console.log('signature:', sig1);

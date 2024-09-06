@@ -4,7 +4,7 @@ use std::address::Address;
 use std::logging::log;
 use std::tx::tx_script_bytecode_hash;
 use std::outputs::{Output, output_type, output_amount,output_asset_id,output_asset_to, output_count};
-use std::inputs::{Input, input_type, input_count};
+use std::inputs::{Input, input_type, input_count, input_amount};
 use std::bytes_conversions::{b256::*, u64::*, u16::*};
 use std::bytes::Bytes;
 use std::hash::Hasher;
@@ -292,16 +292,30 @@ fn find_input_tx_by_utxo_id(transaction_id: b256, output_idx: u16) -> Option<u64
     while i < input_count().into() {
 
         let input_coin_type = input_type(i).unwrap();
+
+        log(10);
+        log(input_coin_type);
+        log(input_count());
         match input_coin_type {
             Input::Coin => {
-                if transaction_id == input_tx_id(i) && output_idx == input_tx_output_index(i)   {
+            log(42);
+            log(transaction_id);
+            log(input_tx_id(i));
+            log(output_idx);
+            log(input_tx_output_index(i));
+            log(input_amount(i));
+
+                if transaction_id == input_tx_id(i) 
+                // TODO: We need to renable it, right now it only returns 0, so need to find a solution
+                // && output_idx == input_tx_output_index(i)   
+                {
                     return Some(i);
                 }
             },
             _ => {
-                return None
+
             }
-        }
+        };
 
         i+=1;
     }
@@ -311,12 +325,18 @@ fn find_input_tx_by_utxo_id(transaction_id: b256, output_idx: u16) -> Option<u64
 
 fn validate_inputs(input_txs: Vec<TxInput>) -> Result<(), ValidationError>{
     let mut i = 0;
+
     while i < (input_txs).len() {
+       log(input_txs.len());
+       log(3);
+       log(input_count());
        let tx_input = (input_txs).get(i).unwrap(); 
+       log(tx_input);
 
        match tx_input {
        TxInput::InputCoin(input_coin) => { 
         if let None = find_input_tx_by_utxo_id(input_coin.tx_id, input_coin.output_index) {
+            log(5);
             return Err(ValidationError::InputNotFound);
        }
        }
@@ -341,13 +361,13 @@ fn main(
 ) -> bool {
 
 
-    // log(tx_inputs);
+    log(0);
 
     validate_inputs(tx_inputs).unwrap();
     validate_outputs(tx_outputs).unwrap();
 
 
-    // log(PUBLIC_KEY);
+    log(PUBLIC_KEY);
 
     let mut payload = Bytes::new();
 
