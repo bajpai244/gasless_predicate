@@ -53,55 +53,6 @@ configurable {
     PUBLIC_KEY: B512 = B512::new()
 }
 
-/// serialization of output_type_coin
-/// we are currently converting to big endian bytes
-/// [[to_address_bytes], amount: [amount_to_bytes], [asset_id_bytes] ] 
-fn serialize_output_type_coin(index: u64) -> Option<Bytes> {
-    let mut output_bytes: Bytes = Bytes::new();
-
-    let correct_output_type = match output_type(index).unwrap() {
-        Output::Coin => {
-            true
-        },
-        _ => {
-            false
-        }
-    };
-
-    if !correct_output_type {
-        return None;
-    };
-
-    let to = (output_asset_to(index).unwrap()).bits();
-    let to_bytes = to.to_be_bytes();
-
-    let amount = output_amount(index).unwrap();
-    let amount_bytes = amount.to_be_bytes();
-
-    let asset_id = (output_asset_id(index).unwrap()).bits();
-    let asset_id_bytes = asset_id.to_be_bytes();
-
-    let mut i = 0;
-    while i < to_bytes.len() {
-        output_bytes.push(to_bytes.get(i).unwrap());
-        i+=1;
-    };
-
-    let mut i = 0;
-    while i < amount_bytes.len() {
-        output_bytes.push(amount_bytes.get(i).unwrap());
-        i+=1;
-    };
-
-    let mut i = 0;
-    while i < asset_id_bytes.len() {
-        output_bytes.push(asset_id_bytes.get(i).unwrap());
-        i+=1;
-    };
-
-    Some(output_bytes)
-}
-
 fn hash_bytes(bytes: Bytes) -> b256 {
     let mut hasher = Hasher::new();
     hasher.write(bytes);
@@ -118,35 +69,6 @@ fn input_type_is_coin(index: u64) -> bool {
                 false
             }
         }
-}
-
-fn serialize_input_coins (indexes: Vec<u64>) -> Option<Bytes> {
-    let mut result = Bytes::new();
-
-    for i in indexes.iter() {
-        if !input_type_is_coin(i) {
-            return None;
-        }
-
-        let txn_hash = input_txn_hash(i);
-        let mut txn_hash_bytes = txn_hash.to_be_bytes();
-
-        result.append(txn_hash_bytes);
-    };
-
-    Some(result)
-}
-
-
-fn serialize_output_coins (indexes: Vec<u64>) -> Option<Bytes> {
-    let mut result = Bytes::new();
-
-    for i in indexes.iter() {
-        let mut serialized_output_coin_bytes = serialize_output_type_coin(i).unwrap();
-        result.append(serialized_output_coin_bytes);
-    };
-
-    Some(result)
 }
 
 fn serialize_inputs(inputs: Vec<TxInput>) -> Bytes {
