@@ -5,6 +5,14 @@ source = "path+from-root-D19F39D92CA9923C"
 [[package]]
 name = "dummy_stablecoin"
 source = "member"
+dependencies = [
+    "standards",
+    "std",
+]
+
+[[package]]
+name = "standards"
+source = "git+https://github.com/FuelLabs/sway-standards?branch=master#29986f156a5aff5b2aee4a2a37643c78d82e5730"
 dependencies = ["std"]
 
 [[package]]

@@ -5,3 +5,4 @@ license = "Apache-2.0"
 name = "dummy_stablecoin"
 
 [dependencies]
+standards= {git = "https://github.com/FuelLabs/sway-standards", branch = "master"}

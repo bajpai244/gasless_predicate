@@ -18,19 +18,30 @@ import type {
   AbstractAddress,
   BigNumberish,
   BN,
+  Bytes,
   FunctionFragment,
   InvokeFunction,
+  StdString,
+  StrSlice,
 } from 'fuels';
 
-import type { Enum } from "./common";
+import type { Option, Enum } from "./common";
 
 export type IdentityInput = Enum<{ Address: AddressInput, ContractId: ContractIdInput }>;
 export type IdentityOutput = Enum<{ Address: AddressOutput, ContractId: ContractIdOutput }>;
 
 export type AddressInput = { bits: string };
 export type AddressOutput = AddressInput;
+export type AssetIdInput = { bits: string };
+export type AssetIdOutput = AssetIdInput;
 export type ContractIdInput = { bits: string };
 export type ContractIdOutput = ContractIdInput;
+
+export type DummyStablecoinConfigurables = Partial<{
+  DECIMALS: BigNumberish;
+  NAME: string;
+  SYMBOL: string;
+}>;
 
 const abi = {
   "programType": "contract",
@@ -42,51 +53,182 @@ const abi = {
       "concreteTypeId": "2e38e77b22c314a449e91fafed92a43826ac6aa403ae6a8acb6cf58239fbaf5d"
     },
     {
+      "type": "b256",
+      "concreteTypeId": "7c5ee1cecf5f8eacd1284feb5f0bf2bdea533a51e2f0c9aabe9236d335989f3b"
+    },
+    {
       "type": "enum std::identity::Identity",
       "concreteTypeId": "ab7cd04e05be58e3fc15d424c2c4a57f824a2a2d97d67252440a3925ebdc1335",
-      "metadataTypeId": 1
+      "metadataTypeId": 0
+    },
+    {
+      "type": "enum std::option::Option<b256>",
+      "concreteTypeId": "0c2beb9013490c4f753f2757dfe2d8340b22ce3827d596d81d249b7038033cb6",
+      "metadataTypeId": 1,
+      "typeArguments": [
+        "7c5ee1cecf5f8eacd1284feb5f0bf2bdea533a51e2f0c9aabe9236d335989f3b"
+      ]
+    },
+    {
+      "type": "enum std::option::Option<struct std::string::String>",
+      "concreteTypeId": "7c06d929390a9aeeb8ffccf8173ac0d101a9976d99dda01cce74541a81e75ac0",
+      "metadataTypeId": 1,
+      "typeArguments": [
+        "9a7f1d3e963c10e0a4ea70a8e20a4813d1dc5682e28f74cb102ae50d32f7f98c"
+      ]
+    },
+    {
+      "type": "enum std::option::Option<u64>",
+      "concreteTypeId": "d852149004cc9ec0bbe7dc4e37bffea1d41469b759512b6136f2e865a4c06e7d",
+      "metadataTypeId": 1,
+      "typeArguments": [
+        "1506e6f44c1d6291cdf46395a8e573276a4fa79e8ace3fc891e092ef32d1b0a0"
+      ]
+    },
+    {
+      "type": "enum std::option::Option<u8>",
+      "concreteTypeId": "2da102c46c7263beeed95818cd7bee801716ba8303dddafdcd0f6c9efda4a0f1",
+      "metadataTypeId": 1,
+      "typeArguments": [
+        "c89951a24c6ca28c13fd1cfdc646b2b656d69e61a92b91023be7eb58eb914b6b"
+      ]
+    },
+    {
+      "type": "str",
+      "concreteTypeId": "8c25cb3686462e9a86d2883c5688a22fe738b0bbc85f458d2d2b5f3f667c6d5a"
+    },
+    {
+      "type": "str[5]",
+      "concreteTypeId": "84877f6e98274b9e4721db68b4c0bdb9e52b8e9572c5bd7811c07a41ced882c7"
+    },
+    {
+      "type": "str[7]",
+      "concreteTypeId": "5bc5f5dfcd28de7e77d30dec3e6392905198dac3b172c043b403f669f66585ca"
+    },
+    {
+      "type": "struct std::asset_id::AssetId",
+      "concreteTypeId": "c0710b6731b1dd59799cf6bef33eee3b3b04a2e40e80a0724090215bbf2ca974",
+      "metadataTypeId": 5
+    },
+    {
+      "type": "struct std::string::String",
+      "concreteTypeId": "9a7f1d3e963c10e0a4ea70a8e20a4813d1dc5682e28f74cb102ae50d32f7f98c",
+      "metadataTypeId": 9
     },
     {
       "type": "u64",
       "concreteTypeId": "1506e6f44c1d6291cdf46395a8e573276a4fa79e8ace3fc891e092ef32d1b0a0"
+    },
+    {
+      "type": "u8",
+      "concreteTypeId": "c89951a24c6ca28c13fd1cfdc646b2b656d69e61a92b91023be7eb58eb914b6b"
     }
   ],
   "metadataTypes": [
     {
-      "type": "b256",
-      "metadataTypeId": 0
-    },
-    {
       "type": "enum std::identity::Identity",
-      "metadataTypeId": 1,
+      "metadataTypeId": 0,
       "components": [
         {
           "name": "Address",
-          "typeId": 2
+          "typeId": 4
         },
         {
           "name": "ContractId",
-          "typeId": 3
+          "typeId": 8
         }
       ]
     },
     {
+      "type": "enum std::option::Option",
+      "metadataTypeId": 1,
+      "components": [
+        {
+          "name": "None",
+          "typeId": "2e38e77b22c314a449e91fafed92a43826ac6aa403ae6a8acb6cf58239fbaf5d"
+        },
+        {
+          "name": "Some",
+          "typeId": 2
+        }
+      ],
+      "typeParameters": [
+        2
+      ]
+    },
+    {
+      "type": "generic T",
+      "metadataTypeId": 2
+    },
+    {
+      "type": "raw untyped ptr",
+      "metadataTypeId": 3
+    },
+    {
       "type": "struct std::address::Address",
-      "metadataTypeId": 2,
+      "metadataTypeId": 4,
       "components": [
         {
           "name": "bits",
-          "typeId": 0
+          "typeId": "7c5ee1cecf5f8eacd1284feb5f0bf2bdea533a51e2f0c9aabe9236d335989f3b"
+        }
+      ]
+    },
+    {
+      "type": "struct std::asset_id::AssetId",
+      "metadataTypeId": 5,
+      "components": [
+        {
+          "name": "bits",
+          "typeId": "7c5ee1cecf5f8eacd1284feb5f0bf2bdea533a51e2f0c9aabe9236d335989f3b"
+        }
+      ]
+    },
+    {
+      "type": "struct std::bytes::Bytes",
+      "metadataTypeId": 6,
+      "components": [
+        {
+          "name": "buf",
+          "typeId": 7
+        },
+        {
+          "name": "len",
+          "typeId": "1506e6f44c1d6291cdf46395a8e573276a4fa79e8ace3fc891e092ef32d1b0a0"
+        }
+      ]
+    },
+    {
+      "type": "struct std::bytes::RawBytes",
+      "metadataTypeId": 7,
+      "components": [
+        {
+          "name": "ptr",
+          "typeId": 3
+        },
+        {
+          "name": "cap",
+          "typeId": "1506e6f44c1d6291cdf46395a8e573276a4fa79e8ace3fc891e092ef32d1b0a0"
         }
       ]
     },
     {
       "type": "struct std::contract_id::ContractId",
-      "metadataTypeId": 3,
+      "metadataTypeId": 8,
       "components": [
         {
           "name": "bits",
-          "typeId": 0
+          "typeId": "7c5ee1cecf5f8eacd1284feb5f0bf2bdea533a51e2f0c9aabe9236d335989f3b"
+        }
+      ]
+    },
+    {
+      "type": "struct std::string::String",
+      "metadataTypeId": 9,
+      "components": [
+        {
+          "name": "bytes",
+          "typeId": 6
         }
       ]
     }
@@ -95,6 +237,10 @@ const abi = {
     {
       "inputs": [
         {
+          "name": "sub_id",
+          "concreteTypeId": "7c5ee1cecf5f8eacd1284feb5f0bf2bdea533a51e2f0c9aabe9236d335989f3b"
+        },
+        {
           "name": "amount",
           "concreteTypeId": "1506e6f44c1d6291cdf46395a8e573276a4fa79e8ace3fc891e092ef32d1b0a0"
         }
@@ -102,6 +248,208 @@ const abi = {
       "name": "burn",
       "output": "2e38e77b22c314a449e91fafed92a43826ac6aa403ae6a8acb6cf58239fbaf5d",
       "attributes": [
+        {
+          "name": "doc-comment",
+          "arguments": [
+            " Unconditionally burns assets sent with the default SubId."
+          ]
+        },
+        {
+          "name": "doc-comment",
+          "arguments": [
+            ""
+          ]
+        },
+        {
+          "name": "doc-comment",
+          "arguments": [
+            " # Arguments"
+          ]
+        },
+        {
+          "name": "doc-comment",
+          "arguments": [
+            ""
+          ]
+        },
+        {
+          "name": "doc-comment",
+          "arguments": [
+            " * `sub_id`: [SubId] - The default SubId."
+          ]
+        },
+        {
+          "name": "doc-comment",
+          "arguments": [
+            " * `amount`: [u64] - The quantity of coins to burn."
+          ]
+        },
+        {
+          "name": "doc-comment",
+          "arguments": [
+            ""
+          ]
+        },
+        {
+          "name": "doc-comment",
+          "arguments": [
+            " # Number of Storage Accesses"
+          ]
+        },
+        {
+          "name": "doc-comment",
+          "arguments": [
+            ""
+          ]
+        },
+        {
+          "name": "doc-comment",
+          "arguments": [
+            " * Reads: `1`"
+          ]
+        },
+        {
+          "name": "doc-comment",
+          "arguments": [
+            " * Writes: `1`"
+          ]
+        },
+        {
+          "name": "doc-comment",
+          "arguments": [
+            ""
+          ]
+        },
+        {
+          "name": "doc-comment",
+          "arguments": [
+            " # Reverts"
+          ]
+        },
+        {
+          "name": "doc-comment",
+          "arguments": [
+            ""
+          ]
+        },
+        {
+          "name": "doc-comment",
+          "arguments": [
+            " * When the `sub_id` is not the default SubId."
+          ]
+        },
+        {
+          "name": "doc-comment",
+          "arguments": [
+            " * When the transaction did not include at least `amount` coins."
+          ]
+        },
+        {
+          "name": "doc-comment",
+          "arguments": [
+            " * When the transaction did not include the asset minted by this contract."
+          ]
+        },
+        {
+          "name": "doc-comment",
+          "arguments": [
+            ""
+          ]
+        },
+        {
+          "name": "doc-comment",
+          "arguments": [
+            " # Examples"
+          ]
+        },
+        {
+          "name": "doc-comment",
+          "arguments": [
+            ""
+          ]
+        },
+        {
+          "name": "doc-comment",
+          "arguments": [
+            " ```sway"
+          ]
+        },
+        {
+          "name": "doc-comment",
+          "arguments": [
+            " use src3::SRC3;"
+          ]
+        },
+        {
+          "name": "doc-comment",
+          "arguments": [
+            " use std::constants::DEFAULT_SUB_ID;"
+          ]
+        },
+        {
+          "name": "doc-comment",
+          "arguments": [
+            ""
+          ]
+        },
+        {
+          "name": "doc-comment",
+          "arguments": [
+            " fn foo(contract_id: ContractId, asset_id: AssetId) {"
+          ]
+        },
+        {
+          "name": "doc-comment",
+          "arguments": [
+            "     let contract_abi = abi(SRC3, contract_id);"
+          ]
+        },
+        {
+          "name": "doc-comment",
+          "arguments": [
+            "     contract_abi {"
+          ]
+        },
+        {
+          "name": "doc-comment",
+          "arguments": [
+            "         gas: 10000,"
+          ]
+        },
+        {
+          "name": "doc-comment",
+          "arguments": [
+            "         coins: 100,"
+          ]
+        },
+        {
+          "name": "doc-comment",
+          "arguments": [
+            "         asset_id: asset_id,"
+          ]
+        },
+        {
+          "name": "doc-comment",
+          "arguments": [
+            "     }.burn(DEFAULT_SUB_ID, 100);"
+          ]
+        },
+        {
+          "name": "doc-comment",
+          "arguments": [
+            " }"
+          ]
+        },
+        {
+          "name": "doc-comment",
+          "arguments": [
+            " ```"
+          ]
+        },
+        {
+          "name": "payable",
+          "arguments": []
+        },
         {
           "name": "storage",
           "arguments": [
@@ -118,6 +466,10 @@ const abi = {
           "concreteTypeId": "ab7cd04e05be58e3fc15d424c2c4a57f824a2a2d97d67252440a3925ebdc1335"
         },
         {
+          "name": "sub_id",
+          "concreteTypeId": "0c2beb9013490c4f753f2757dfe2d8340b22ce3827d596d81d249b7038033cb6"
+        },
+        {
           "name": "amount",
           "concreteTypeId": "1506e6f44c1d6291cdf46395a8e573276a4fa79e8ace3fc891e092ef32d1b0a0"
         }
@@ -126,6 +478,174 @@ const abi = {
       "output": "2e38e77b22c314a449e91fafed92a43826ac6aa403ae6a8acb6cf58239fbaf5d",
       "attributes": [
         {
+          "name": "doc-comment",
+          "arguments": [
+            " Unconditionally mints new assets using the default SubId."
+          ]
+        },
+        {
+          "name": "doc-comment",
+          "arguments": [
+            ""
+          ]
+        },
+        {
+          "name": "doc-comment",
+          "arguments": [
+            " # Arguments"
+          ]
+        },
+        {
+          "name": "doc-comment",
+          "arguments": [
+            ""
+          ]
+        },
+        {
+          "name": "doc-comment",
+          "arguments": [
+            " * `recipient`: [Identity] - The user to which the newly minted asset is transferred to."
+          ]
+        },
+        {
+          "name": "doc-comment",
+          "arguments": [
+            " * `sub_id`: [SubId] - The default SubId."
+          ]
+        },
+        {
+          "name": "doc-comment",
+          "arguments": [
+            " * `amount`: [u64] - The quantity of coins to mint."
+          ]
+        },
+        {
+          "name": "doc-comment",
+          "arguments": [
+            ""
+          ]
+        },
+        {
+          "name": "doc-comment",
+          "arguments": [
+            " # Number of Storage Accesses"
+          ]
+        },
+        {
+          "name": "doc-comment",
+          "arguments": [
+            ""
+          ]
+        },
+        {
+          "name": "doc-comment",
+          "arguments": [
+            " * Reads: `1`"
+          ]
+        },
+        {
+          "name": "doc-comment",
+          "arguments": [
+            " * Writes: `1`"
+          ]
+        },
+        {
+          "name": "doc-comment",
+          "arguments": [
+            ""
+          ]
+        },
+        {
+          "name": "doc-comment",
+          "arguments": [
+            " # Reverts"
+          ]
+        },
+        {
+          "name": "doc-comment",
+          "arguments": [
+            ""
+          ]
+        },
+        {
+          "name": "doc-comment",
+          "arguments": [
+            " * When the `sub_id` is not the default SubId."
+          ]
+        },
+        {
+          "name": "doc-comment",
+          "arguments": [
+            ""
+          ]
+        },
+        {
+          "name": "doc-comment",
+          "arguments": [
+            " # Examples"
+          ]
+        },
+        {
+          "name": "doc-comment",
+          "arguments": [
+            ""
+          ]
+        },
+        {
+          "name": "doc-comment",
+          "arguments": [
+            " ```sway"
+          ]
+        },
+        {
+          "name": "doc-comment",
+          "arguments": [
+            " use src3::SRC3;"
+          ]
+        },
+        {
+          "name": "doc-comment",
+          "arguments": [
+            " use std::constants::DEFAULT_SUB_ID;"
+          ]
+        },
+        {
+          "name": "doc-comment",
+          "arguments": [
+            ""
+          ]
+        },
+        {
+          "name": "doc-comment",
+          "arguments": [
+            " fn foo(contract_id: ContractId) {"
+          ]
+        },
+        {
+          "name": "doc-comment",
+          "arguments": [
+            "     let contract_abi = abi(SRC3, contract);"
+          ]
+        },
+        {
+          "name": "doc-comment",
+          "arguments": [
+            "     contract_abi.mint(Identity::ContractId(contract_id), DEFAULT_SUB_ID, 100);"
+          ]
+        },
+        {
+          "name": "doc-comment",
+          "arguments": [
+            " }"
+          ]
+        },
+        {
+          "name": "doc-comment",
+          "arguments": [
+            " ```"
+          ]
+        },
+        {
           "name": "storage",
           "arguments": [
             "read",
@@ -133,14 +653,125 @@ const abi = {
           ]
         }
       ]
+    },
+    {
+      "inputs": [
+        {
+          "name": "asset",
+          "concreteTypeId": "c0710b6731b1dd59799cf6bef33eee3b3b04a2e40e80a0724090215bbf2ca974"
+        }
+      ],
+      "name": "decimals",
+      "output": "2da102c46c7263beeed95818cd7bee801716ba8303dddafdcd0f6c9efda4a0f1",
+      "attributes": [
+        {
+          "name": "storage",
+          "arguments": [
+            "read"
+          ]
+        }
+      ]
+    },
+    {
+      "inputs": [
+        {
+          "name": "asset",
+          "concreteTypeId": "c0710b6731b1dd59799cf6bef33eee3b3b04a2e40e80a0724090215bbf2ca974"
+        }
+      ],
+      "name": "name",
+      "output": "7c06d929390a9aeeb8ffccf8173ac0d101a9976d99dda01cce74541a81e75ac0",
+      "attributes": [
+        {
+          "name": "storage",
+          "arguments": [
+            "read"
+          ]
+        }
+      ]
+    },
+    {
+      "inputs": [
+        {
+          "name": "asset",
+          "concreteTypeId": "c0710b6731b1dd59799cf6bef33eee3b3b04a2e40e80a0724090215bbf2ca974"
+        }
+      ],
+      "name": "symbol",
+      "output": "7c06d929390a9aeeb8ffccf8173ac0d101a9976d99dda01cce74541a81e75ac0",
+      "attributes": [
+        {
+          "name": "storage",
+          "arguments": [
+            "read"
+          ]
+        }
+      ]
+    },
+    {
+      "inputs": [],
+      "name": "total_assets",
+      "output": "1506e6f44c1d6291cdf46395a8e573276a4fa79e8ace3fc891e092ef32d1b0a0",
+      "attributes": [
+        {
+          "name": "storage",
+          "arguments": [
+            "read"
+          ]
+        }
+      ]
+    },
+    {
+      "inputs": [
+        {
+          "name": "asset",
+          "concreteTypeId": "c0710b6731b1dd59799cf6bef33eee3b3b04a2e40e80a0724090215bbf2ca974"
+        }
+      ],
+      "name": "total_supply",
+      "output": "d852149004cc9ec0bbe7dc4e37bffea1d41469b759512b6136f2e865a4c06e7d",
+      "attributes": [
+        {
+          "name": "storage",
+          "arguments": [
+            "read"
+          ]
+        }
+      ]
     }
   ],
-  "loggedTypes": [],
+  "loggedTypes": [
+    {
+      "logId": "10098701174489624218",
+      "concreteTypeId": "8c25cb3686462e9a86d2883c5688a22fe738b0bbc85f458d2d2b5f3f667c6d5a"
+    }
+  ],
   "messagesTypes": [],
-  "configurables": []
+  "configurables": [
+    {
+      "name": "DECIMALS",
+      "concreteTypeId": "c89951a24c6ca28c13fd1cfdc646b2b656d69e61a92b91023be7eb58eb914b6b",
+      "offset": 15920
+    },
+    {
+      "name": "NAME",
+      "concreteTypeId": "5bc5f5dfcd28de7e77d30dec3e6392905198dac3b172c043b403f669f66585ca",
+      "offset": 15928
+    },
+    {
+      "name": "SYMBOL",
+      "concreteTypeId": "84877f6e98274b9e4721db68b4c0bdb9e52b8e9572c5bd7811c07a41ced882c7",
+      "offset": 15936
+    }
+  ]
 };
 
-const storageSlots: StorageSlot[] = [];
+const storageSlots: StorageSlot[] = [
+  {
+    "key": "b3853c2c03d9d81043ac4e2e1c051d093374ff05570080023524d02dfafab0ef",
+    "value": "0000000000000000000000000000000000000000000000000000000000000000"
+  }
+];
 
 export class DummyStablecoinInterface extends Interface {
   constructor() {
@@ -150,6 +781,11 @@ export class DummyStablecoinInterface extends Interface {
   declare functions: {
     burn: FunctionFragment;
     mint: FunctionFragment;
+    decimals: FunctionFragment;
+    name: FunctionFragment;
+    symbol: FunctionFragment;
+    total_assets: FunctionFragment;
+    total_supply: FunctionFragment;
   };
 }
 
@@ -159,8 +795,13 @@ export class DummyStablecoin extends Contract {
 
   declare interface: DummyStablecoinInterface;
   declare functions: {
-    burn: InvokeFunction<[amount: BigNumberish], void>;
-    mint: InvokeFunction<[recipient: IdentityInput, amount: BigNumberish], void>;
+    burn: InvokeFunction<[sub_id: string, amount: BigNumberish], void>;
+    mint: InvokeFunction<[recipient: IdentityInput, sub_id: Option<string>, amount: BigNumberish], void>;
+    decimals: InvokeFunction<[asset: AssetIdInput], Option<number>>;
+    name: InvokeFunction<[asset: AssetIdInput], Option<StdString>>;
+    symbol: InvokeFunction<[asset: AssetIdInput], Option<StdString>>;
+    total_assets: InvokeFunction<[], BN>;
+    total_supply: InvokeFunction<[asset: AssetIdInput], Option<BN>>;
   };
 
   constructor(

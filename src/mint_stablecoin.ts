@@ -38,7 +38,7 @@ const stableCoin = new DummyStablecoin(stableCoinAddress, wallet);
 const address = gaslessPredicate.address;
 const call = stableCoin.functions.mint({Address: {
     bits: address.toB256()
-}}, bn (100));
+}}, undefined ,bn (100));
 
 call.callParams({gasLimit: 100000});
 

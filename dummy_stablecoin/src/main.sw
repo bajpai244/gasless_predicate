@@ -16,9 +16,9 @@ configurable {
     /// The decimals of the asset minted by this contract.
     DECIMALS: u8 = 9u8,
     /// The name of the asset minted by this contract.
-    NAME: str[7] = __to_str_array("DummyStable"),
+    NAME: str[7] = __to_str_array("DummySt"),
     /// The symbol of the asset minted by this contract.
-    SYMBOL: str[5] = __to_str_array("DMS"),
+    SYMBOL: str[5] = __to_str_array("DMSSS"),
 }
  
 storage {
@@ -56,8 +56,10 @@ impl SRC3 for Contract {
     /// }
     /// ```
     #[storage(read, write)]
-    fn mint(recipient: Identity, sub_id: SubId, amount: u64) {
-        require(sub_id == DEFAULT_SUB_ID, "Incorrect Sub Id");
+    fn mint(recipient: Identity, sub_id: Option<SubId>, amount: u64) {
+        // if let Some(sub_id) = sub_id {
+        // require(sub_id == DEFAULT_SUB_ID, "Incorrect Sub Id");
+        // }
  
         // Increment total supply of the asset and mint to the recipient.
         storage
