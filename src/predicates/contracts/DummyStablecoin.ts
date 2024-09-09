@@ -36,6 +36,14 @@ export type AssetIdInput = { bits: string };
 export type AssetIdOutput = AssetIdInput;
 export type ContractIdInput = { bits: string };
 export type ContractIdOutput = ContractIdInput;
+export type SetDecimalsEventInput = { asset: AssetIdInput, decimals: BigNumberish, sender: IdentityInput };
+export type SetDecimalsEventOutput = { asset: AssetIdOutput, decimals: number, sender: IdentityOutput };
+export type SetNameEventInput = { asset: AssetIdInput, name: Option<StdString>, sender: IdentityInput };
+export type SetNameEventOutput = { asset: AssetIdOutput, name: Option<StdString>, sender: IdentityOutput };
+export type SetSymbolEventInput = { asset: AssetIdInput, symbol: Option<StdString>, sender: IdentityInput };
+export type SetSymbolEventOutput = { asset: AssetIdOutput, symbol: Option<StdString>, sender: IdentityOutput };
+export type TotalSupplyEventInput = { asset: AssetIdInput, supply: BigNumberish, sender: IdentityInput };
+export type TotalSupplyEventOutput = { asset: AssetIdOutput, supply: BN, sender: IdentityOutput };
 
 export type DummyStablecoinConfigurables = Partial<{
   DECIMALS: BigNumberish;
@@ -106,14 +114,34 @@ const abi = {
       "concreteTypeId": "5bc5f5dfcd28de7e77d30dec3e6392905198dac3b172c043b403f669f66585ca"
     },
     {
+      "type": "struct standards::src20::SetDecimalsEvent",
+      "concreteTypeId": "fbe071a6e7ca2b2b5e503e82638f9f11c861a6fb452b65473eca8260db87392d",
+      "metadataTypeId": 4
+    },
+    {
+      "type": "struct standards::src20::SetNameEvent",
+      "concreteTypeId": "6ce295b0fb4c1c15e8ed1cfa4babda47d8a04940a5266a3229e12243a2e37c2c",
+      "metadataTypeId": 5
+    },
+    {
+      "type": "struct standards::src20::SetSymbolEvent",
+      "concreteTypeId": "a8a4b78066c51a50da6349bd395fe1c67e774d75c1db2c5c22288a432d7a363d",
+      "metadataTypeId": 6
+    },
+    {
+      "type": "struct standards::src20::TotalSupplyEvent",
+      "concreteTypeId": "f255d5cc2114d1b6bc34bef4c28d4b60caccffd9a672ed16b79ea217e1c4a8a3",
+      "metadataTypeId": 7
+    },
+    {
       "type": "struct std::asset_id::AssetId",
       "concreteTypeId": "c0710b6731b1dd59799cf6bef33eee3b3b04a2e40e80a0724090215bbf2ca974",
-      "metadataTypeId": 5
+      "metadataTypeId": 9
     },
     {
       "type": "struct std::string::String",
       "concreteTypeId": "9a7f1d3e963c10e0a4ea70a8e20a4813d1dc5682e28f74cb102ae50d32f7f98c",
-      "metadataTypeId": 9
+      "metadataTypeId": 13
     },
     {
       "type": "u64",
@@ -131,11 +159,11 @@ const abi = {
       "components": [
         {
           "name": "Address",
-          "typeId": 4
+          "typeId": 8
         },
         {
           "name": "ContractId",
-          "typeId": 8
+          "typeId": 12
         }
       ]
     },
@@ -165,8 +193,92 @@ const abi = {
       "metadataTypeId": 3
     },
     {
-      "type": "struct std::address::Address",
+      "type": "struct standards::src20::SetDecimalsEvent",
       "metadataTypeId": 4,
+      "components": [
+        {
+          "name": "asset",
+          "typeId": 9
+        },
+        {
+          "name": "decimals",
+          "typeId": "c89951a24c6ca28c13fd1cfdc646b2b656d69e61a92b91023be7eb58eb914b6b"
+        },
+        {
+          "name": "sender",
+          "typeId": 0
+        }
+      ]
+    },
+    {
+      "type": "struct standards::src20::SetNameEvent",
+      "metadataTypeId": 5,
+      "components": [
+        {
+          "name": "asset",
+          "typeId": 9
+        },
+        {
+          "name": "name",
+          "typeId": 1,
+          "typeArguments": [
+            {
+              "name": "",
+              "typeId": 13
+            }
+          ]
+        },
+        {
+          "name": "sender",
+          "typeId": 0
+        }
+      ]
+    },
+    {
+      "type": "struct standards::src20::SetSymbolEvent",
+      "metadataTypeId": 6,
+      "components": [
+        {
+          "name": "asset",
+          "typeId": 9
+        },
+        {
+          "name": "symbol",
+          "typeId": 1,
+          "typeArguments": [
+            {
+              "name": "",
+              "typeId": 13
+            }
+          ]
+        },
+        {
+          "name": "sender",
+          "typeId": 0
+        }
+      ]
+    },
+    {
+      "type": "struct standards::src20::TotalSupplyEvent",
+      "metadataTypeId": 7,
+      "components": [
+        {
+          "name": "asset",
+          "typeId": 9
+        },
+        {
+          "name": "supply",
+          "typeId": "1506e6f44c1d6291cdf46395a8e573276a4fa79e8ace3fc891e092ef32d1b0a0"
+        },
+        {
+          "name": "sender",
+          "typeId": 0
+        }
+      ]
+    },
+    {
+      "type": "struct std::address::Address",
+      "metadataTypeId": 8,
       "components": [
         {
           "name": "bits",
@@ -176,7 +288,7 @@ const abi = {
     },
     {
       "type": "struct std::asset_id::AssetId",
-      "metadataTypeId": 5,
+      "metadataTypeId": 9,
       "components": [
         {
           "name": "bits",
@@ -186,11 +298,11 @@ const abi = {
     },
     {
       "type": "struct std::bytes::Bytes",
-      "metadataTypeId": 6,
+      "metadataTypeId": 10,
       "components": [
         {
           "name": "buf",
-          "typeId": 7
+          "typeId": 11
         },
         {
           "name": "len",
@@ -200,7 +312,7 @@ const abi = {
     },
     {
       "type": "struct std::bytes::RawBytes",
-      "metadataTypeId": 7,
+      "metadataTypeId": 11,
       "components": [
         {
           "name": "ptr",
@@ -214,7 +326,7 @@ const abi = {
     },
     {
       "type": "struct std::contract_id::ContractId",
-      "metadataTypeId": 8,
+      "metadataTypeId": 12,
       "components": [
         {
           "name": "bits",
@@ -224,11 +336,11 @@ const abi = {
     },
     {
       "type": "struct std::string::String",
-      "metadataTypeId": 9,
+      "metadataTypeId": 13,
       "components": [
         {
           "name": "bytes",
-          "typeId": 6
+          "typeId": 10
         }
       ]
     }
@@ -630,7 +742,7 @@ const abi = {
         {
           "name": "doc-comment",
           "arguments": [
-            "     contract_abi.mint(Identity::ContractId(contract_id), DEFAULT_SUB_ID, 100);"
+            "     contract_abi.mint(Identity::ContractId(contract_id), Some(DEFAULT_SUB_ID), 100);"
           ]
         },
         {
@@ -738,12 +850,38 @@ const abi = {
           ]
         }
       ]
+    },
+    {
+      "inputs": [],
+      "name": "emit_src20_events",
+      "output": "2e38e77b22c314a449e91fafed92a43826ac6aa403ae6a8acb6cf58239fbaf5d",
+      "attributes": null
     }
   ],
   "loggedTypes": [
     {
       "logId": "10098701174489624218",
       "concreteTypeId": "8c25cb3686462e9a86d2883c5688a22fe738b0bbc85f458d2d2b5f3f667c6d5a"
+    },
+    {
+      "logId": "17462098202904023478",
+      "concreteTypeId": "f255d5cc2114d1b6bc34bef4c28d4b60caccffd9a672ed16b79ea217e1c4a8a3"
+    },
+    {
+      "logId": "1515152261580153489",
+      "concreteTypeId": "1506e6f44c1d6291cdf46395a8e573276a4fa79e8ace3fc891e092ef32d1b0a0"
+    },
+    {
+      "logId": "7845998088195677205",
+      "concreteTypeId": "6ce295b0fb4c1c15e8ed1cfa4babda47d8a04940a5266a3229e12243a2e37c2c"
+    },
+    {
+      "logId": "12152039456660331088",
+      "concreteTypeId": "a8a4b78066c51a50da6349bd395fe1c67e774d75c1db2c5c22288a432d7a363d"
+    },
+    {
+      "logId": "18149631459970394923",
+      "concreteTypeId": "fbe071a6e7ca2b2b5e503e82638f9f11c861a6fb452b65473eca8260db87392d"
     }
   ],
   "messagesTypes": [],
@@ -751,17 +889,17 @@ const abi = {
     {
       "name": "DECIMALS",
       "concreteTypeId": "c89951a24c6ca28c13fd1cfdc646b2b656d69e61a92b91023be7eb58eb914b6b",
-      "offset": 15920
+      "offset": 22744
     },
     {
       "name": "NAME",
       "concreteTypeId": "5bc5f5dfcd28de7e77d30dec3e6392905198dac3b172c043b403f669f66585ca",
-      "offset": 15928
+      "offset": 22752
     },
     {
       "name": "SYMBOL",
       "concreteTypeId": "84877f6e98274b9e4721db68b4c0bdb9e52b8e9572c5bd7811c07a41ced882c7",
-      "offset": 15936
+      "offset": 22760
     }
   ]
 };
@@ -786,6 +924,7 @@ export class DummyStablecoinInterface extends Interface {
     symbol: FunctionFragment;
     total_assets: FunctionFragment;
     total_supply: FunctionFragment;
+    emit_src20_events: FunctionFragment;
   };
 }
 
@@ -802,6 +941,7 @@ export class DummyStablecoin extends Contract {
     symbol: InvokeFunction<[asset: AssetIdInput], Option<StdString>>;
     total_assets: InvokeFunction<[], BN>;
     total_supply: InvokeFunction<[asset: AssetIdInput], Option<BN>>;
+    emit_src20_events: InvokeFunction<[], void>;
   };
 
   constructor(

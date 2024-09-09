@@ -1,4 +1,4 @@
-import { Address, B256Coder, BigNumberCoder, bn, NumberCoder, Provider, Script, ScriptTransactionRequest, sha256, Signer, uint64ToBytesBE, Wallet } from "fuels";
+import { Address, B256Coder, BigNumberCoder, bn, NumberCoder, Provider, Script, ScriptTransactionRequest, sha256, Signer, toB256, uint64ToBytesBE, Wallet, ZeroBytes32 } from "fuels";
 import {config} from "dotenv"
 import { DummyStablecoin, DummyStablecoinFactory, GaslessWallet } from "./predicates";
 
@@ -34,6 +34,9 @@ if(!process.env.STABLE_COIN_CONTRACT_ADDRESS) {
 const stableCoinAddress = process.env.STABLE_COIN_CONTRACT_ADDRESS;
 
 const stableCoin = new DummyStablecoin(stableCoinAddress, wallet);
+
+// console.log("total balance: ",await (await stableCoin.functions.total_supply.isReadOnly).waitForResult());
+// return ;
 
 const address = gaslessPredicate.address;
 const call = stableCoin.functions.mint({Address: {
