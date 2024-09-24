@@ -1,4 +1,4 @@
-predicate;
+script;
  
 use std::address::Address;
 use std::logging::log;
@@ -74,17 +74,18 @@ fn input_type_is_coin(index: u64) -> bool {
 fn serialize_inputs(inputs: Vec<TxInput>) -> Bytes {
     let mut bytes = Bytes::new();
 
-    // for input in (*inputs).iter()  {
-    //     match input {
-    //         TxInput::InputCoin (input_coin) => {
-    //             let mut tx_id_bytes = input_coin.tx_id.to_be_bytes();
-    //             let mut output_index_bytes = input_coin.output_index.to_be_bytes();
-    //             bytes.append(tx_id_bytes);
-    //             bytes.append(output_index_bytes);
-    //         }
-    //     }
+    for input in inputs.iter()  {
+        match input {
+            TxInput::InputCoin (input_coin) => {
+                let mut tx_id_bytes = input_coin.tx_id.to_be_bytes();
+                let mut output_index_bytes = input_coin.output_index.to_be_bytes();
 
-    // }
+                bytes.append(tx_id_bytes);
+                bytes.append(output_index_bytes);
+            }
+        }
+
+    }
 
     bytes
 }

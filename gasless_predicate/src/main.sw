@@ -277,7 +277,6 @@ fn main(
     let mut payload = Bytes::new();
 
     let mut serialized_inputs = serialize_inputs(tx_inputs);
-    log(serialized_inputs);
     let serialized_outputs = serialize_outputs(tx_outputs);
 
     payload.append(serialized_inputs);
