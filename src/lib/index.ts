@@ -71,7 +71,7 @@ export const calculaatePayloadHashNew = (inputs: Array<TxInputInput>, outputs: A
         const amountBytes = u64Coder.encode(amount);
         const assetIdBytes = b256Coder.encode(asset_id.bits);
 
-        payload = new Uint8Array([...toBytes, ...amountBytes, ...assetIdBytes]);
+        payload = new Uint8Array([...payload,...toBytes, ...amountBytes, ...assetIdBytes]);
     }
 
     console.log("payload: ",payload);

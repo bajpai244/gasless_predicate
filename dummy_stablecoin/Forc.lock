@@ -12,7 +12,7 @@ dependencies = [
 
 [[package]]
 name = "standards"
-source = "git+https://github.com/FuelLabs/sway-standards?branch=master#29986f156a5aff5b2aee4a2a37643c78d82e5730"
+source = "git+https://github.com/FuelLabs/sway-standards?branch=master#408d81a9af7b468adc9bf9bc30721db8d61ab6fb"
 dependencies = ["std"]
 
 [[package]]

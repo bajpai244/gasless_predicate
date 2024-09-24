@@ -33,7 +33,6 @@ if (!STABLE_COIN_CONTRACT_ADDRESS) {
 const defaultSubId = "0x0000000000000000000000000000000000000000000000000000000000000000"
 const predicateAssetId = createAssetId(STABLE_COIN_CONTRACT_ADDRESS, defaultSubId);
 
-
 const wallet = Wallet.fromPrivateKey(PRIVATE_KEY, provider);
 const signer = new Signer(PRIVATE_KEY);
 

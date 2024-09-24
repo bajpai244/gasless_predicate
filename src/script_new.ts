@@ -139,6 +139,7 @@ const main = async () => {
 //   console.log("shar [0]", sha256(new Uint8Array([0, 1])));
   console.log("gas used", response.gasUsed);
   console.log("siganture", signature);
+  console.log("payload_hash", payloadHash);
 
 
   // const sig1 = signer.sign(payloadHash);
