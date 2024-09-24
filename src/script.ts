@@ -19,7 +19,7 @@ import {
 import { config } from "dotenv";
 import { DbgExample } from "./predicates/scripts/index";
 import { writeFileSync, readFileSync } from "node:fs";
-import { calculaatePayloadHashNew, calculatePayloadHash } from "./lib";
+import { calculaatePayloadHash, calculatePayloadHash } from "./lib";
 import type { OutputCoinInput, TxInputInput, TxOutputInput } from "./predicates/scripts/DbgExample";
 
 config();
@@ -94,7 +94,7 @@ const main = async () => {
     }}
   }];
 
-  const payloadHash = calculaatePayloadHashNew(inputTxs, expectedOutputs);
+  const payloadHash = calculaatePayloadHash(inputTxs, expectedOutputs);
   console.log('payload hash', payloadHash);
 
   const signature = signer.sign(payloadHash);

@@ -1,6 +1,6 @@
 import { Address, B256Coder, bn, createAssetId, Provider, ScriptTransactionRequest, sha256, Signer, Wallet } from "fuels";
 import { config } from "dotenv"
-import { calculaatePayloadHashNew, calculatePayloadHash } from "./lib";
+import { calculaatePayloadHash, calculatePayloadHash } from "./lib";
 import { GaslessWallet } from "./predicates";
 import type { OutputCoinInput, TxInputInput } from "./predicates/scripts/DbgExample";
 import type { TxOutputInput } from "./predicates/predicates/GaslessWallet";
@@ -102,7 +102,7 @@ gaslessPredicate.addTransfer(scriptTransaction, {
     }}
   }];
 
-  const payloadHash = calculaatePayloadHashNew(inputTxs, expectedOutputs);
+  const payloadHash = calculaatePayloadHash(inputTxs, expectedOutputs);
   const signtare = signer.sign(payloadHash);
 
 
