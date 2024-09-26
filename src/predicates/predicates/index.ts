@@ -6,8 +6,8 @@
 
 /*
   Fuels version: 0.94.2
-  Forc version: 0.63.1
-  Fuel-Core version: 0.34.0
+  Forc version: 0.64.0
+  Fuel-Core version: 0.36.0
 */
 
 export { GaslessWallet } from './GaslessWallet';

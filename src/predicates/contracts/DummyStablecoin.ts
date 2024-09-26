@@ -6,8 +6,8 @@
 
 /*
   Fuels version: 0.94.2
-  Forc version: 0.63.1
-  Fuel-Core version: 0.34.0
+  Forc version: 0.64.0
+  Fuel-Core version: 0.36.0
 */
 
 import { Contract, Interface } from "fuels";
@@ -889,17 +889,17 @@ const abi = {
     {
       "name": "DECIMALS",
       "concreteTypeId": "c89951a24c6ca28c13fd1cfdc646b2b656d69e61a92b91023be7eb58eb914b6b",
-      "offset": 22744
+      "offset": 23224
     },
     {
       "name": "NAME",
       "concreteTypeId": "5bc5f5dfcd28de7e77d30dec3e6392905198dac3b172c043b403f669f66585ca",
-      "offset": 22752
+      "offset": 23232
     },
     {
       "name": "SYMBOL",
       "concreteTypeId": "84877f6e98274b9e4721db68b4c0bdb9e52b8e9572c5bd7811c07a41ced882c7",
-      "offset": 22760
+      "offset": 23240
     }
   ]
 };
