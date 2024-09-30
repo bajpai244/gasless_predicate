@@ -10,4 +10,4 @@
   Fuel-Core version: 0.36.0
 */
 
-export { DbgExample } from './DbgExample';
+export { GaslessWallet } from './GaslessWallet';

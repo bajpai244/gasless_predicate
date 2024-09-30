@@ -3,9 +3,17 @@ name = "core"
 source = "path+from-root-4BA3A18A2D620E67"
 
 [[package]]
+name = "gasless_lib"
+source = "path+from-root-BB6710DC2C5DBD8A"
+dependencies = ["std"]
+
+[[package]]
 name = "gasless_wallet"
 source = "member"
-dependencies = ["std"]
+dependencies = [
+    "gasless_lib",
+    "std",
+]
 
 [[package]]
 name = "std"

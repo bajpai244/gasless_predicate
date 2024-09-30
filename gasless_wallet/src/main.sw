@@ -1,9 +1,4 @@
 script;
-
-mod utils;
-mod types;
-mod serde;
-mod validate;
  
 use std::address::Address;
 use std::logging::log;
@@ -17,10 +12,10 @@ use std::b512::B512;
 use std::ecr::ec_recover;
 use std::asset_id::AssetId;
 
-use utils::{input_tx_id, search_output_coin, input_type_is_coin, find_input_tx_by_utxo_id, hash_bytes};
-use types::{InputCoin, TxInput, OutputCoin, TxOutput};
-use serde::{serialize_inputs, serialize_outputs};
-use validate::{validate_inputs, validate_outputs};
+use gasless_lib::utils::{input_tx_id, search_output_coin, input_type_is_coin, find_input_tx_by_utxo_id, hash_bytes};
+use gasless_lib::types::{InputCoin, TxInput, OutputCoin, TxOutput};
+use gasless_lib::serde::{serialize_inputs, serialize_outputs};
+use gasless_lib::validate::{validate_inputs, validate_outputs};
 
 
 configurable {

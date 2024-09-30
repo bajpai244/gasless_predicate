@@ -1,7 +1,7 @@
 [project]
 authors = ["Harsh Bajpai"]
-entry = "main.sw"
+entry = "lib.sw"
 license = "Apache-2.0"
-name = "gasless_wallet"
+name = "gasless_lib"
 
 [dependencies]
