@@ -1,0 +1,272 @@
+{
+  "programType": "script",
+  "specVersion": "1",
+  "encodingVersion": "1",
+  "concreteTypes": [
+    {
+      "type": "b256",
+      "concreteTypeId": "7c5ee1cecf5f8eacd1284feb5f0bf2bdea533a51e2f0c9aabe9236d335989f3b"
+    },
+    {
+      "type": "bool",
+      "concreteTypeId": "b760f44fa5965c2474a3b471467a22c43185152129295af588b022ae50b50903"
+    },
+    {
+      "type": "enum types::TxInput",
+      "concreteTypeId": "7d50dac01c7f4857b4d388a2d3112c0c3061df04d869fd90e5ced639e9f4f310",
+      "metadataTypeId": 1
+    },
+    {
+      "type": "enum types::TxOutput",
+      "concreteTypeId": "31f980849790e3139db76382b5775dcbad7ca6a948da148a9987f0704d33b563",
+      "metadataTypeId": 2
+    },
+    {
+      "type": "struct std::b512::B512",
+      "concreteTypeId": "745e252e80bec590efc3999ae943f07ccea4d5b45b00bb6575499b64abdd3322",
+      "metadataTypeId": 7
+    },
+    {
+      "type": "struct std::vec::Vec<enum types::TxInput>",
+      "concreteTypeId": "29743a3f71cbc9daddeed6671369aa63c2d0431525f23aeb7d79be2b37e14921",
+      "metadataTypeId": 9,
+      "typeArguments": [
+        "7d50dac01c7f4857b4d388a2d3112c0c3061df04d869fd90e5ced639e9f4f310"
+      ]
+    },
+    {
+      "type": "struct std::vec::Vec<enum types::TxOutput>",
+      "concreteTypeId": "c08d63e1df95e8624661be783c55f04dee928426d7ed22b067270c69f6152123",
+      "metadataTypeId": 9,
+      "typeArguments": [
+        "31f980849790e3139db76382b5775dcbad7ca6a948da148a9987f0704d33b563"
+      ]
+    }
+  ],
+  "metadataTypes": [
+    {
+      "type": "[_; 2]",
+      "metadataTypeId": 0,
+      "components": [
+        {
+          "name": "__array_element",
+          "typeId": "7c5ee1cecf5f8eacd1284feb5f0bf2bdea533a51e2f0c9aabe9236d335989f3b"
+        }
+      ]
+    },
+    {
+      "type": "enum types::TxInput",
+      "metadataTypeId": 1,
+      "components": [
+        {
+          "name": "InputCoin",
+          "typeId": 10
+        }
+      ]
+    },
+    {
+      "type": "enum types::TxOutput",
+      "metadataTypeId": 2,
+      "components": [
+        {
+          "name": "OutputCoin",
+          "typeId": 11
+        }
+      ]
+    },
+    {
+      "type": "generic T",
+      "metadataTypeId": 3
+    },
+    {
+      "type": "raw untyped ptr",
+      "metadataTypeId": 4
+    },
+    {
+      "type": "struct std::address::Address",
+      "metadataTypeId": 5,
+      "components": [
+        {
+          "name": "bits",
+          "typeId": "7c5ee1cecf5f8eacd1284feb5f0bf2bdea533a51e2f0c9aabe9236d335989f3b"
+        }
+      ]
+    },
+    {
+      "type": "struct std::asset_id::AssetId",
+      "metadataTypeId": 6,
+      "components": [
+        {
+          "name": "bits",
+          "typeId": "7c5ee1cecf5f8eacd1284feb5f0bf2bdea533a51e2f0c9aabe9236d335989f3b"
+        }
+      ]
+    },
+    {
+      "type": "struct std::b512::B512",
+      "metadataTypeId": 7,
+      "components": [
+        {
+          "name": "bits",
+          "typeId": 0
+        }
+      ]
+    },
+    {
+      "type": "struct std::vec::RawVec",
+      "metadataTypeId": 8,
+      "components": [
+        {
+          "name": "ptr",
+          "typeId": 4
+        },
+        {
+          "name": "cap",
+          "typeId": 13
+        }
+      ],
+      "typeParameters": [
+        3
+      ]
+    },
+    {
+      "type": "struct std::vec::Vec",
+      "metadataTypeId": 9,
+      "components": [
+        {
+          "name": "buf",
+          "typeId": 8,
+          "typeArguments": [
+            {
+              "name": "",
+              "typeId": 3
+            }
+          ]
+        },
+        {
+          "name": "len",
+          "typeId": 13
+        }
+      ],
+      "typeParameters": [
+        3
+      ]
+    },
+    {
+      "type": "struct types::InputCoin",
+      "metadataTypeId": 10,
+      "components": [
+        {
+          "name": "tx_id",
+          "typeId": "7c5ee1cecf5f8eacd1284feb5f0bf2bdea533a51e2f0c9aabe9236d335989f3b"
+        },
+        {
+          "name": "output_index",
+          "typeId": 12
+        }
+      ]
+    },
+    {
+      "type": "struct types::OutputCoin",
+      "metadataTypeId": 11,
+      "components": [
+        {
+          "name": "to",
+          "typeId": 5
+        },
+        {
+          "name": "amount",
+          "typeId": 13
+        },
+        {
+          "name": "asset_id",
+          "typeId": 6
+        }
+      ]
+    },
+    {
+      "type": "u16",
+      "metadataTypeId": 12
+    },
+    {
+      "type": "u64",
+      "metadataTypeId": 13
+    }
+  ],
+  "functions": [
+    {
+      "inputs": [
+        {
+          "name": "tx_inputs",
+          "concreteTypeId": "29743a3f71cbc9daddeed6671369aa63c2d0431525f23aeb7d79be2b37e14921"
+        },
+        {
+          "name": "tx_outputs",
+          "concreteTypeId": "c08d63e1df95e8624661be783c55f04dee928426d7ed22b067270c69f6152123"
+        },
+        {
+          "name": "signature",
+          "concreteTypeId": "745e252e80bec590efc3999ae943f07ccea4d5b45b00bb6575499b64abdd3322"
+        }
+      ],
+      "name": "main",
+      "output": "b760f44fa5965c2474a3b471467a22c43185152129295af588b022ae50b50903",
+      "attributes": [
+        {
+          "name": "doc-comment",
+          "arguments": [
+            " extract inputs, and outputs"
+          ]
+        },
+        {
+          "name": "doc-comment",
+          "arguments": [
+            " extract the script bytecode hash"
+          ]
+        },
+        {
+          "name": "doc-comment",
+          "arguments": [
+            " calculate the tranasaction hash based on that"
+          ]
+        },
+        {
+          "name": "doc-comment",
+          "arguments": [
+            ""
+          ]
+        },
+        {
+          "name": "doc-comment",
+          "arguments": [
+            " V0, user can only sign over a single input and single output { only of type coin }"
+          ]
+        },
+        {
+          "name": "doc-comment",
+          "arguments": [
+            " txn_hash = sha_256([[input_tx_id_bytes], [hash_of_serialized_output_type_coin]], [script_bytecodehash_bytes])"
+          ]
+        }
+      ]
+    }
+  ],
+  "loggedTypes": [
+    {
+      "logId": "8961848586872524460",
+      "concreteTypeId": "7c5ee1cecf5f8eacd1284feb5f0bf2bdea533a51e2f0c9aabe9236d335989f3b"
+    },
+    {
+      "logId": "8385180437869151632",
+      "concreteTypeId": "745e252e80bec590efc3999ae943f07ccea4d5b45b00bb6575499b64abdd3322"
+    }
+  ],
+  "messagesTypes": [],
+  "configurables": [
+    {
+      "name": "PUBLIC_KEY",
+      "concreteTypeId": "745e252e80bec590efc3999ae943f07ccea4d5b45b00bb6575499b64abdd3322",
+      "offset": 17024
+    }
+  ]
+}

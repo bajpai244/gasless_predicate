@@ -1,4 +1,4 @@
-script;
+predicate;
  
 use std::address::Address;
 use std::logging::log;
@@ -288,9 +288,9 @@ fn main(
     // log(payload);
 
     let payload_hash = hash_bytes(payload);
-    log(payload_hash);
+    // log(payload_hash);
 
-    log(signature);
+    // log(signature);
     let recovered_public_key = ec_recover(signature, payload_hash).unwrap();
 
     recovered_public_key == PUBLIC_KEY

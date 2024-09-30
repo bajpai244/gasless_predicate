@@ -3,7 +3,7 @@ name = "core"
 source = "path+from-root-4BA3A18A2D620E67"
 
 [[package]]
-name = "dbg_example"
+name = "gasless_wallet"
 source = "member"
 dependencies = ["std"]
 

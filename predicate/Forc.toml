@@ -2,6 +2,6 @@
 authors = ["Harsh Bajpai"]
 entry = "main.sw"
 license = "Apache-2.0"
-name = "dbg_example"
+name = "gasless_wallet"
 
 [dependencies]

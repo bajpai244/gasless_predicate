@@ -2,10 +2,10 @@ import { createConfig } from 'fuels';
 
 export default createConfig({
   scripts: [
-        'gasless_predicate',
+    'gasless_wallet'
   ],
   predicates: [
-    'gasless_wallet'
+        'predicate',
   ],
   contracts: ['dummy_stablecoin'],
   output: './src/predicates',
