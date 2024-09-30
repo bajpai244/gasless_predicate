@@ -19,3 +19,8 @@ pub struct OutputCoin {
 pub enum TxOutput {
     pub OutputCoin : OutputCoin  
 }
+
+pub enum ValidationError {
+        OutputNotFound: (),
+        InputNotFound: ()
+}
