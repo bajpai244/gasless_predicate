@@ -17,7 +17,7 @@ use std::b512::B512;
 use std::ecr::ec_recover;
 use std::asset_id::AssetId;
 
-use utils::{input_tx_id, search_output_coin, input_type_is_coin, find_input_tx_by_utxo_id};
+use utils::{input_tx_id, search_output_coin, input_type_is_coin, find_input_tx_by_utxo_id, hash_bytes};
 use types::{InputCoin, TxInput, OutputCoin, TxOutput};
 use serde::{serialize_inputs, serialize_outputs};
 use validate::{validate_inputs, validate_outputs};
@@ -26,15 +26,6 @@ use validate::{validate_inputs, validate_outputs};
 configurable {
     PUBLIC_KEY: B512 = B512::new()
 }
-
-fn hash_bytes(bytes: Bytes) -> b256 {
-    let mut hasher = Hasher::new();
-    hasher.write(bytes);
-
-    hasher.sha256()
-}
-
-
 
 /// extract inputs, and outputs
 /// extract the script bytecode hash

@@ -2,6 +2,8 @@ library;
 
 use std::inputs::{Input, input_type, input_count, input_amount};
 use std::outputs::{Output, output_type, output_amount,output_asset_id,output_asset_to, output_count};
+use std::hash::Hasher;
+use std::bytes::Bytes;
 
 
 const GTF_INPUT_COIN_TX_ID = 0x201;
@@ -111,4 +113,11 @@ fn vec_contains<T> (vector: &Vec<T>, value: T) -> Option<u64>
     };
 
     None
+}
+
+pub fn hash_bytes(bytes: Bytes) -> b256 {
+    let mut hasher = Hasher::new();
+    hasher.write(bytes);
+
+    hasher.sha256()
 }
