@@ -1,26 +1,15 @@
 import {
-  Address,
-  arrayify,
   B256Coder,
-  B512Coder,
-  BigNumberCoder,
   bn,
-  hexlify,
-  NumberCoder,
   Provider,
-  Script,
-  ScriptTransactionRequest,
-  sha256,
   Signer,
-  uint64ToBytesBE,
-  UtxoIdCoder,
   Wallet,
 } from "fuels";
 import { config } from "dotenv";
-import { DbgExample } from "./predicates/scripts/index";
-import { writeFileSync, readFileSync } from "node:fs";
-import { calculaatePayloadHash, calculatePayloadHash } from "./lib";
-import type { OutputCoinInput, TxInputInput, TxOutputInput } from "./predicates/scripts/DbgExample";
+import { writeFileSync } from "node:fs";
+import { calculaatePayloadHash } from "./lib";
+import type { TxInputInput, TxOutputInput } from "./predicates/scripts/DbgExample";
+import { GaslessScript } from "./predicates";
 
 config();
 
@@ -50,12 +39,10 @@ const main = async () => {
   const coins = (await wallet.getCoins()).coins;
   console.log("coins are,", coins);
 
-  const script = new DbgExample(wallet);
+  const script = new GaslessScript(wallet);
   script.setConfigurableConstants({
     PUBLIC_KEY: wallet.publicKey,
   });
-
-  const b256Coder = new B256Coder();
 
   const signer = new Signer(PRIVATE_KEY);
 
@@ -112,18 +99,6 @@ const main = async () => {
 
   writeFileSync("./tx.json", JSON.stringify(request.toTransaction()));
 
-//   const payloadHash = calculatePayloadHash({
-//     request,
-//     inputIndexes: [0],
-//     outputIndexes: [1],
-//   });
-
-//   console.log("payloadHash", payloadHash);
-
-//   const signature = signer.sign(payloadHash);
-//   console.log("digital signature", signature);
-
-//   tx.setArguments([0], [1], signature);
 
   const call = await tx.call();
 
@@ -133,10 +108,7 @@ const main = async () => {
   console.log("tx_id: ", response.transactionId);
   console.log("return value: ", response.value);
   console.log("transaction logs", response.logs);
-//   console.log("payload_hash", payloadHash);
-//   console.log("public key", wallet.publicKey);
 
-//   console.log("shar [0]", sha256(new Uint8Array([0, 1])));
   console.log("gas used", response.gasUsed);
   console.log("siganture", signature);
   console.log("payload_hash", payloadHash);

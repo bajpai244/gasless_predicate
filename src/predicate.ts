@@ -1,7 +1,7 @@
 import { Address, B256Coder, bn, createAssetId, Provider, ScriptTransactionRequest, sha256, Signer, Wallet } from "fuels";
 import { config } from "dotenv"
-import { calculaatePayloadHash, calculatePayloadHash } from "./lib";
-import { GaslessWallet } from "./predicates";
+import { calculaatePayloadHash } from "./lib";
+import { GaslessPredicate } from "./predicates";
 import type { OutputCoinInput, TxInputInput } from "./predicates/scripts/DbgExample";
 import type { TxOutputInput } from "./predicates/predicates/GaslessWallet";
 
@@ -39,8 +39,10 @@ const signer = new Signer(PRIVATE_KEY);
 const recipientAddress = wallet.address;
 
 const coins  = (await wallet.getCoins()).coins;
+
 const gasInputCoin = coins.find((coin) => {
-    return coin.assetId === provider.getBaseAssetId();
+    // NOTE: we need to make sure that the found coin is above 50000 in value to cover maxFee
+    return coin.assetId === provider.getBaseAssetId() && coin.amount.gte(bn(50000));
 })
 
 if (!gasInputCoin) {
@@ -54,7 +56,7 @@ const scriptTransaction = new ScriptTransactionRequest({
     maxFee: 50000,
 });
 
-const gaslessPredicate = new GaslessWallet({
+const gaslessPredicate = new GaslessPredicate({
     provider, configurableConstants: {PUBLIC_KEY: wallet.publicKey }
 });
 

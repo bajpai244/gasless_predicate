@@ -4,11 +4,11 @@ source = "path+from-root-4BA3A18A2D620E67"
 
 [[package]]
 name = "gasless_lib"
-source = "path+from-root-BB6710DC2C5DBD8A"
+source = "path+from-root-2A065441779A3DF2"
 dependencies = ["std"]
 
 [[package]]
-name = "gasless_wallet"
+name = "gasless_script"
 source = "member"
 dependencies = [
     "gasless_lib",

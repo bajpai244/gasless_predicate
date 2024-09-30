@@ -1,9 +1,6 @@
-import { Address, B256Coder, BigNumberCoder, bn, NumberCoder, Provider, Script, ScriptTransactionRequest, sha256, Signer, uint64ToBytesBE, Wallet } from "fuels";
+import { Provider, Wallet } from "fuels";
 import {config} from "dotenv"
-import {DbgExample} from "./predicates/scripts/index"
-import {writeFileSync, readFileSync} from "node:fs"
-import { calculatePayloadHash } from "./lib";
-import { GaslessWallet } from "./predicates";
+import { GaslessPredicate  } from "./predicates";
 
 config();
 
@@ -27,7 +24,7 @@ if (!PRIVATE_KEY) {
 
 const wallet = Wallet.fromPrivateKey(PRIVATE_KEY, provider);
 
-const gaslessPredicate = new GaslessWallet({
+const gaslessPredicate = new GaslessPredicate({
     provider, configurableConstants: {PUBLIC_KEY: wallet.publicKey }
 });
 const predicateAddresss = gaslessPredicate.address;

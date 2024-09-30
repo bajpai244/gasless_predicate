@@ -1,4 +1,4 @@
-script;
+predicate;
  
 use std::address::Address;
 use std::logging::log;

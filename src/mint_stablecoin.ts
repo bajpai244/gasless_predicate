@@ -1,6 +1,6 @@
 import { Address, B256Coder, BigNumberCoder, bn, NumberCoder, Provider, Script, ScriptTransactionRequest, sha256, Signer, toB256, uint64ToBytesBE, Wallet, ZeroBytes32 } from "fuels";
 import {config} from "dotenv"
-import { DummyStablecoin, DummyStablecoinFactory, GaslessWallet } from "./predicates";
+import { DummyStablecoin, DummyStablecoinFactory, GaslessPredicate } from "./predicates";
 
 config();
 
@@ -24,7 +24,7 @@ if (!PRIVATE_KEY) {
 
 const wallet = Wallet.fromPrivateKey(PRIVATE_KEY, provider);
 
-const gaslessPredicate = new GaslessWallet({provider, configurableConstants: {PUBLIC_KEY: wallet.publicKey}});
+const gaslessPredicate = new GaslessPredicate({provider, configurableConstants: {PUBLIC_KEY: wallet.publicKey}});
 
 if(!process.env.STABLE_COIN_CONTRACT_ADDRESS) {
     console.error('STABLE_COIN_CONTRACT_ADDRESS is not defined in the environment variables.');

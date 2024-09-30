@@ -10,4 +10,4 @@
   Fuel-Core version: 0.36.0
 */
 
-export { GaslessWallet } from './GaslessWallet';
+export { GaslessPredicate } from './GaslessPredicate';
